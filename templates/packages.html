@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <!-- breadcrumb-wrappe-Section Start -->
+    <section class="breadcrumb-wrapper fix bg-cover" style="background-image: url(/static/img/breadcrumb/breadcrumb.webp);">
+        <div class="container">
+            <div class="row">
+                <div class="page-heading">
+                    <h2>Our Packages</h2>
+                    <ul class="breadcrumb-list">
+                        <li>
+                            <a href="{% url 'packages:home' %}">Home</a>
+                        </li>
+                        <li><i class="fa-solid fa-chevrons-right"></i></li>
+                        <li>Packages</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Package listing Section Start -->
+    <section class="popular-destination-section section-padding">
+        <div class="container">
+            <!-- Search and Filter Section -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="search-filter-wrapper">
+                        <form method="GET" action="{% url 'packages:package_list' %}" class="row g-3">
+                            <div class="col-md-4">
+                                <input type="text" name="q" value="{{ query|default:'' }}" class="form-control" placeholder="Search packages...">
+                            </div>
+                            <div class="col-md-3">
+                                <select name="category" class="form-control">
+                                    <option value="">All Categories</option>
+                                    {% for category in categories %}
+                                        <option value="{{ category.id }}" {% if selected_category == category.id|stringformat:"s" %}selected{% endif %}>
+                                            {{ category.name }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <select name="type" class="form-control">
+                                    <option value="">All Types</option>
+                                    {% for type_code, type_name in package_types %}
+                                        <option value="{{ type_code }}" {% if selected_type == type_code %}selected{% endif %}>
+                                            {{ type_name }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <button type="submit" class="theme-btn w-100">Search</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Packages Grid -->
+            <div class="row g-4">
+                {% for package in packages %}
+                <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp wow" data-wow-delay=".{{ forloop.counter|add:1 }}s">
+                    <div class="destination-card-items mt-0">
+                        <div class="destination-image">
+                            {% if package.cover_image %}
+                                <img src="{{ package.cover_image.url }}" alt="{{ package.name }}">
+                            {% else %}
+                                <img src="/static/img/destination/0{{ forloop.counter|default:1 }}.jpg" alt="{{ package.name }}">
+                            {% endif %}
+                            <div class="heart-icon">
+                                <i class="fa-regular fa-heart"></i>
+                            </div>
+                            {% if package.offer %}
+                                <div class="offer-badge">
+                                    <span>{{ package.offer.discount_percentage }}% OFF</span>
+                                </div>
+                            {% endif %}
+                        </div>
+                        <div class="destination-content">
+                            <ul class="meta">
+                                <li>
+                                    <i class="fa-thin fa-location-dot"></i>
+                                    {{ package.location|default:"Kerala" }}
+                                </li>
+                                <li class="rating">
+                                    <div class="star">
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p>4.7</p>
+                                </li>
+                            </ul>
+                            <h5>
+                                <a href="{% url 'packages:package_detail' package.id %}">
+                                    {{ package.name }}
+                                </a>
+                            </h5>
+                            <ul class="info">
+                                <li>
+                                    <i class="fa-regular fa-clock"></i>
+                                    {{ package.duration|default:"3 Days" }}
+                                </li>
+                                <li>
+                                    <i class="fa-thin fa-users"></i>
+                                    {% if package.max_group_size %}{{ package.max_group_size }}+{% else %}50+{% endif %}
+                                </li>
+                            </ul>
+                            <div class="price">
+                                <h6>₹{{ package.price }}<span>/Per person</span></h6>
+                                <a href="{% url 'packages:package_detail' package.id %}" class="theme-btn style-2">Book Now<i class="fa-sharp fa-regular fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <div class="col-12">
+                    <div class="text-center py-5">
+                        <h4>No packages found</h4>
+                        <p>Try adjusting your search criteria or browse all packages.</p>
+                        <a href="{% url 'packages:package_list' %}" class="theme-btn">View All Packages</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <!-- Pagination -->
+            {% if is_paginated %}
+            <div class="page-nav-wrap text-center">
+                <ul>
+                    {% if page_obj.has_previous %}
+                        <li><a class="page-numbers" href="?page={{ page_obj.previous_page_number }}{% if query %}&q={{ query }}{% endif %}{% if selected_category %}&category={{ selected_category }}{% endif %}{% if selected_type %}&type={{ selected_type }}{% endif %}">
+                            <i class="fal fa-long-arrow-left"></i>
+                        </a></li>
+                    {% endif %}
+                    
+                    {% for num in page_obj.paginator.page_range %}
+                        {% if page_obj.number == num %}
+                            <li><a class="page-numbers current" href="#">{{ num }}</a></li>
+                        {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                            <li><a class="page-numbers" href="?page={{ num }}{% if query %}&q={{ query }}{% endif %}{% if selected_category %}&category={{ selected_category }}{% endif %}{% if selected_type %}&type={{ selected_type }}{% endif %}">{{ num }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                    
+                    {% if page_obj.has_next %}
+                        <li><a class="page-numbers" href="?page={{ page_obj.next_page_number }}{% if query %}&q={{ query }}{% endif %}{% if selected_category %}&category={{ selected_category }}{% endif %}{% if selected_type %}&type={{ selected_type }}{% endif %}">
+                            <i class="fal fa-long-arrow-right"></i>
+                        </a></li>
+                    {% endif %}
+                </ul>
+            </div>
+            {% endif %}
+        </div>
+    </section>
+{% endblock content %}

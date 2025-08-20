@@ -1,0 +1,321 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <!-- breadcrumb-wrappe-Section Start -->
+    <section class="breadcrumb-wrapper fix bg-cover"
+        style="background-image: url(/static/img/breadcrumb/breadcrumb.webp);">
+        <div class="container">
+            <div class="row">
+                <div class="page-heading">
+                    <h2>About Us</h2>
+                    <ul class="breadcrumb-list">
+                        <li>
+                            <a href="index.html">Home</a>
+                        </li>
+                        <li><i class="fa-solid fa-chevrons-right"></i></li>
+                        <li>About Us</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About-Section Start -->
+    <section class="about-section section-padding fix">
+        <div class="container">
+            <div class="about-wrapper-2">
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <div class="about-image" id="sticky-images">
+                            <img src="/static/img/about/03.jpg" alt="img">
+                            <div class="shape-image float-bob-y">
+                                <img src="/static/img/about/04.png" alt="img">
+                            </div>
+                            <div class="group-image float-bob-x">
+                                <img src="/static/img/about/group.png" alt="img">
+                            </div>
+                            <div class="about-image-2">
+                                <img src="/static/img/about/05.jpg" alt="img">
+                                <div class="plane-shape">
+                                    <img src="/static/img/about/plane-shape2.png" alt="img">
+                                </div>
+                                <div class="circle-image">
+                                    <img src="/static/img/about/circle.png" alt="img">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="about-content">
+                            <div class="section-title">
+                                <span class="sub-title wow fadeInUp">
+                                    18 Years of Excellence
+                                </span>
+                                <h2 class="wow fadeInUp wow" data-wow-delay=".3s">
+                                    Nature Holidays - Your Trusted 
+                                    Travel Partner
+                                </h2>
+                            </div>
+                            
+                            <div class="about-text-content wow fadeInUp wow" data-wow-delay=".5s">
+                                <p>
+                                    Welcome to Nature Holidays, Wayanad's premier travel and tour agency with over 18 years of excellence in creating unforgettable travel experiences. Based in the heart of Kerala's most beautiful hill station, we have been the trusted choice for thousands of travelers seeking authentic, well-planned, and memorable journeys across India and beyond.
+                                </p>
+                                
+                                <h4 style="margin-top: 25px; margin-bottom: 15px; color: #2c3e50;">Our Story & Legacy</h4>
+                                <p>
+                                    Founded in 2006, Nature Holidays began with a simple mission: to make travel accessible, enjoyable, and worry-free for everyone. What started as a small local travel agency in Wayanad has grown into one of the region's most trusted travel partners, serving clients from across India and international destinations. Our journey has been marked by continuous growth, learning, and an unwavering commitment to customer satisfaction.
+                                </p>
+                                
+                                
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section Start -->
+    <section class="about-section section-padding  fix bg-cover" style="background-image: url(/static/img/about/about-bg.jpg);">
+        <div class="right-shape float-bob-x">
+            <img src="/static/img/about/right-shape.webp" alt="img">
+        </div>
+        <div class="container">
+            <div class="about-wrapper">
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <div class="about-image">
+                            <img src="/static/img/about/01.webp" alt="img" class="wow img-custom-anim-left">
+                            <div class="border-image">
+                                <img src="/static/img/about/border.png" alt="">
+                            </div>
+                            <div class="vdeo-item">
+                                <a href="https://www.youtube.com/watch?v=Cn4G2lZ_g2I" class="video-btn video-popup">
+                                    <i class="fa-duotone fa-play"></i>
+                                </a>
+                                <h5>WACTH VIDEO </h5>
+                            </div>
+                            <div class="about-image-2">
+                                <img src="/static/img/about/02.webp" alt="img" class="wow img-custom-anim-top" data-wow-duration="1.5s" data-wow-delay="0.3s">
+                                <div class="plane-shape float-bob-y">
+                                    <img src="/static/img/about/plane-shape.png" alt="">
+                                </div>
+                                <div class="about-tour">
+                                    <div class="icon">
+                                        <img src="/static/img/icon/10.svg" alt="img">
+                                    </div>
+                                    <div class="content">
+                                        <h4>Professional Service</h4>
+                                        <span>{% if site_stats %}{{ site_stats.years_experience }}{% else %}18{% endif %} years of Experience</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="about-content">
+                            <div class="section-title">
+                                <span class="sub-title wow fadeInUp">18 Years of Excellence</span>
+                                <h2 class="wow fadeInUp wow" data-wow-delay=".2s">
+                                    Trusted by Thousands of <br>
+                                    Happy Travelers
+                                </h2>
+                            </div>
+                            <div class="about-area mt-4 mt-md-0">
+                                <div class="line-image">
+                                    <img src="/static/img/about/Line-image.png" alt="img">
+                                </div>
+                                <div class="about-items wow fadeInUp wow" data-wow-delay=".3s">
+                                    <div class="icon">
+                                        <img src="/static/img/icon/05.svg" alt="img">
+                                    </div>
+                                    <div class="content">
+                                        <h5>
+                                            Thousands of Happy Travelers
+                                        </h5>
+                                        <p>
+                                            While we proudly showcase 200+ verified reviews, <br> our actual client base extends far beyond
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="about-items wow fadeInUp wow" data-wow-delay=".5s">
+                                    <div class="icon">
+                                        <img src="/static/img/icon/06.svg" alt="img">
+                                    </div>
+                                    <div class="content">
+                                        <h5>
+                                            Universally Loved Team
+                                        </h5>
+                                        <p>
+                                            Every member of our professional team is <br> universally loved by our clients
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="about-items wow fadeInUp wow" data-wow-delay=".7s">
+                                    <div class="icon">
+                                        <img src="/static/img/icon/07.svg" alt="img">
+                                    </div>
+                                    <div class="content">
+                                        <h5>
+                                            From College to Luxury
+                                        </h5>
+                                        <p>
+                                            Serving diverse needs from college group tours <br> to luxury family vacations across India
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Choose-us-section Start -->
+    <section class="choose-us-section section-padding bg-cover fix" style="background-image: url('/static/img/choose-us-bg-2.jpg');">
+        <div class="container">
+            <div class="choose-us-wrapper">
+                <div class="row g-4 align-items-center">
+                    <div class="col-xl-7 col-lg-6">
+                        <div class="choose-us-content">
+                            <div class="section-title">
+                                <span class="sub-title wow fadeInUp">
+                                    Why Choose Nature Holidays
+                                </span>
+                                <h2 class="wow fadeInUp wow" data-wow-delay=".3s">
+                                    Feel Free to Send Your Loved Ones, <br> We'll Take Care of the Rest
+                                </h2>
+                            </div>
+                            <p class="wow fadeInUp wow" data-wow-delay=".3s">
+                                We treat every traveler like family, providing personalized care, attention to detail, and <br> complete peace of mind so you can relax and enjoy your journey without any worries
+                            </p>
+                            <div class="choose-us-area">
+                                <div class="line-shape">
+                                    <img src="/static/img/line-shape2.png" alt="img">
+                                </div>
+                                <div class="choose-us-items wow fadeInUp wow" data-wow-delay=".3s">
+                                    <h3 class="number">
+                                        01
+                                    </h3>
+                                    <div class="content">
+                                        <h4>
+                                            Family-Like Care & Personal Attention
+                                        </h4>
+                                        <p>
+                                            We treat every traveler as our own family member, providing personalized care, <br> special dietary arrangements, and attention to individual needs throughout the journey.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="choose-us-items wow fadeInUp wow" data-wow-delay=".5s">
+                                    <h3 class="number">
+                                        02
+                                    </h3>
+                                    <div class="content">
+                                        <h4>
+                                            Complete Peace of Mind Guarantee
+                                        </h4>
+                                        <p>
+                                            From the moment you book until you return home, we handle everything - accommodation, <br> transportation, meals, and activities. You just relax and enjoy your vacation worry-free.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="choose-us-items wow fadeInUp wow" data-wow-delay=".7s">
+                                    <h3 class="number">
+                                        03
+                                    </h3>
+                                    <div class="content">
+                                        <h4>
+                                            Trusted by Generations of Families
+                                        </h4>
+                                        <p>
+                                            Parents trust us with their children's college tours, and children trust us with their <br> parents' golden years. Our 18-year legacy speaks of reliability and trustworthiness.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-5 col-lg-6 wow fadeInUp wow" data-wow-delay=".3s">
+                        <div class="choose-us-thumb">
+                            <img src="/static/img/about/choose-us-bg.webp" alt="img" class="wow img-custom-anim-left">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section Start -->
+    <section class="team-section fix section-padding">
+        <div class="jip-shape float-bob-x">
+            <img src="/static/img/team/jip.png" alt="img">
+        </div>
+        <div class="container">
+            <div class="section-title text-center">
+                <span class="sub-title wow fadeInUp">
+                    Meet with Guide
+                </span>
+                <h2 class="wow fadeInUp wow" data-wow-delay=".2s">Tour Guide</h2>
+            </div>
+            <div class="row">
+                {% for member in team_members %}
+                <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp wow" data-wow-delay=".{{ forloop.counter|add:1 }}s">
+                    <div class="team-card-item">
+                        <div class="team-image">
+                            {% if member.image %}
+                                <img src="{{ member.image.url }}" alt="{{ member.name }}">
+                            {% else %}
+                                <img src="/static/img/team/0{{ forloop.counter|default:1 }}.jpg" alt="{{ member.name }}">
+                            {% endif %}
+                        </div>
+                        <div class="team-content">
+                            <h4><a href="#">{{ member.name }}</a></h4>
+                            <p>{{ member.position }}</p>
+                            <div class="social-profile">
+                                <ul>
+                                    {% if member.facebook_url %}
+                                    <li><a href="{{ member.facebook_url }}"><i class="fab fa-facebook-f"></i></a></li>
+                                    {% endif %}
+                                    {% if member.twitter_url %}
+                                    <li><a href="{{ member.twitter_url }}"><i class="fab fa-twitter"></i></a></li>
+                                    {% endif %}
+                                    {% if member.linkedin_url %}
+                                    <li><a href="{{ member.linkedin_url }}"><i class="fab fa-linkedin-in"></i></a></li>
+                                    {% endif %}
+                                    {% if member.instagram_url %}
+                                    <li><a href="{{ member.instagram_url }}"><i class="fab fa-instagram"></i></a></li>
+                                    {% endif %}
+                                </ul>
+                                <span class="plus-btn"><i class="fas fa-share-alt"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp wow" data-wow-delay=".2s">
+                    <div class="team-card-item">
+                        <div class="team-image">
+                            <img src="/static/img/team/01.jpg" alt="img">
+                        </div>
+                        <div class="team-content">
+                            <h4><a href="team-details.html">Darlene Robertson</a></h4>
+                            <p>Tourist Guide</p>
+                            <div class="social-profile">
+                                <ul>
+                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                </ul>
+                                <span class="plus-btn"><i class="fas fa-share-alt"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        </section>
+{% endblock content %}
+

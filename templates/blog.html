@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- breadcrumb-wrappe-Section Start -->
+    <section class="breadcrumb-wrapper fix bg-cover"
+        style="background-image: url(/static/img/breadcrumb/breadcrumb.webp);">
+        <div class="container">
+            <div class="row">
+                <div class="page-heading">
+                    <h2>Blog</h2>
+                    <ul class="breadcrumb-list">
+                        <li>
+                            <a href="/">Home</a>
+                        </li>
+                        <li><i class="fa-solid fa-chevrons-right"></i></li>
+                        <li>Blog</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog-Section Start -->
+    <section class="news-section section-padding fix">
+        <div class="container">
+            <div class="row g-4">
+                {% if blogs %}
+                    {% for blog in blogs %}
+                    <div class="col-xl-4 col-md-6 col-lg-6 wow fadeInUp" data-wow-delay=".3s">
+                        <div class="news-card-items-3 mt-0">
+                            <div class="news-image">
+                                {% if blog.featured_image %}
+                                    <img src="{{ blog.featured_image.url }}" alt="{{ blog.title }}">
+                                {% else %}
+                                    <img src="/static/img/news/08.jpg" alt="{{ blog.title }}">
+                                {% endif %}
+                            </div>
+                            <div class="news-content">
+                                <ul class="post-meta">
+                                    <li class="post">{{ blog.published_date|date:"d" }}<span>{{ blog.published_date|date:"M" }}</span></li>
+                                    <li>
+                                        <i class="fa-regular fa-user"></i>
+                                        By {{ blog.author }}
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-tag"></i>
+                                        {{ blog.category.name }}
+                                    </li>
+                                </ul>
+                                <h4>
+                                    <a href="{% url 'packages:blog_detail' blog.slug %}">
+                                        {{ blog.title }}
+                                    </a>
+                                </h4>
+                                <a href="{% url 'packages:blog_detail' blog.slug %}" class="link-btn">Read More <i class="fa-sharp fa-regular fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="col-12">
+                        <div class="no-blogs text-center">
+                            <h3>No blog posts found</h3>
+                            <p>Check back later for new content!</p>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+
+            <!-- Pagination -->
+            {% if page_obj.has_other_pages %}
+            <div class="page-nav-wrap text-center">
+                <ul>
+                    {% if page_obj.has_previous %}
+                        <li><a class="page-numbers" href="?page={{ page_obj.previous_page_number }}{% if search_query %}&q={{ search_query }}{% endif %}{% if selected_category %}&category={{ selected_category }}{% endif %}{% if selected_tag %}&tag={{ selected_tag }}{% endif %}"><i class="fal fa-long-arrow-left"></i></a></li>
+                    {% endif %}
+
+                    {% for num in page_obj.paginator.page_range %}
+                        {% if page_obj.number == num %}
+                            <li><a class="page-numbers active" href="#">{{ num }}</a></li>
+                        {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                            <li><a class="page-numbers" href="?page={{ num }}{% if search_query %}&q={{ search_query }}{% endif %}{% if selected_category %}&category={{ selected_category }}{% endif %}{% if selected_tag %}&tag={{ selected_tag }}{% endif %}">{{ num }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if page_obj.has_next %}
+                        <li><a class="page-numbers" href="?page={{ page_obj.next_page_number }}{% if search_query %}&q={{ search_query }}{% endif %}{% if selected_category %}&category={{ selected_category }}{% endif %}{% if selected_tag %}&tag={{ selected_tag }}{% endif %}"><i class="fal fa-long-arrow-right"></i></a></li>
+                    {% endif %}
+                </ul>
+            </div>
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}

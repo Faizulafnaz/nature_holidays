@@ -1,0 +1,192 @@
+{% extends "base.html" %}
+
+{% block title %}{{ package.name }} - Nature Holidays{% endblock %}
+{% block meta_description %}{{ package.description|truncatewords:25 }}{% endblock %}
+
+{% block content %}
+<!-- Page Header Start -->
+<section class="page-header-section section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="page-header-content text-center">
+                    <h2>{{ package.name }}</h2>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{% url 'packages:home' %}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{% url 'packages:package_list' %}">Packages</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">{{ package.name }}</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Package Detail Section Start -->
+<section class="package-detail-section section-padding">
+    <div class="container">
+        <div class="row">
+            <!-- Package Images -->
+            <div class="col-lg-8">
+                <div class="package-images">
+                    {% if package.cover_image %}
+                    <div class="main-image mb-3">
+                        <img src="{{ package.cover_image.url }}" alt="{{ package.name }}" class="img-fluid">
+                    </div>
+                    {% endif %}
+                    
+                    {% if package.packageimage_set.all %}
+                    <div class="image-gallery">
+                        <div class="row">
+                            {% for image in package.packageimage_set.all %}
+                            <div class="col-md-4 mb-3">
+                                <img src="{{ image.image.url }}" alt="{{ package.name }}" class="img-fluid">
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Package Info -->
+            <div class="col-lg-4">
+                <div class="package-info-card">
+                    <div class="package-header">
+                        <h3>{{ package.name }}</h3>
+                        <div class="package-meta">
+                            <span class="location"><i class="fa-thin fa-location-dot"></i> {{ package.location|default:"Kerala" }}</span>
+                            <span class="category"><i class="fa-thin fa-tag"></i> {{ package.category.name }}</span>
+                        </div>
+                    </div>
+
+                    <div class="package-details">
+                        <div class="detail-item">
+                            <i class="fa-regular fa-clock"></i>
+                            <div>
+                                <strong>Duration:</strong>
+                                <span>{{ package.duration|default:"3 days, 2 nights" }}</span>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-item">
+                            <i class="fa-thin fa-users"></i>
+                            <div>
+                                <strong>Group Size:</strong>
+                                <span>{% if package.max_group_size %}{{ package.max_group_size }} people{% else %}Flexible{% endif %}</span>
+                            </div>
+                        </div>
+
+                        {% if package.min_age %}
+                        <div class="detail-item">
+                            <i class="fa-thin fa-user"></i>
+                            <div>
+                                <strong>Minimum Age:</strong>
+                                <span>{{ package.min_age }} years</span>
+                            </div>
+                        </div>
+                        {% endif %}
+
+                        <div class="detail-item">
+                            <i class="fa-thin fa-tag"></i>
+                            <div>
+                                <strong>Package Type:</strong>
+                                <span>{{ package.get_package_type_display }}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="package-price">
+                        <div class="price-tag">
+                            <span class="currency">₹</span>
+                            <span class="amount">{{ package.price }}</span>
+                            <span class="per">/per person</span>
+                        </div>
+                        {% if package.offer %}
+                        <div class="offer-badge">
+                            <span>{{ package.offer.discount_percentage }}% OFF</span>
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="package-actions">
+                        <a href="#" class="theme-btn w-100 mb-3">Book Now</a>
+                        <a href="#" class="theme-btn style-2 w-100">Download Brochure</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Package Description -->
+        <div class="row mt-5">
+            <div class="col-lg-8">
+                <div class="package-description">
+                    <h4>Package Overview</h4>
+                    <p>{{ package.description }}</p>
+
+                    {% if package.destinations %}
+                    <h5>Destinations Covered</h5>
+                    <p>{{ package.destinations }}</p>
+                    {% endif %}
+
+                    <h5>Highlights</h5>
+                    <ul class="highlights-list">
+                        <li>Professional tour guide</li>
+                        <li>Comfortable accommodation</li>
+                        <li>All meals included</li>
+                        <li>Transportation provided</li>
+                        <li>24/7 support</li>
+                    </ul>
+
+                    <h5>Itinerary</h5>
+                    <div class="itinerary">
+                        <p>Detailed itinerary will be provided upon booking. This package includes all major attractions and activities in the region.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="package-sidebar">
+                    <!-- Related Packages -->
+                    {% if related_packages %}
+                    <div class="related-packages">
+                        <h5>Related Packages</h5>
+                        {% for related in related_packages %}
+                        <div class="related-package-item">
+                            <div class="package-image">
+                                {% if related.cover_image %}
+                                    <img src="{{ related.cover_image.url }}" alt="{{ related.name }}">
+                                {% else %}
+                                    <img src="static/img/destination/0{{ forloop.counter|default:1 }}.jpg" alt="{{ related.name }}">
+                                {% endif %}
+                            </div>
+                            <div class="package-info">
+                                <h6><a href="{% url 'packages:package_detail' related.id %}">{{ related.name }}</a></h6>
+                                <p class="price">₹{{ related.price }}</p>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+
+                    <!-- Contact Info -->
+                    <div class="contact-info">
+                        <h5>Need Help?</h5>
+                        <p>Contact our travel experts for any questions about this package.</p>
+                        <div class="contact-item">
+                            <i class="fa-thin fa-phone"></i>
+                            <span>+91 98765 43210</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fa-thin fa-envelope"></i>
+                            <span>info@natureholidays.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %} 

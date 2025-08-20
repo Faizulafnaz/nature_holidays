@@ -1,0 +1,1227 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <!--<< Header Area >>-->
+    <head>
+        <!-- ========== Meta Tags ========== -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="pixel-drop">
+        <meta name="description" content="{% block meta_description %}Nature Holidays - Your trusted travel partner for unforgettable adventures{% endblock %}">
+        <!-- ======== Page title ============ -->
+        <title>{% block title %}Nature Holidays - Travel & Tour Agency{% endblock %}</title>
+        <!--<< Favcion >>-->
+        <link rel="shortcut icon" href="/static/img/favicon.png">
+        <!--<< Bootstrap min.css >>-->
+        <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+        <!--<< All Min Css >>-->
+        <link rel="stylesheet" href="/static/css/all.min.css">
+        <!--<< Animate.css >>-->
+        <link rel="stylesheet" href="/static/css/animate.css">
+        <!--<< Magnific Popup.css >>-->
+        <link rel="stylesheet" href="/static/css/magnific-popup.css">
+        <!--<< MeanMenu.css >>-->
+        <link rel="stylesheet" href="/static/css/meanmenu.css">
+        <!--<< Swiper Bundle.css >>-->
+        <link rel="stylesheet" href="/static/css/swiper-bundle.min.css">
+        <!--<< Datepickerboot.css >>-->
+        <link rel="stylesheet" href="/static/css/datepickerboot.css">
+        <!--<< Nice Select.css >>-->
+        <link rel="stylesheet" href="/static/css/nice-select.css">
+        <!--<< Color.css >>-->
+        <link rel="stylesheet" href="/static/css/color.css">
+        <!--<< Main.css >>-->
+        <link rel="stylesheet" href="/static/css/main.css">
+        <!--<< Offers.css >>-->
+        <link rel="stylesheet" href="/static/css/offers.css">
+        {% block extra_css %}{% endblock extra_css %}
+    </head>
+    <body>
+
+        <!-- Preloader Start -->
+       <div id="preloader" class="preloader">
+            <div class="animation-preloader">
+                <div class="spinner">                
+                </div>
+                <div class="txt-loading">
+                    <span data-text-preloader="N" class="letters-loading">
+                        N
+                    </span>
+                    <span data-text-preloader="A" class="letters-loading">
+                        A
+                    </span>
+                    <span data-text-preloader="T" class="letters-loading">
+                        T
+                    </span>
+                    <span data-text-preloader="U" class="letters-loading">
+                        U
+                    </span>
+                    <span data-text-preloader="R" class="letters-loading">
+                        R
+                    </span>
+                    <span data-text-preloader="E" class="letters-loading">
+                        E
+                    </span>
+                </div>
+                <p class="text-center">Holidays</p>
+            </div>
+            <div class="loader">
+                <div class="row">
+                    <div class="col-3 loader-section section-left">
+                        <div class="bg"></div>
+                    </div>
+                    <div class="col-3 loader-section section-left">
+                        <div class="bg"></div>
+                    </div>
+                    <div class="col-3 loader-section section-right">
+                        <div class="bg"></div>
+                    </div>
+                    <div class="col-3 loader-section section-right">
+                        <div class="bg"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back To Top Start -->
+        <button id="back-top" class="back-to-top">
+            <i class="fa-regular fa-arrow-up"></i>
+        </button>
+
+        <!--<< Mouse Cursor Start >>-->  
+        <div class="mouse-cursor cursor-outer"></div>
+        <div class="mouse-cursor cursor-inner"></div>
+
+        <!-- Offcanvas Area Start -->
+        <div class="fix-area">
+            <div class="offcanvas__info">
+                <div class="offcanvas__wrapper">
+                    <div class="offcanvas__content">
+                        <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
+                            <div class="offcanvas__logo">
+                                <a href="/">
+                                    <img src="/static/img/logo/logo.png" alt="logo-img">
+                                </a>
+                            </div>
+                            <div class="offcanvas__close">
+                                <button>
+                                <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <p class="text d-none d-xl-block">
+                            Nullam dignissim, ante scelerisque the  is euismod fermentum odio sem semper the is erat, a feugiat leo urna eget eros. Duis Aenean a imperdiet risus.
+                        </p>
+                        <div class="mobile-menu fix mb-3"></div>
+                        <div class="offcanvas__contact">
+                            <h4>Contact Info</h4>
+                            <ul>
+                                <li class="d-flex align-items-center">
+                                    <div class="offcanvas__contact-icon">
+                                        <i class="fal fa-map-marker-alt"></i>
+                                    </div>
+                                    <div class="offcanvas__contact-text">
+                                        <a target="_blank" href="#">Main Street, Melbourne, Australia</a>
+                                    </div>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <div class="offcanvas__contact-icon mr-15">
+                                        <i class="fal fa-envelope"></i>
+                                    </div>
+                                    <div class="offcanvas__contact-text">
+                                        <a href="mailto:info@example.com"><span class="mailto:info@example.com">info@example.com</span></a>
+                                    </div>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <div class="offcanvas__contact-icon mr-15">
+                                        <i class="fal fa-clock"></i>
+                                    </div>
+                                    <div class="offcanvas__contact-text">
+                                        <a target="_blank" href="#">Mod-friday, 09am -05pm</a>
+                                    </div>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <div class="offcanvas__contact-icon mr-15">
+                                        <i class="far fa-phone"></i>
+                                    </div>
+                                    <div class="offcanvas__contact-text">
+                                        <a href="tel:+11002345909">+11002345909</a>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="header-button mt-4">
+                                <a href="contact.html" class="theme-btn"> Request A Quote <i class="fa-sharp fa-regular fa-arrow-right"></i></a>
+                            </div>
+                            <div class="social-icon d-flex align-items-center">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="offcanvas__overlay"></div>
+        <!-- Header top section start -->
+        
+
+        <!-- Header Section Start -->
+        <header class="header-section-10">
+            <div class="header-top-section-new">
+                <div class="container-fluid">
+                    <div class="header-top-wrapper-new">
+                        <div class="social-icon d-flex align-items-center">
+                            <span>Follow Us</span>
+                            <a target="_blank" href="https://www.instagram.com/natureholidayskerala/#"><i class="fab fa-facebook-f"></i></a>
+                            <a target="_blank" href="https://www.facebook.com/people/Nature-Holidays/100079924553370/"><i class="fab fa-instagram"></i></a>
+                        </div>
+                        <ul class="top-right">
+                            <li>
+                                <i class="fa-regular fa-envelope"></i>
+                                <a target="_blank" href="mailto:info@natureholidaysonline.com">info@natureholidaysonline.com</a>
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-phone"></i>
+                                <a href="tel:+919961240408">+91 9961240408</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="header-sticky" class="header-11">
+                <div class="container-fluid">
+                    <div class="mega-menu-wrapper">
+                        <div class="header-main">
+                            <div class="logo">
+                                <a href="/" class="header-logo">
+                                    <img src="/static/img/logo/logo.png" alt="logo-img">
+                                </a>
+                                <div class="logo-2">
+                                    <a href="/">
+                                        <img src="/static/img/logo/logo.png" alt="" style="max-width: 214px;">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="header-right d-flex justify-content-end align-items-center">
+                                <div class="mean__menu-wrapper">
+                                    <div class="main-menu">
+                                        <nav id="mobile-menu">
+                                            <ul>
+                                                <li>
+                                                    <a href="/">
+                                                        Home 
+                                                    </a>
+                                                        </li>
+                                                <li>
+                                                    <a href="/about">About Us</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/packages">
+                                                        Packages
+                                                    </a>
+                                                </li>
+                                               <li>
+                                                    <a href="/blog">
+                                                        Blog
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/contact">Contact Us</a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                                <a href="#0" class="search-trigger search-icon"><i class="fa-regular fa-magnifying-glass"></i></a>
+                                <div class="header__hamburger d-xl-none my-auto">
+                                    <div class="sidebar__toggle">
+                                        <i class="fas fa-bars"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Search Area Start -->
+        <div class="search-wrap">
+            <div class="search-inner">
+                <i class="fas fa-times search-close" id="search-close"></i>
+                <div class="search-cell">
+                    <form method="get">
+                        <div class="search-field-holder">
+                            <input type="search" class="main-search-input" placeholder="Search...">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hero section start -->
+        <section class="hero-section">
+            <div class="swiper hero-slider">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="hero-1">
+                            <div class="hero-bg bg-cover" style="background-image: url(static/img/hero/01.webp);" loading="lazy"></div>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-10">
+                                        <div class="hero-content">
+                                            <div class="sub-title">
+                                                18 Years of Excellence • 4.9★ from 200+ Reviews
+                                            </div>
+                                            <h1>
+                                                Every Team Member is a <br> Great Professional
+                                            </h1>
+                                        </div>
+                                        <div class="counter-area">
+                                            <div class="counter-items">
+                                                <div class="counter-text">
+                                                    <h2><span class="count">18</span>+</h2>
+                                                    <p>Years Experience</p>
+                                                </div>
+                                                <div class="counter-text">
+                                                    <h2><span class="count">4.9</span>★</h2>
+                                                    <p>Customer Rating</p>
+                                                </div>
+                                                <div class="counter-text">
+                                                    <h2><span class="count">200</span>+</h2>
+                                                    <p>Happy Reviews</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="hero-1">
+                            <div class="hero-bg bg-cover" style="background-image: url(static/img/hero/02.webp);" loading="lazy"></div>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-10">
+                                        <div class="hero-content">
+                                            <div class="sub-title">
+                                                Thousands of Happy Travelers • Loved by Every Customer
+                                            </div>
+                                            <h1>
+                                                Discover India with <br> Expert Travel Guides
+                                            </h1>
+                                        </div>
+                                        <div class="counter-area">
+                                            <div class="counter-items">
+                                                <div class="counter-text">
+                                                    <h2><span class="count">50</span>+</h2>
+                                                    <p>Destinations</p>
+                                                </div>
+                                                <div class="counter-text">
+                                                    <h2><span class="count">1000</span>+</h2>
+                                                    <p>Tours Completed</p>
+                                                </div>
+                                                <div class="counter-text">
+                                                    <h2><span class="count">5000</span>+</h2>
+                                                    <p>Happy Travelers</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="hero-1">
+                            <div class="hero-bg bg-cover" style="background-image: url(static/img/hero/03.webp);" loading="lazy"></div>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-10">
+                                        <div class="hero-content">
+                                            <div class="sub-title">
+                                                From College Tours to Luxury Vacations • Professional Service
+                                            </div>
+                                            <h1>
+                                                Your Journey, Our <br> Professional Promise
+                                            </h1>
+                                        </div>
+                                        <div class="counter-area">
+                                            <div class="counter-items">
+                                                <div class="counter-text">
+                                                    <h2><span class="count">24</span>/7</h2>
+                                                    <p>Support Available</p>
+                                                </div>
+                                                <div class="counter-text">
+                                                    <h2><span class="count">100</span>%</h2>
+                                                    <p>Satisfaction Rate</p>
+                                                </div>
+                                                <div class="counter-text">
+                                                    <h2><span class="count">15</span>+</h2>
+                                                    <p>Expert Guides</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature Section Start -->
+        <section class="feature-section section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp wow" data-wow-delay=".2s">
+                        <div class="feature-card-items">
+                            <div class="icon">
+                                <img src="static/img/icon/01.svg" alt="img">
+                            </div>
+                            <div class="content">
+                                <h3>
+                                    A Lot of Discount
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp wow" data-wow-delay=".4s">
+                        <div class="feature-card-items">
+                            <div class="icon bg-color">
+                                <img src="static/img/icon/02.svg" alt="img">
+                            </div>
+                            <div class="content">
+                                <h3>
+                                    Best Guide
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp wow" data-wow-delay=".6s">
+                        <div class="feature-card-items">
+                            <div class="icon">
+                                <img src="static/img/icon/03.svg" alt="img">
+                            </div>
+                            <div class="content">
+                                <h3>
+                                    24/7 Support
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp wow" data-wow-delay=".8s">
+                        <div class="feature-card-items">
+                            <div class="icon">
+                                <img src="static/img/icon/04.svg" alt="img">
+                            </div>
+                            <div class="content">
+                                <h3>
+                                    Travel Management
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Destination-category Section Start -->
+        <section class="destination-category-section section-padding pt-0">
+            <div class="plane-shape float-bob-y">
+                <img src="static/img/destination/shape.png" alt="img">
+            </div>
+            <div class="container">
+                <div class="section-title text-center">
+                    <span class="sub-title wow fadeInUp">Wonderful Place For You</span>
+                    <h2 class="wow fadeInUp wow" data-wow-delay=".2s">
+                        Browse By Destination Category
+                    </h2>
+                </div>
+            </div>
+            <div class="container-fluid">
+                
+                <div class="swiper category-slider">
+                    <div class="swiper-wrapper">
+                        {% for category in categories %}
+                        <div class="swiper-slide">
+                            <div class="destination-category-item">
+                                <div class="category-image">
+                                    {% if category.cover_image %}
+                                        <img src="{{ category.cover_image.url }}" alt="{{ category.name }}">
+                                    {% else %}
+                                        <img src="static/img/destination/category1.jpg" alt="{{ category.name }}">
+                                    {% endif %}
+                                    <div class="category-content">
+                                        <h5>
+                                            <a href="{% url 'packages:package_list' %}?category={{ category.id }}">{{ category.name }}</a>
+                                        </h5>
+                                        <p>{{ category.package_count }} Tour{{ category.package_count|pluralize }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% empty %}
+                        <div class="swiper-slide">
+                            <div class="destination-category-item">
+                                <div class="category-image">
+                                    <img src="static/img/destination/category1.jpg" alt="Adventure">
+                                    <div class="category-content">
+                                        <h5>
+                                            <a href="destination-details.html">Adventure</a>
+                                        </h5>
+                                        <p>6 Tour</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="swiper-dot4 mt-5">
+                    <div class="dot"></div>
+                </div>
+            </div>
+        </section> 
+        
+        <!-- About Section Start -->
+        <section class="about-section section-padding  fix bg-cover" style="background-image: url(static/img/about/about-bg.jpg);">
+            <div class="right-shape float-bob-x">
+                <img src="static/img/about/right-shape.webp" alt="img">
+            </div>
+            <div class="container">
+                <div class="about-wrapper">
+                    <div class="row g-4">
+                        <div class="col-lg-6">
+                            <div class="about-image">
+                                <img src="static/img/about/01.webp" alt="img" class="wow img-custom-anim-left">
+                                <div class="border-image">
+                                    <img src="static/img/about/border.png" alt="">
+                                </div>
+                                <div class="vdeo-item">
+                                    <a href="https://www.youtube.com/watch?v=Cn4G2lZ_g2I" class="video-btn video-popup">
+                                        <i class="fa-duotone fa-play"></i>
+                                    </a>
+                                    <h5>WACTH VIDEO </h5>
+                                </div>
+                                <div class="about-image-2">
+                                    <img src="static/img/about/02.webp" alt="img" class="wow img-custom-anim-top" data-wow-duration="1.5s" data-wow-delay="0.3s">
+                                    <div class="plane-shape float-bob-y">
+                                        <img src="static/img/about/plane-shape.png" alt="">
+                                    </div>
+                                    <div class="about-tour">
+                                        <div class="icon">
+                                            <img src="static/img/icon/10.svg" alt="img">
+                                        </div>
+                                        <div class="content">
+                                            <h4>Professional Service</h4>
+                                            <span>{% if site_stats %}{{ site_stats.years_experience }}{% else %}18{% endif %} years of Experience</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="about-content">
+                                <div class="section-title">
+                                    <span class="sub-title wow fadeInUp">18 Years of Excellence</span>
+                                    <h2 class="wow fadeInUp wow" data-wow-delay=".2s">
+                                        Trusted by Thousands of <br>
+                                        Happy Travelers
+                                    </h2>
+                                </div>
+                                <div class="about-area mt-4 mt-md-0">
+                                    <div class="line-image">
+                                        <img src="static/img/about/Line-image.png" alt="img">
+                                    </div>
+                                    <div class="about-items wow fadeInUp wow" data-wow-delay=".3s">
+                                        <div class="icon">
+                                            <img src="static/img/icon/05.svg" alt="img">
+                                        </div>
+                                        <div class="content">
+                                            <h5>
+                                                Thousands of Happy Travelers
+                                            </h5>
+                                            <p>
+                                                While we proudly showcase 200+ verified reviews, <br> our actual client base extends far beyond
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="about-items wow fadeInUp wow" data-wow-delay=".5s">
+                                        <div class="icon">
+                                            <img src="static/img/icon/06.svg" alt="img">
+                                        </div>
+                                        <div class="content">
+                                            <h5>
+                                                Universally Loved Team
+                                            </h5>
+                                            <p>
+                                                Every member of our professional team is <br> universally loved by our clients
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="about-items wow fadeInUp wow" data-wow-delay=".7s">
+                                        <div class="icon">
+                                            <img src="static/img/icon/07.svg" alt="img">
+                                        </div>
+                                        <div class="content">
+                                            <h5>
+                                                From College to Luxury
+                                            </h5>
+                                            <p>
+                                                Serving diverse needs from college group tours <br> to luxury family vacations across India
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Choose-us-section Start -->
+        <section class="choose-us-section section-padding bg-cover fix" style="background-image: url('static/img/choose-us-bg-2.jpg');">
+            <div class="container">
+                <div class="choose-us-wrapper">
+                    <div class="row g-4 align-items-center">
+                        <div class="col-xl-7 col-lg-6">
+                            <div class="choose-us-content">
+                                <div class="section-title">
+                                    <span class="sub-title wow fadeInUp">
+                                        Why Choose Nature Holidays
+                                    </span>
+                                    <h2 class="wow fadeInUp wow" data-wow-delay=".3s">
+                                        Feel Free to Send Your Loved Ones, <br> We'll Take Care of the Rest
+                                    </h2>
+                                </div>
+                                <p class="wow fadeInUp wow" data-wow-delay=".3s">
+                                    We treat every traveler like family, providing personalized care, attention to detail, and <br> complete peace of mind so you can relax and enjoy your journey without any worries
+                                </p>
+                                <div class="choose-us-area">
+                                    <div class="line-shape">
+                                        <img src="static/img/line-shape2.png" alt="img">
+                                    </div>
+                                    <div class="choose-us-items wow fadeInUp wow" data-wow-delay=".3s">
+                                        <h3 class="number">
+                                            01
+                                        </h3>
+                                        <div class="content">
+                                            <h4>
+                                                Family-Like Care & Personal Attention
+                                            </h4>
+                                            <p>
+                                                We treat every traveler as our own family member, providing personalized care, <br> special dietary arrangements, and attention to individual needs throughout the journey.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="choose-us-items wow fadeInUp wow" data-wow-delay=".5s">
+                                        <h3 class="number">
+                                            02
+                                        </h3>
+                                        <div class="content">
+                                            <h4>
+                                                Complete Peace of Mind Guarantee
+                                            </h4>
+                                            <p>
+                                                From the moment you book until you return home, we handle everything - accommodation, <br> transportation, meals, and activities. You just relax and enjoy your vacation worry-free.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="choose-us-items wow fadeInUp wow" data-wow-delay=".7s">
+                                        <h3 class="number">
+                                            03
+                                        </h3>
+                                        <div class="content">
+                                            <h4>
+                                                Trusted by Generations of Families
+                                            </h4>
+                                            <p>
+                                                Parents trust us with their children's college tours, and children trust us with their <br> parents' golden years. Our 18-year legacy speaks of reliability and trustworthiness.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-5 col-lg-6 wow fadeInUp wow" data-wow-delay=".3s">
+                            <div class="choose-us-thumb">
+                                <img src="static/img/about/choose-us-bg.webp" alt="img" class="wow img-custom-anim-left">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular-destination Section Start -->
+        <section class="popular-destination-section section-padding pt-5">
+            <div class="car-shape float-bob-x">
+                <img src="static/img/destination/car.png" alt="img">
+            </div>
+            <div class="container">
+                <div class="section-title-area justify-content-between">
+                    <div class="section-title">
+                        <span class="sub-title wow fadeInUp">
+                            Best Recommended Places
+                        </span>
+                        <h2 class="wow fadeInUp wow" data-wow-delay=".3s">
+                            Popular Destination we offer for all
+                        </h2>
+                    </div>
+                    <a href="{% url 'packages:package_list' %}" class="theme-btn wow fadeInUp wow" data-wow-delay=".5s">View All Tour<i class="fa-sharp fa-regular fa-arrow-right"></i></a>
+                </div> 
+                <div class="row">
+                    {% for package in popular_packages %}
+                    <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp wow" data-wow-delay=".{{ forloop.counter|add:1 }}s">
+                        <div class="destination-card-items">
+                            <div class="destination-image">
+                                {% if package.cover_image %}
+                                    <img src="{{ package.cover_image.url }}" alt="{{ package.name }}">
+                                {% else %}
+                                    <img src="static/img/destination/0{{ forloop.counter|default:1 }}.jpg" alt="{{ package.name }}">
+                                {% endif %}
+                                <div class="heart-icon">
+                                    <i class="fa-regular fa-heart"></i>
+                                </div>
+                            </div>
+                            <div class="destination-content">
+                                <ul class="meta">
+                                    <li>
+                                        <i class="fa-thin fa-location-dot"></i>
+                                        {{ package.location|default:"Kerala" }}
+                                    </li>
+                                    <li class="rating">
+                                        <div class="star">
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <p>4.7</p>
+                                    </li>
+                                </ul>
+                                <h5>
+                                    <a href="{% url 'packages:package_detail' package.id %}">
+                                        {{ package.name }}
+                                    </a>
+                                </h5>
+                                <ul class="info">
+                                    <li>
+                                        <i class="fa-regular fa-clock"></i>
+                                         {{ package.duration|default:"3 Days" }}
+                                    </li>
+                                    <li>
+                                        <i class="fa-thin fa-users"></i>
+                                         {% if package.max_group_size %}{{ package.max_group_size }}+{% else %}50+{% endif %}
+                                    </li>
+                                </ul>
+                                <div class="price">
+                                    <h6>₹{{ package.price }}<span>/Per person</span></h6>
+                                    <a href="{% url 'packages:package_detail' package.id %}" class="theme-btn style-2">Book Now<i class="fa-sharp fa-regular fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp wow" data-wow-delay=".2s">
+                        <div class="destination-card-items">
+                            <div class="destination-image">
+                                <img src="static/img/destination/01.jpg" alt="img">
+                                <div class="heart-icon">
+                                    <i class="fa-regular fa-heart"></i>
+                                </div>
+                            </div>
+                            <div class="destination-content">
+                                <ul class="meta">
+                                    <li>
+                                        <i class="fa-thin fa-location-dot"></i>
+                                        Indonesia
+                                    </li>
+                                    <li class="rating">
+                                        <div class="star">
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <p>4.7</p>
+                                    </li>
+                                </ul>
+                                <h5>
+                                    <a href="tour-details.html">
+                                        Brooklyn Beach Resort Tour
+                                    </a>
+                                </h5>
+                                <ul class="info">
+                                    <li>
+                                        <i class="fa-regular fa-clock"></i>
+                                         10 Days
+                                    </li>
+                                    <li>
+                                        <i class="fa-thin fa-users"></i>
+                                         50+
+                                    </li>
+                                </ul>
+                                <div class="price">
+                                    <h6>$59.00<span>/Per day</span></h6>
+                                    <a href="tour-details.html" class="theme-btn style-2">Book Now<i class="fa-sharp fa-regular fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </section>
+
+        {% if active_offers %}
+        <!-- Deals-offer Section Start -->
+        <section class="deals-offer-section section-padding fix bg-cover" style="background-image: url(static/img/offer/bg.jpg);">
+            <div class="deals-offer-wrapper">
+                <div class="row g-4">
+                    <div class="col-lg-4">
+                        <div class="price-items">
+                            {% if active_offers %}
+                                {% for offer in active_offers|slice:":1" %}
+                                <div class="offer-highlight wow fadeInUp" data-wow-delay=".2s">
+                                    <div class="offer-badge">
+                                        <span class="discount">{{ offer.discount_percentage }}% OFF</span>
+                                        {% if offer.is_seasonal %}
+                                        <span class="seasonal">{{ offer.season_name|default:"Seasonal" }}</span>
+                                        {% endif %}
+                                    </div>
+                                    <h3 class="offer-title">{{ offer.title }}</h3>
+                                    <p class="offer-description">{{ offer.description|truncatewords:15 }}</p>
+                                    {% if offer.valid_to %}
+                                    <div class="offer-validity">
+                                        <p><i class="fa-regular fa-calendar"></i> Valid until: {{ offer.valid_to|date:"M d, Y" }}</p>
+                                    </div>
+                                    {% endif %}
+                                    <a href="{% url 'packages:package_list' %}?offer={{ offer.id }}" class="theme-btn">View Packages</a>
+                                </div>
+                                {% endfor %}
+                            {% else %}
+                                <div class="coming-soon-timer">
+                                    <div class="timer-content wow fadeInUp" data-wow-delay=".2s">
+                                        <h2 id="day">00</h2>
+                                        <p>Days</p>
+                                    </div>
+                                    <div class="timer-content wow fadeInUp" data-wow-delay=".4s">
+                                        <h2 id="hour">00</h2>
+                                        <p>Hours</p>
+                                    </div>
+                                    <div class="timer-content wow fadeInUp" data-wow-delay=".6s">
+                                        <h2 id="min">00</h2>
+                                        <p>Minutes</p>
+                                    </div>
+                                    <div class="timer-content wow fadeInUp" data-wow-delay=".8s">
+                                        <h2 id="sec">00</h2>
+                                        <p>Secound</p>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="section-title-area">
+                            <div class="section-title">
+                                <span class="sub-title text-white wow fadeInUp">
+                                    {% if highest_discount > 0 %}Up to {{ highest_discount }}% OFF{% else %}Deals & Offers{% endif %}
+                                </span>
+                                <h2 class="text-white wow fadeInUp wow" data-wow-delay=".3s">
+                                    Incredible Last-Minute Offers
+                                </h2>
+                            </div>
+                            <div class="array-button justify-content-center wow fadeInUp wow" data-wow-delay=".5s">
+                                <button class="array-prev"><i class="fa-sharp fa-regular fa-arrow-left"></i></button>
+                                <button class="array-next"><i class="fa-sharp fa-regular fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+                        <div class="offer-slide-items">
+                            <div class="swiper offer-slider">
+                                <div class="swiper-wrapper">
+                                    {% for offer in active_offers %}
+                                    <div class="swiper-slide">
+                                        <div class="offer-items">
+                                            <div class="offer-image">
+                                                {% if offer.image %}
+                                                    <img src="{{ offer.image.url }}" alt="{{ offer.title }}">
+                                                {% else %}
+                                                    <img src="static/img/offer/0{{ forloop.counter|default:1 }}.jpg" alt="{{ offer.title }}">
+                                                {% endif %}
+                                                <div class="offer-content">
+                                                    <ul class="offer-btn">
+                                                        <li>{{ offer.discount_percentage }}% Off</li>
+                                                        {% if offer.is_seasonal %}
+                                                        <li class="bg-color">{{ offer.season_name|default:"Seasonal" }}</li>
+                                                        {% endif %}
+                                                    </ul>
+                                                    <div class="content">
+                                                        <h3>
+                                                            <a href="{% url 'packages:package_list' %}?offer={{ offer.id }}">
+                                                                {{ offer.title }}
+                                                            </a>
+                                                        </h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {% endif %}
+        
+        <!-- Team Section Start -->
+        <section class="team-section fix section-padding">
+            <div class="jip-shape float-bob-x">
+                <img src="static/img/team/jip.png" alt="img">
+            </div>
+            <div class="container">
+                <div class="section-title text-center">
+                    <span class="sub-title wow fadeInUp">
+                        Meet with Guide
+                    </span>
+                    <h2 class="wow fadeInUp wow" data-wow-delay=".2s">Tour Guide</h2>
+                </div>
+                <div class="row">
+                    {% for member in team_members %}
+                    <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp wow" data-wow-delay=".{{ forloop.counter|add:1 }}s">
+                        <div class="team-card-item">
+                            <div class="team-image">
+                                {% if member.image %}
+                                    <img src="{{ member.image.url }}" alt="{{ member.name }}">
+                                {% else %}
+                                    <img src="static/img/team/0{{ forloop.counter|default:1 }}.jpg" alt="{{ member.name }}">
+                                {% endif %}
+                            </div>
+                            <div class="team-content">
+                                <h4><a href="#">{{ member.name }}</a></h4>
+                                <p>{{ member.position }}</p>
+                                <div class="social-profile">
+                                    <ul>
+                                        {% if member.facebook_url %}
+                                        <li><a href="{{ member.facebook_url }}"><i class="fab fa-facebook-f"></i></a></li>
+                                        {% endif %}
+                                        {% if member.twitter_url %}
+                                        <li><a href="{{ member.twitter_url }}"><i class="fab fa-twitter"></i></a></li>
+                                        {% endif %}
+                                        {% if member.linkedin_url %}
+                                        <li><a href="{{ member.linkedin_url }}"><i class="fab fa-linkedin-in"></i></a></li>
+                                        {% endif %}
+                                        {% if member.instagram_url %}
+                                        <li><a href="{{ member.instagram_url }}"><i class="fab fa-instagram"></i></a></li>
+                                        {% endif %}
+                                    </ul>
+                                    <span class="plus-btn"><i class="fas fa-share-alt"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp wow" data-wow-delay=".2s">
+                        <div class="team-card-item">
+                            <div class="team-image">
+                                <img src="static/img/team/01.jpg" alt="img">
+                            </div>
+                            <div class="team-content">
+                                <h4><a href="team-details.html">Darlene Robertson</a></h4>
+                                <p>Tourist Guide</p>
+                                <div class="social-profile">
+                                    <ul>
+                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                    </ul>
+                                    <span class="plus-btn"><i class="fas fa-share-alt"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+         </section>
+
+        <!-- Cta-bg-Section Start -->
+        <section class="cta-bg-section fix bg-cover" style="background-image: url(static/img/11112.webp);">
+            <div class="container">
+                <div class="row">
+                   <div class="cta-wrapper">
+                    <div class="section-title text-center">
+                        <span class="sub-title text-white wow fadeInUp">
+                            {% if site_stats %}{{ site_stats.years_experience }}{% else %}18{% endif %} Years of Excellence
+                        </span>
+                        <h2 class="text-white wow fadeInUp wow" data-wow-delay=".3s">
+                            We Provide the Best Tour <br>
+                             Facilities
+                        </h2>
+                    </div>
+                    <div class="cta-btn wow fadeInUp wow" data-wow-delay=".5s">
+                        <a href="{% url 'packages:package_list' %}" class="theme-btn">Find Out More<i class="fa-sharp fa-regular fa-arrow-right"></i></a>
+                        <div class="watch-btn">
+                            <a href="https://www.youtube.com/watch?v=Cn4G2lZ_g2I" data-delay=".7s" class="video-btn video-popup">
+                                <i class="fa-duotone fa-play"></i></a>
+                                <h6>
+                                    Watch Video 
+                               </h6>
+                        </div>
+                     </div>
+                   </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Instagram Banner Section Start -->
+        <div class="instagram-banner fix section-padding bg-cover" style="background-image: url(static/img/instagram/bg.jpg);">
+            <div class="instagram-wrapper">
+                <h2 class="text-center wow fadeInUp" data-wow-delay=".3s">Follow Instagram</h2>
+                <div class="swiper instagram-banner-slider">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="instagram-banner-items">
+                                <div class="banner-image">
+                                    <img src="static/img/instagram/01.jpg" alt="insta-img">
+                                    <a href="index.html" class="icon">
+                                        <i class="fa-brands fa-instagram"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="instagram-banner-items">
+                                <div class="banner-image">
+                                    <img src="static/img/instagram/02.jpg" alt="insta-img">
+                                    <a href="index.html" class="icon">
+                                        <i class="fa-brands fa-instagram"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="instagram-banner-items">
+                                <div class="banner-image">
+                                    <img src="static/img/instagram/03.jpg" alt="insta-img">
+                                    <a href="index.html" class="icon">
+                                        <i class="fa-brands fa-instagram"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="instagram-banner-items">
+                                <div class="banner-image">
+                                    <img src="static/img/instagram/04.jpg" alt="insta-img">
+                                    <a href="index.html" class="icon">
+                                        <i class="fa-brands fa-instagram"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="instagram-banner-items">
+                                <div class="banner-image">
+                                    <img src="static/img/instagram/05.jpg" alt="insta-img">
+                                    <a href="index.html" class="icon">
+                                        <i class="fa-brands fa-instagram"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="instagram-banner-items">
+                                <div class="banner-image">
+                                    <img src="static/img/instagram/06.jpg" alt="insta-img">
+                                    <a href="index.html" class="icon">
+                                        <i class="fa-brands fa-instagram"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+       <!-- Footer Section Start -->
+       <footer class="footer-section fix bg-cover" style="background-image: url(/static/img/footer/footer-bg.webp);">
+        <div class="container">
+            <div class="footer-widget-wrapper-new">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-5 col-md-8 col-sm-6 wow fadeInUp wow" data-wow-delay=".2s">
+                        <div class="single-widget-items text-center">
+                            <div class="widget-head">
+                                <a href="/">
+                                    <img class="img-fluid" style="max-width: 260px;" src="/static/img/logo/natural_holidays_logo_transparent.png" alt="img">
+                                </a>
+                            </div>
+                            <div class="footer-content">
+                                <div class="social-icon d-flex align-items-center justify-content-center">
+                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 ps-lg-5 wow fadeInUp wow" data-wow-delay=".4s">
+                        <div class="single-widget-items">
+                            <div class="widget-head">
+                               <h4>Quick Links</h4>
+                            </div>
+                            <ul class="list-items">
+                                <li>
+                                    <a href="index.html">
+                                        Home 
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="index.html">
+                                        About Us  
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="news.html">
+                                        Blog
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="tour-details.html">
+                                        Services 
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="tour-details.html">
+                                        Tour 
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 ps-lg-5 wow fadeInUp wow" data-wow-delay=".6s">
+                        <div class="single-widget-items">
+                            <div class="widget-head">
+                               <h4>Services</h4>
+                            </div>
+                            <ul class="list-items">
+                                <li>
+                                    <a href="tour-details.html">
+                                        Wanderlust Adventures  
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="tour-details.html">
+                                        Globe Trotters Travel
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="tour-details.html">
+                                        Odyssey Travel Services
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="tour-details.html">
+                                        Jet Set Journeys
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="tour-details.html">
+                                        Dream Destinations Travel
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 ps-xl-5 wow fadeInUp wow" data-wow-delay=".6s">
+                        <div class="single-widget-items">
+                            <div class="widget-head">
+                               <h4>Contact Us</h4>
+                            </div>
+                            <div class="contact-info">
+                                <div class="contact-items">
+                                    <div class="icon">
+                                        <i class="fa-regular fa-location-dot"></i>
+                                    </div>
+                                    <div class="content">
+                                        <h6>4th floor, Isaacs centre square, RM road, <br>
+                                            Sultan Bathery, Kerala
+                                        </h6>
+                                    </div>
+                                </div>
+                                <div class="contact-items">
+                                    <div class="icon">
+                                     <i class="fa-regular fa-envelope"></i>
+                                    </div>
+                                    <div class="content">
+                                     <h6>
+                                         <a style="font-size: 14px;" href="mailto:info@natureholidaysonline.com">info@natureholidaysonline.com</a> 
+                                     </h6>
+                                  </div>
+                                </div>
+                                <div class="contact-items">
+                                   <div class="icon">
+                                      <i class="fa-solid fa-phone"></i>
+                                   </div>
+                                   <div class="content">
+                                       <h6>
+                                           <a href="tel:+919961240408">+91 9961240408,</a> <br>
+                                           <a href="tel:+919747410408">+91 9747410408,</a> <br>
+                                           <a href="tel:+919447410408">+91 9447410408</a> 
+
+                                       </h6>
+                                   </div>
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-wrapper">
+                    <p class="wow fadeInUp" data-wow-delay=".3s">
+                        Copyright © <span>Nature Holidays</span> All Rights Reserved.
+                    </p>
+                    <ul class="bottom-list wow fadeInUp" data-wow-delay=".5s">
+                        <li>Terms of use</li>
+                        <li>Privacy Environmental Policy</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    
+    <!--<< All JS Plugins >>-->
+    <script src="/static/js/jquery-3.7.1.min.js"></script>
+    <!--<< Viewport Js >>-->
+    <script src="/static/js/viewport.jquery.js"></script>
+    <!--<< Bootstrap Js >>-->
+    <script src="/static/js/bootstrap.bundle.min.js"></script>
+    <!--<< nice-selec Js >>-->
+    <script src="/static/js/jquery.nice-select.min.js"></script>
+    <!--<< Waypoints Js >>-->
+    <script src="/static/js/jquery.waypoints.js"></script>
+    <!--<< Counterup Js >>-->
+    <script src="/static/js/jquery.counterup.min.js"></script>
+    <!--<< Swiper Slider Js >>-->
+    <script src="/static/js/swiper-bundle.min.js"></script>
+    <!--<< MeanMenu Js >>-->
+    <script src="/static/js/jquery.meanmenu.min.js"></script>
+     <!--<< Datepicker Js >>-->
+     <script src="/static/js/bootstrap-datepicker.js"></script>
+    <!--<< Magnific Popup Js >>-->
+    <script src="/static/js/jquery.magnific-popup.min.js"></script>
+    <!--<< Wow Animation Js >>-->
+    <script src="/static/js/wow.min.js"></script>
+    <!--<< Main.js >>-->
+    <script src="/static/js/main.js"></script>
+    {% block extra_js %}{% endblock extra_js %}
+</body>
+</html>

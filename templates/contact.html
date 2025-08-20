@@ -1,0 +1,176 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- breadcrumb-wrappe-Section Start -->
+    <section class="breadcrumb-wrapper fix bg-cover"
+        style="background-image: url(/static/img/breadcrumb/breadcrumb.webp);">
+        <div class="container">
+            <div class="row">
+                <div class="page-heading">
+                    <h2>Contact Us</h2>
+                    <ul class="breadcrumb-list">
+                        <li>
+                            <a href="/">Home</a>
+                        </li>
+                        <li><i class="fa-solid fa-chevrons-right"></i></li>
+                        <li>Contact Us</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact-us Section Start -->
+    <section class="contact-us-section fix section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-4 col-lg-6 col-md-6">
+                    <div class="contact-us-main">
+                        <div class="contact-box-items">
+                            <div class="icon">
+                                <img src="/static/img/icon/18.svg" alt="img">
+                            </div>
+                            <div class="content">
+                                <h3>Our Address</h3>
+                                <p>Wayanad, Kerala, India</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-6 col-md-6">
+                    <div class="contact-us-main style-2">
+                        <div class="contact-box-items">
+                            <div class="icon">
+                                <img src="/static/img/icon/19.svg" alt="img">
+                            </div>
+                            <div class="content">
+                                <h3>
+                                    <a href="mailto:info@natureholidays.com">info@natureholidays.com</a>
+                                </h3>
+                                <p>Email us anytime for any kind of query.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-6 col-md-6">
+                    <div class="contact-us-main">
+                        <div class="contact-box-items">
+                            <div class="icon">
+                                <img src="/static/img/icon/20.svg" alt="img">
+                            </div>
+                            <div class="content">
+                                <h3>
+                                    <a href="tel:+91-9876543210">+91-9876543210</a>
+                                </h3>
+                                <p>Call us for any kind of support, we will be there for you.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact-us Section-2 Start -->
+    <section class="contact-us-section-2 section-bg-2 fix">
+        <div class="container">
+            <div class="contact-us-wrapper">
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <div class="contact-us-contact">
+                            <div class="section-title">
+                                <span class="sub-title text-white wow fadeInUp">
+                                    Contact us
+                                </span>
+                                <h2 class="text-white wow fadeInUp" data-wow-delay=".2s">
+                                    Send Message Anytime
+                                </h2>
+                            </div>
+                            <div class="comment-form-wrap">
+                                <form action="{% url 'packages:contact' %}" id="contact-form" method="POST">
+                                    {% csrf_token %}
+                                    <div class="row g-4">
+                                        <div class="col-lg-6">
+                                            <div class="form-clt">
+                                                <input type="text" name="name" id="name" placeholder="Your Name" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-clt">
+                                                <input type="email" name="email" id="email" placeholder="Your Email" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="form-clt">
+                                                <input type="text" name="phone" id="phone" placeholder="Your Phone Number">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="form-clt">
+                                                <select name="service" id="service" class="form-control">
+                                                    <option value="">Select Service</option>
+                                                    <option value="Kerala Packages">Kerala Packages</option>
+                                                    <option value="North India Tours">North India Tours</option>
+                                                    <option value="International Tours">International Tours</option>
+                                                    <option value="Custom Packages">Custom Packages</option>
+                                                    <option value="Other">Other</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="form-clt">
+                                                <textarea name="message" id="message" placeholder="Your Message" required></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <button type="submit" class="theme-btn">
+                                                Submit Message
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="map-area">
+                            <div class="google-map">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125323.4!2d76.1319!3d11.6854!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba60cf91d9d0c8d%3A0x1b4c3c2c1c0c0c0c!2sWayanad%2C%20Kerala!5e0!3m2!1sen!2sin!4v1641984054261!5m2!1sen!2sin" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Handle contact form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            
+            fetch('{% url "packages:contact" %}', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Thank you! Your message has been sent successfully. We will get back to you soon.');
+                    this.reset();
+                } else {
+                    alert('Error sending message. Please try again.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error sending message. Please try again.');
+            });
+        });
+    </script>
+{% endblock %}

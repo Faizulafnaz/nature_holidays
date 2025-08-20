@@ -1,0 +1,264 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- breadcrumb-wrappe-Section Start -->
+    <section class="breadcrumb-wrapper fix bg-cover"
+        style="background-image: url(/static/img/breadcrumb/breadcrumb.webp);">
+        <div class="container">
+            <div class="row">
+                <div class="page-heading">
+                    <h2>{{ blog.title }}</h2>
+                    <ul class="breadcrumb-list">
+                        <li>
+                            <a href="{% url 'packages:home' %}">Home</a>
+                        </li>
+                        <li><i class="fa-solid fa-chevrons-right"></i></li>
+                        <li><a href="{% url 'packages:blog' %}">Blog</a></li>
+                        <li><i class="fa-solid fa-chevrons-right"></i></li>
+                        <li>{{ blog.title|truncatewords:5 }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog-details-Section Start -->
+    <section class="news-details fix section-padding">
+        <div class="container">
+            <div class="news-details-area">
+                <div class="row g-5">
+                    <div class="col-12 col-lg-8">
+                        <div class="blog-post-details">
+                            <div class="single-blog-post">
+                                <div class="post-featured-thumb bg-cover"
+                                    style="background-image: url('{{ blog.featured_image.url }}');">
+                                    <div class="post">
+                                        <h3>{{ blog.published_date|date:"d" }}</h3>
+                                        <span>{{ blog.published_date|date:"M" }}</span>
+                                    </div>
+                                </div>
+
+                                <div class="post-content">
+                                    <ul class="post-list d-flex align-items-center">
+                                        <li>
+                                            <i class="fa-regular fa-user"></i>
+                                            By {{ blog.author }}
+                                        </li>
+                                        <li>
+                                            <i class="fa-regular fa-comment"></i>
+                                            {{ comments.count }} Comments
+                                        </li>
+                                        <li>
+                                            <i class="fa-solid fa-tag"></i>
+                                            {{ blog.category.name }}
+                                        </li>
+                                    </ul>
+                                    <h3>{{ blog.title }}</h3>
+                                    
+                                    {% if blog.excerpt %}
+                                    <p class="mb-3">{{ blog.excerpt }}</p>
+                                    {% endif %}
+                                    
+                                    <div class="blog-content">
+                                        {{ blog.content|linebreaks }}
+                                    </div>
+
+                                    {% if blog.tags.all %}
+                                    <div class="row tag-share-wrap mt-4 mb-5">
+                                        <div class="col-lg-8 col-12">
+                                            <div class="tagcloud">
+                                                {% for tag in blog.tags.all %}
+                                                <a href="{% url 'packages:blog' %}?tag={{ tag.slug }}">{{ tag.name }}</a>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-12 mt-3 mt-lg-0 text-lg-end">
+                                            <div class="social-share">
+                                                <span class="me-3">Share:</span>
+                                                <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                                <a href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}&text={{ blog.title }}" target="_blank"><i class="fab fa-twitter"></i></a>
+                                                <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ request.build_absolute_uri }}" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                                                <a href="https://wa.me/?text={{ blog.title }}%20{{ request.build_absolute_uri }}" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+
+                                    {% comment %} <!-- Comments Section -->
+                                    <div class="comments-area">
+                                        <div class="comments-heading">
+                                            <h3>{{ comments.count }} Comments</h3>
+                                        </div>
+                                        {% for comment in comments %}
+                                        <div class="blog-single-comment d-flex gap-4 pt-4 pb-4">
+                                            <div class="image">
+                                                <img src="/static/img/news/comment.png" alt="comment">
+                                            </div>
+                                            <div class="content">
+                                                <div class="head d-flex flex-wrap gap-2 align-items-center justify-content-between">
+                                                    <div class="con">
+                                                        <h5>{{ comment.name }}</h5>
+                                                        <span>{{ comment.created_at|date:"F d, Y at g:i a" }}</span>
+                                                    </div>
+                                                </div>
+                                                <p class="mt-30 mb-4">{{ comment.comment }}</p>
+                                            </div>
+                                        </div>
+                                        {% empty %}
+                                        <div class="no-comments">
+                                            <p>No comments yet. Be the first to comment!</p>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+
+                                    <!-- Comment Form -->
+                                    <div class="comment-form-wrap pt-5">
+                                        <h3>Leave a comment</h3>
+                                        <form action="{% url 'packages:blog_detail' blog.slug %}" method="POST" id="comment-form">
+                                            {% csrf_token %}
+                                            <div class="row g-4">
+                                                <div class="col-lg-6">
+                                                    <div class="form-clt">
+                                                        <span>Your Name*</span>
+                                                        <input type="text" name="name" id="name" placeholder="Your Name" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-clt">
+                                                        <span>Your Email*</span>
+                                                        <input type="email" name="email" id="email" placeholder="Your Email" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <div class="form-clt">
+                                                        <span>Message*</span>
+                                                        <textarea name="message" id="message" placeholder="Write Message" required></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <button type="submit" class="theme-btn">
+                                                        Post Comment<i class="fa-solid fa-arrow-right-long"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div> {% endcomment %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4">
+                        <div class="main-sideber">
+                            <!-- Search Widget -->
+                            <div class="single-sidebar-widget">
+                                <div class="wid-title">
+                                    <h4>Search</h4>
+                                </div>
+                                <div class="search-widget">
+                                    <form action="{% url 'packages:blog' %}">
+                                        <input type="text" name="q" placeholder="Search here">
+                                        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <!-- Categories Widget -->
+                            <div class="single-sidebar-widget">
+                                <div class="wid-title">
+                                    <h4>Categories</h4>
+                                </div>
+                                <div class="news-widget-categories">
+                                    <ul>
+                                        {% for category in categories %}
+                                        <li>
+                                            <a href="{% url 'packages:blog' %}?category={{ category.slug }}">
+                                                {{ category.name }}
+                                            </a>
+                                            <span>{{ category.blogs.count }}</span>
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Related Posts Widget -->
+                            {% if related_blogs %}
+                            <div class="single-sidebar-widget">
+                                <div class="wid-title">
+                                    <h4>Related Posts</h4>
+                                </div>
+                                <div class="recent-post-area">
+                                    {% for related_blog in related_blogs %}
+                                    <div class="recent-items">
+                                        <div class="recent-thumb">
+                                            <img src="{{ related_blog.featured_image.url }}" alt="{{ related_blog.title }}">
+                                        </div>
+                                        <div class="recent-content">
+                                            <ul>
+                                                <li>
+                                                    <i class="fa-solid fa-calendar-days"></i>
+                                                    {{ related_blog.published_date|date:"d M, Y" }}
+                                                </li>
+                                            </ul>
+                                            <h6>
+                                                <a href="{% url 'packages:blog_detail' related_blog.slug %}">
+                                                    {{ related_blog.title|truncatewords:8 }}
+                                                </a>
+                                            </h6>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            {% endif %}
+
+                            <!-- Tags Widget -->
+                            {% if blog.tags.all %}
+                            <div class="single-sidebar-widget">
+                                <div class="wid-title">
+                                    <h4>Tags</h4>
+                                </div>
+                                <div class="news-widget-categories">
+                                    <div class="tagcloud">
+                                        {% for tag in blog.tags.all %}
+                                        <a href="{% url 'packages:blog' %}?tag={{ tag.slug }}">{{ tag.name }}</a>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Handle comment form submission
+        document.getElementById('comment-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            
+            fetch('{% url "packages:blog_detail" blog.slug %}', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Comment submitted successfully!');
+                    location.reload();
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error submitting comment. Please try again.');
+            });
+        });
+    </script>
+{% endblock %} 

@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!--<< Header Area >>-->
+    <head>
+        <!-- ========== Meta Tags ========== -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="pixel-drop">
+        <meta name="description" content="Turmet - Travel & Tour Agency HTML Template">
+        <!-- ======== Page title ============ -->
+        <title>Turmet - Travel & Tour Agency HTML Template</title>
+        <!--<< Favcion >>-->
+        <link rel="shortcut icon" href="assets/img/favicon.svg">
+        <!--<< Bootstrap min.css >>-->
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <!--<< All Min Css >>-->
+        <link rel="stylesheet" href="assets/css/all.min.css">
+        <!--<< Animate.css >>-->
+        <link rel="stylesheet" href="assets/css/animate.css">
+        <!--<< Magnific Popup.css >>-->
+        <link rel="stylesheet" href="assets/css/magnific-popup.css">
+        <!--<< MeanMenu.css >>-->
+        <link rel="stylesheet" href="assets/css/meanmenu.css">
+        <!--<< Swiper Bundle.css >>-->
+        <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+        <!--<< Datepickerboot.css >>-->
+        <link rel="stylesheet" href="assets/css/datepickerboot.css">
+        <!--<< Nice Select.css >>-->
+        <link rel="stylesheet" href="assets/css/nice-select.css">
+        <!--<< Color.css >>-->
+        <link rel="stylesheet" href="assets/css/color.css">
+        <!--<< Main.css >>-->
+        <link rel="stylesheet" href="assets/css/main.css">
+    </head>
+    <body>
+
+        <!-- Preloader Start -->
+       <div id="preloader" class="preloader">
+            <div class="animation-preloader">
+                <div class="spinner">                
+                </div>
+                <div class="txt-loading">
+                    <span data-text-preloader="T" class="letters-loading">
+                        T
+                    </span>
+                    <span data-text-preloader="U" class="letters-loading">
+                        U
+                    </span>
+                    <span data-text-preloader="R" class="letters-loading">
+                        R
+                    </span>
+                    <span data-text-preloader="M" class="letters-loading">
+                        M
+                    </span>
+                    <span data-text-preloader="E" class="letters-loading">
+                        E
+                    </span>
+                    <span data-text-preloader="T" class="letters-loading">
+                        T
+                    </span>
+                </div>
+                <p class="text-center">Loading</p>
+            </div>
+            <div class="loader">
+                <div class="row">
+                    <div class="col-3 loader-section section-left">
+                        <div class="bg"></div>
+                    </div>
+                    <div class="col-3 loader-section section-left">
+                        <div class="bg"></div>
+                    </div>
+                    <div class="col-3 loader-section section-right">
+                        <div class="bg"></div>
+                    </div>
+                    <div class="col-3 loader-section section-right">
+                        <div class="bg"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+         <!-- Back To Top Start -->
+         <button id="back-top" class="back-to-top">
+            <i class="fa-regular fa-arrow-up"></i>
+        </button>
+
+        <!--<< Mouse Cursor Start >>-->  
+        <div class="mouse-cursor cursor-outer"></div>
+        <div class="mouse-cursor cursor-inner"></div>
+
+        <!-- Offcanvas Area Start -->
+        <div class="fix-area">
+            <div class="offcanvas__info">
+                <div class="offcanvas__wrapper">
+                    <div class="offcanvas__content">
+                        <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
+                            <div class="offcanvas__logo">
+                                <a href="index.html">
+                                    <img src="assets/img/logo/black-logo.svg" alt="logo-img">
+                                </a>
+                            </div>
+                            <div class="offcanvas__close">
+                                <button>
+                                <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <p class="text d-none d-xl-block">
+                            Nullam dignissim, ante scelerisque the  is euismod fermentum odio sem semper the is erat, a feugiat leo urna eget eros. Duis Aenean a imperdiet risus.
+                        </p>
+                        <div class="mobile-menu fix mb-3"></div>
+                        <div class="offcanvas__contact">
+                            <h4>Contact Info</h4>
+                            <ul>
+                                <li class="d-flex align-items-center">
+                                    <div class="offcanvas__contact-icon">
+                                        <i class="fal fa-map-marker-alt"></i>
+                                    </div>
+                                    <div class="offcanvas__contact-text">
+                                        <a target="_blank" href="#">Main Street, Melbourne, Australia</a>
+                                    </div>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <div class="offcanvas__contact-icon mr-15">
+                                        <i class="fal fa-envelope"></i>
+                                    </div>
+                                    <div class="offcanvas__contact-text">
+                                        <a href="mailto:info@example.com"><span class="mailto:info@example.com">info@example.com</span></a>
+                                    </div>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <div class="offcanvas__contact-icon mr-15">
+                                        <i class="fal fa-clock"></i>
+                                    </div>
+                                    <div class="offcanvas__contact-text">
+                                        <a target="_blank" href="#">Mod-friday, 09am -05pm</a>
+                                    </div>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <div class="offcanvas__contact-icon mr-15">
+                                        <i class="far fa-phone"></i>
+                                    </div>
+                                    <div class="offcanvas__contact-text">
+                                        <a href="tel:+11002345909">+11002345909</a>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="header-button mt-4">
+                                <a href="contact.html" class="theme-btn"> Request A Quote <i class="fa-sharp fa-regular fa-arrow-right"></i></a>
+                            </div>
+                            <div class="social-icon d-flex align-items-center">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="offcanvas__overlay"></div>
+
+        <!-- Header Section Start -->
+        <header id="header-sticky" class="header-1 header-3">
+            <div class="container-fluid">
+                <div class="mega-menu-wrapper">
+                    <div class="header-main">
+                        <div class="logo">
+                            <a href="index.html" class="header-logo">
+                                <img src="assets/img/logo/black-logo.svg" alt="logo-img">
+                            </a>
+                            <a href="index.html" class="header-logo-2">
+                                <img src="assets/img/logo/white-logo.svg" alt="logo-img">
+                            </a>
+                        </div>
+                        <div class="mean__menu-wrapper">
+                            <div class="main-menu">
+                                <nav id="mobile-menu">
+                                    <ul>
+                                        <li class="has-dropdown active menu-thumb">
+                                            <a href="index.html">
+                                                Home 
+                                                <i class="fa-solid fa-chevron-down"></i>
+                                            </a>
+                                            <ul class="submenu has-homemenu">
+                                                <li>
+                                                    <div class="homemenu-items">
+                                                        <div class="homemenu">
+                                                            <div class="homemenu-thumb">
+                                                                <img src="assets/img/header/home-1.jpg" alt="img">
+                                                                <div class="demo-button">
+                                                                    <a href="index.html" class="theme-btn">
+                                                                        Multi Page
+                                                                    </a>
+                                                                    <a href="index-one-page.html" class="theme-btn">
+                                                                        One Page
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="homemenu-content text-center">
+                                                                <h4 class="homemenu-title">
+                                                                    Tour Booking
+                                                                </h4>
+                                                            </div>
+                                                        </div>
+                                                        <div class="homemenu">
+                                                            <div class="homemenu-thumb mb-15">
+                                                                <img src="assets/img/header/home-2.jpg" alt="img">
+                                                                <div class="demo-button">
+                                                                    <a href="index-2.html" class="theme-btn">
+                                                                        Multi Page
+                                                                    </a>
+                                                                    <a href="index-two-page.html" class="theme-btn">
+                                                                        One Page
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="homemenu-content text-center">
+                                                                <h4 class="homemenu-title">
+                                                                    Travel Booking
+                                                                </h4>
+                                                            </div>
+                                                        </div>
+                                                        <div class="homemenu">
+                                                            <div class="homemenu-thumb mb-15">
+                                                                <img src="assets/img/header/home-3.jpg" alt="img">
+                                                                <div class="demo-button">
+                                                                    <a href="index-3.html" class="theme-btn">
+                                                                        Multi Page
+                                                                    </a>
+                                                                    <a href="index-three-page.html" class="theme-btn">
+                                                                        One Page
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="homemenu-content text-center">
+                                                                <h4 class="homemenu-title">
+                                                                    Flight Booking
+                                                                </h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-dropdown active d-xl-none">
+                                            <a href="team.html" class="border-none">
+                                            Home
+                                            </a>
+                                            <ul class="submenu">
+                                                <li><a href="index.html">Home 01</a></li>
+                                                <li><a href="index-2.html">Home 02</a></li>
+                                                <li><a href="index-3.html">Home 03</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="about.html">About Us</a>
+                                        </li>
+                                        <li>
+                                            <a href="destination-details.html">
+                                                Destinations
+                                                <i class="fa-solid fa-chevron-down"></i>
+                                            </a>
+                                            <ul class="submenu">
+                                                <li><a href="destination.html">our Destination</a></li>
+                                                <li><a href="destination-details.html">Destination Details</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="tour-details.html">
+                                                Tour
+                                                <i class="fa-solid fa-chevron-down"></i>
+                                            </a>
+                                            <ul class="submenu">
+                                                <li><a href="tour.html">Our Tour</a></li>
+                                                <li><a href="tour-details.html">Tour Details</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-dropdown">
+                                            <a href="news.html">
+                                                Pages
+                                                <i class="fa-solid fa-chevron-down"></i>
+                                            </a>
+                                            <ul class="submenu">
+                                                <li><a href="activities.html">Activities</a></li>
+                                                <li><a href="activities-details.html">Activities Details</a></li>
+                                                <li><a href="team.html">Our Team</a></li>
+                                                <li><a href="team-details.html">Team Details</a></li>
+                                                <li><a href="faq.html">Our Faq</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="news-details.html">
+                                                Blog
+                                                <i class="fa-solid fa-chevron-down"></i>
+                                            </a>
+                                            <ul class="submenu">
+                                                <li><a href="news.html">Blog Grid</a></li>
+                                                <li><a href="news-classic.html">Blog Classic</a></li>
+                                                <li><a href="news-details.html">Blog Details</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="contact.html">Contact Us</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="header-right d-flex justify-content-end align-items-center">
+                            <a href="#0" class="search-trigger search-icon"><i class="fa-regular fa-magnifying-glass"></i></a>
+                            <a href="contact.html" class="theme-btn"> Request A Quote <i class="fa-sharp fa-regular fa-arrow-right"></i></a>
+                            <div class="header__hamburger d-xl-none my-auto">
+                                <div class="sidebar__toggle">
+                                    <i class="fas fa-bars"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Search Area Start -->
+        <div class="search-wrap">
+            <div class="search-inner">
+                <i class="fas fa-times search-close" id="search-close"></i>
+                <div class="search-cell">
+                    <form method="get">
+                        <div class="search-field-holder">
+                            <input type="search" class="main-search-input" placeholder="Search...">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- breadcrumb-wrappe-Section Start -->
+        <section class="breadcrumb-wrapper fix bg-cover" style="background-image: url(assets/img/breadcrumb/breadcrumb.jpg);">
+            <div class="container">
+                <div class="row">
+                    <div class="page-heading">
+                        <h2>Blog Classic</h2>
+                        <ul class="breadcrumb-list">
+                            <li>
+                                <a href="index.html">Home</a>
+                            </li>
+                            <li><i class="fa-solid fa-chevrons-right"></i></li>
+                            <li>Blog Classic</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- News-Section Start -->
+        <section class="news-classic-section- section-padding fix">
+            <div class="container">
+                <div class="row g-5">
+                    <div class="col-12 col-lg-8">
+                        <div class="news-standard-wrapper">
+                            <div class="news-standard-items">
+                                <div class="news-thumb">
+                                    <img src="assets/img/news/post-1.jpg" alt="img">
+                                    <div class="post">
+                                        <h3>
+                                            16
+                                            <span>Dec</span>
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div class="news-content">
+                                    <ul>
+                                        <li>
+                                            <i class="far fa-user"></i>
+                                            By admin
+                                        </li>
+                                        <li>
+                                            <i class="fa-regular fa-comment"></i>
+                                            0 Comments
+                                        </li>
+                                    </ul>
+                                    <h3>
+                                        <a href="news-details.html">Get Best Advertiser Your Side Pocket.</a>
+                                    </h3>
+                                    <p>
+                                        Pellentesque egestas rutrum nibh facilisis ultrices. Phasellus in magna ut orci malesuada the sollicitudin. Aenean faucibus scelerisque convallis. Quisque interdum mauris id nunc molestie tincidunt erat gravida. Nullam dui libero, mollis ac quam et, venenatis.
+                                    </p>
+                                    <a href="news-details.html" class="theme-btn">Read More<i class="fa-sharp fa-regular fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                            <div class="news-standard-items">
+                                <div class="news-thumb">
+                                    <img src="assets/img/news/post-2.jpg" alt="img">
+                                    <div class="post">
+                                        <h3>
+                                            27
+                                            <span>Feb</span>
+                                        </h3>
+                                     </div>
+                                </div>
+                                <div class="news-content">
+                                    <ul>
+                                        <li>
+                                            <i class="far fa-user"></i>
+                                            By admin
+                                        </li>
+                                        <li>
+                                            <i class="fa-regular fa-comment"></i>
+                                            0 Comments
+                                        </li>
+                                    </ul>
+                                    <h3>
+                                        <a href="news-details.html">Supervisor Disapproved of Latest Work.</a>
+                                    </h3>
+                                    <p>
+                                        Pellentesque egestas rutrum nibh facilisis ultrices. Phasellus in magna ut orci malesuada the sollicitudin. Aenean faucibus scelerisque convallis. Quisque interdum mauris id nunc molestie tincidunt erat gravida. Nullam dui libero, mollis ac quam et, venenatis.
+                                    </p>
+                                    <a href="news-details.html" class="theme-btn style-2">Read More<i class="fa-sharp fa-regular fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                            <div class="news-standard-items">
+                                <div class="news-thumb">
+                                    <img src="assets/img/news/post-3.jpg" alt="img">
+                                    <div class="post">
+                                        <h3>
+                                            16
+                                            <span>Dec</span>
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div class="news-content">
+                                    <ul>
+                                        <li>
+                                            <i class="far fa-user"></i>
+                                            By admin
+                                        </li>
+                                        <li>
+                                            <i class="fa-regular fa-comment"></i>
+                                            0 Comments
+                                        </li>
+                                    </ul>
+                                    <h3>
+                                        <a href="news-details.html">Sakura Dreams and Samurai Tales.</a>
+                                    </h3>
+                                    <p>
+                                        Pellentesque egestas rutrum nibh facilisis ultrices. Phasellus in magna ut orci malesuada the sollicitudin. Aenean faucibus scelerisque convallis. Quisque interdum mauris id nunc molestie tincidunt erat gravida. Nullam dui libero, mollis ac quam et, venenatis.
+                                    </p>
+                                    <a href="news-details.html" class="theme-btn">Read More<i class="fa-sharp fa-regular fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                            <div class="page-nav-wrap text-center">
+                                <ul>
+                                    <li><a class="page-numbers" href="#"><i class="fal fa-long-arrow-left"></i></a></li>
+                                    <li><a class="page-numbers" href="#">01</a></li>
+                                    <li><a class="page-numbers" href="#">02</a></li>
+                                    <li><a class="page-numbers" href="#">03</a></li>
+                                    <li><a class="page-numbers" href="#"><i class="fal fa-long-arrow-right"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4">
+                        <div class="main-sideber">
+                            <div class="single-sidebar-widget">
+                                <div class="wid-title">
+                                    <h4>Search</h4>
+                                </div>
+                                <div class="search-widget">
+                                    <form action="#">
+                                        <input type="text" placeholder="Search here">
+                                        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="single-sidebar-widget">
+                                <div class="wid-title">
+                                    <h4>Services</h4>
+                                </div>
+                                <div class="news-widget-categories">
+                                    <ul>
+                                        <li><a href="news-details.html">Travel</a><span>04</span></li>
+                                        <li><a href="news-details.html">System</a><span>03</span></li>
+                                        <li><a href="news-details.html">Agency</a><span>02</span></li>
+                                        <li><a href="news-details.html">Restaurant</a><span>05</span></li>
+                                        <li><a href="news-details.html">Rant A Car</a><span>06</span></li>
+                                        <li><a href="news-details.html">Blueprint Builders</a><span>(03)</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="single-sidebar-widget">
+                                <div class="wid-title">
+                                    <h4>Recent Post</h4>
+                                </div>
+                                <div class="recent-post-area">
+                                    <div class="recent-items">
+                                        <div class="recent-thumb">
+                                            <img src="assets/img/news/pp1.jpg" alt="img">
+                                        </div>
+                                        <div class="recent-content">
+                                            <ul>
+                                                <li>
+                                                    <i class="fa-solid fa-calendar-days"></i>
+                                                    14 Feb, 2024
+                                                </li>
+                                            </ul>
+                                            <h6>
+                                                <a href="news-details.html">
+                                                    Get Best Advertised Your
+                                                    Side Pocket.
+                                                </a>
+                                            </h6>
+                                        </div>
+                                    </div>
+                                    <div class="recent-items">
+                                        <div class="recent-thumb">
+                                            <img src="assets/img/news/pp2.jpg" alt="img">
+                                        </div>
+                                        <div class="recent-content">
+                                            <ul>
+                                                <li>
+                                                    <i class="fa-solid fa-calendar-days"></i>
+                                                    12 Mar, 2024
+                                                </li>
+                                            </ul>
+                                            <h6>
+                                                <a href="news-details.html">
+                                                    Supervisor Disapproved
+                                                    of Latest Work. 
+                                                </a>
+                                            </h6>
+                                        </div>
+                                    </div>
+                                    <div class="recent-items">
+                                        <div class="recent-thumb">
+                                            <img src="assets/img/news/pp3.jpg" alt="img">
+                                        </div>
+                                        <div class="recent-content">
+                                            <ul>
+                                                <li>
+                                                    <i class="fa-solid fa-calendar-days"></i>
+                                                    23 Feb, 2024
+                                                </li>
+                                            </ul>
+                                            <h6>
+                                                <a href="news-details.html">
+                                                    Sakura dreams and 
+                                                    samurai tales.
+                                                </a>
+                                            </h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="single-sidebar-widget">
+                                <div class="wid-title">
+                                    <h4>Tags</h4>
+                                </div>
+                                <div class="news-widget-categories">
+                                    <div class="tagcloud">
+                                        <a href="news-details.html">Agency</a>     
+                                        <a href="news-details.html">Traveling</a>
+                                        <a href="news-details.html">Design</a>
+                                        <a href="news-details.html">Travel</a>
+                                        <a href="news-details.html">Change</a>
+                                        <a href="news-details.html">Video</a>
+                                        <a href="news-details.html">World</a>     
+                                        <a href="news-details.html">Startup</a>
+                                        <a href="news-details.html">Services</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Section Start -->
+        <footer class="footer-section fix bg-cover" style="background-image: url(assets/img/footer/footer-bg.jpg);">
+            <div class="container">
+                <div class="footer-widget-wrapper-new">
+                    <div class="row">
+                        <div class="col-xl-4 col-lg-5 col-md-8 col-sm-6 wow fadeInUp wow" data-wow-delay=".2s">
+                            <div class="single-widget-items text-center">
+                                <div class="widget-head">
+                                    <a href="index.html">
+                                        <img src="assets/img/logo/white-log.svg" alt="img">
+                                    </a>
+                                </div>
+                                <div class="footer-content">
+                                    <h3>Subscribe Newsletter</h3>
+                                    <p>Get Our Latest Deals and Update</p>
+                                    <div class="footer-input">
+                                        <input type="email" id="email2" placeholder="Your email address">
+                                        <button class="newsletter-btn theme-btn" type="submit">
+                                            Subscribe <i class="fa-sharp fa-regular fa-arrow-right"></i>
+                                        </button>
+                                    </div>
+                                    <div class="social-icon d-flex align-items-center justify-content-center">
+                                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="#"><i class="fab fa-twitter"></i></a>
+                                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 ps-lg-5 wow fadeInUp wow" data-wow-delay=".4s">
+                            <div class="single-widget-items">
+                                <div class="widget-head">
+                                   <h4>Quick Links</h4>
+                                </div>
+                                <ul class="list-items">
+                                    <li>
+                                        <a href="index.html">
+                                            Home 
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="index.html">
+                                            About Us  
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="news.html">
+                                            Blog
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="tour-details.html">
+                                            Services 
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="tour-details.html">
+                                            Tour 
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 ps-lg-5 wow fadeInUp wow" data-wow-delay=".6s">
+                            <div class="single-widget-items">
+                                <div class="widget-head">
+                                   <h4>Services</h4>
+                                </div>
+                                <ul class="list-items">
+                                    <li>
+                                        <a href="tour-details.html">
+                                            Wanderlust Adventures  
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="tour-details.html">
+                                            Globe Trotters Travel
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="tour-details.html">
+                                            Odyssey Travel Services
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="tour-details.html">
+                                            Jet Set Journeys
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="tour-details.html">
+                                            Dream Destinations Travel
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 ps-xl-5 wow fadeInUp wow" data-wow-delay=".6s">
+                            <div class="single-widget-items">
+                                <div class="widget-head">
+                                   <h4>Contact Us</h4>
+                                </div>
+                                <div class="contact-info">
+                                    <div class="contact-items">
+                                        <div class="icon">
+                                            <i class="fa-regular fa-location-dot"></i>
+                                        </div>
+                                        <div class="content">
+                                            <h6>9550 Bolsa Ave #126, <br>
+                                                United States
+                                            </h6>
+                                        </div>
+                                    </div>
+                                    <div class="contact-items">
+                                        <div class="icon">
+                                         <i class="fa-regular fa-envelope"></i>
+                                        </div>
+                                        <div class="content">
+                                         <h6>
+                                             <a href="mailto:info@touron.com">info@touron.com</a> 
+                                         </h6>
+                                      </div>
+                                    </div>
+                                    <div class="contact-items">
+                                       <div class="icon">
+                                          <i class="fa-solid fa-phone"></i>
+                                       </div>
+                                       <div class="content">
+                                           <h6>
+                                               <a href="tel:+256214203215">+256 214 203 215</a> <br>
+                                               <a href="tel:+10987654321">+1 098 765 4321</a>
+                                           </h6>
+                                       </div>
+                                   </div>
+                                </div>
+                            </div>
+                        </div>
+                     </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="footer-wrapper">
+                        <p class="wow fadeInUp" data-wow-delay=".3s">
+                            Copyright © <span>Turmet,</span> All Rights Reserved.
+                        </p>
+                        <ul class="bottom-list wow fadeInUp" data-wow-delay=".5s">
+                            <li>Terms of use</li>
+                            <li>Privacy Environmental Policy</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!--<< All JS Plugins >>-->
+        <script src="assets/js/jquery-3.7.1.min.js"></script>
+        <!--<< Viewport Js >>-->
+        <script src="assets/js/viewport.jquery.js"></script>
+        <!--<< Bootstrap Js >>-->
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <!--<< nice-selec Js >>-->
+        <script src="assets/js/jquery.nice-select.min.js"></script>
+        <!--<< Waypoints Js >>-->
+        <script src="assets/js/jquery.waypoints.js"></script>
+        <!--<< Counterup Js >>-->
+        <script src="assets/js/jquery.counterup.min.js"></script>
+        <!--<< Swiper Slider Js >>-->
+        <script src="assets/js/swiper-bundle.min.js"></script>
+        <!--<< MeanMenu Js >>-->
+        <script src="assets/js/jquery.meanmenu.min.js"></script>
+         <!--<< Datepicker Js >>-->
+         <script src="assets/js/bootstrap-datepicker.js"></script>
+        <!--<< Magnific Popup Js >>-->
+        <script src="assets/js/jquery.magnific-popup.min.js"></script>
+        <!--<< Wow Animation Js >>-->
+        <script src="assets/js/wow.min.js"></script>
+        <!--<< Main.js >>-->
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>

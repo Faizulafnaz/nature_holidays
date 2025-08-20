@@ -1,0 +1,100 @@
+/* Offer Highlight Styles */
+.offer-highlight {
+    background: linear-gradient(135deg, #1c99ff, #0a538d);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    margin-bottom: 20px;
+}
+
+.offer-badge {
+    margin-bottom: 20px;
+}
+
+.offer-badge .discount {
+    background: rgba(255,255,255,0.2);
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-size: 18px;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.offer-badge .seasonal {
+    background: rgba(255,255,255,0.3);
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 14px;
+    display: block;
+    margin-top: 8px;
+}
+
+.offer-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.offer-description {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.offer-validity {
+    background: rgba(255,255,255,0.1);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.offer-validity p {
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.offer-validity i {
+    margin-right: 8px;
+    color: #ffd700;
+}
+
+.offer-highlight .theme-btn {
+    background: white;
+    color: #0a538d;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.offer-highlight .theme-btn:hover {
+    background: #f8f9fa;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .offer-highlight {
+        padding: 20px;
+        margin-bottom: 15px;
+    }
+    
+    .offer-title {
+        font-size: 20px;
+    }
+    
+    .offer-badge .discount {
+        font-size: 16px;
+        padding: 6px 12px;
+    }
+} 

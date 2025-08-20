@@ -1,0 +1,173 @@
+{% extends "base.html" %}
+
+{% block title %}All Packages - Nature Holidays{% endblock %}
+{% block meta_description %}Explore our amazing travel packages including adventure tours, cultural experiences, luxury escapes, and family packages.{% endblock %}
+
+{% block content %}
+<!-- Page Header Start -->
+<section class="page-header-section section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="page-header-content text-center">
+                    <h2>Our Travel Packages</h2>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{% url 'packages:home' %}">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Packages</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Package List Section Start -->
+<section class="package-list-section section-padding">
+    <div class="container">
+        <!-- Filter Section -->
+        <div class="row mb-5">
+            <div class="col-lg-12">
+                <div class="filter-section">
+                    <form method="get" class="row g-3">
+                        <div class="col-md-3">
+                            <input type="text" name="search" class="form-control" placeholder="Search packages..." value="{{ request.GET.search }}">
+                        </div>
+                        <div class="col-md-3">
+                            <select name="category" class="form-control">
+                                <option value="">All Categories</option>
+                                {% for category in categories %}
+                                <option value="{{ category.id }}" {% if request.GET.category == category.id|stringformat:"s" %}selected{% endif %}>
+                                    {{ category.name }}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <select name="package_type" class="form-control">
+                                <option value="">All Types</option>
+                                <option value="adventure" {% if request.GET.package_type == 'adventure' %}selected{% endif %}>Adventure</option>
+                                <option value="cultural" {% if request.GET.package_type == 'cultural' %}selected{% endif %}>Cultural</option>
+                                <option value="luxury" {% if request.GET.package_type == 'luxury' %}selected{% endif %}>Luxury</option>
+                                <option value="family" {% if request.GET.package_type == 'family' %}selected{% endif %}>Family</option>
+                                <option value="honeymoon" {% if request.GET.package_type == 'honeymoon' %}selected{% endif %}>Honeymoon</option>
+                                <option value="pilgrimage" {% if request.GET.package_type == 'pilgrimage' %}selected{% endif %}>Pilgrimage</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <button type="submit" class="theme-btn w-100">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Packages Grid -->
+        <div class="row">
+            {% for package in packages %}
+            <div class="col-xl-4 col-lg-6 col-md-6 mb-4">
+                <div class="destination-card-items">
+                    <div class="destination-image">
+                        {% if package.cover_image %}
+                            <img src="{{ package.cover_image.url }}" alt="{{ package.name }}">
+                        {% else %}
+                            <img src="static/img/destination/0{{ forloop.counter|default:1 }}.jpg" alt="{{ package.name }}">
+                        {% endif %}
+                        <div class="heart-icon">
+                            <i class="fa-regular fa-heart"></i>
+                        </div>
+                        {% if package.is_featured %}
+                        <div class="featured-badge">
+                            <span>Featured</span>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="destination-content">
+                        <ul class="meta">
+                            <li>
+                                <i class="fa-thin fa-location-dot"></i>
+                                {{ package.location|default:"Kerala" }}
+                            </li>
+                            <li class="rating">
+                                <div class="star">
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <p>4.7</p>
+                            </li>
+                        </ul>
+                        <h5>
+                            <a href="{% url 'packages:package_detail' package.id %}">
+                                {{ package.name }}
+                            </a>
+                        </h5>
+                        <p class="package-description">{{ package.description|truncatewords:20 }}</p>
+                        <ul class="info">
+                            <li>
+                                <i class="fa-regular fa-clock"></i>
+                                {{ package.duration|default:"3 Days" }}
+                            </li>
+                            <li>
+                                <i class="fa-thin fa-users"></i>
+                                {% if package.max_group_size %}{{ package.max_group_size }}+{% else %}50+{% endif %}
+                            </li>
+                            <li>
+                                <i class="fa-thin fa-tag"></i>
+                                {{ package.get_package_type_display }}
+                            </li>
+                        </ul>
+                        <div class="price">
+                            <h6>₹{{ package.price }}<span>/Per person</span></h6>
+                            <a href="{% url 'packages:package_detail' package.id %}" class="theme-btn style-2">View Details<i class="fa-sharp fa-regular fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12">
+                <div class="text-center">
+                    <h3>No packages found</h3>
+                    <p>Try adjusting your search criteria or browse all our packages.</p>
+                    <a href="{% url 'packages:package_list' %}" class="theme-btn">View All Packages</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Pagination -->
+        {% if is_paginated %}
+        <div class="row">
+            <div class="col-12">
+                <nav aria-label="Package pagination">
+                    <ul class="pagination justify-content-center">
+                        {% if page_obj.has_previous %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ page_obj.previous_page_number }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}">Previous</a>
+                        </li>
+                        {% endif %}
+
+                        {% for num in page_obj.paginator.page_range %}
+                        {% if page_obj.number == num %}
+                        <li class="page-item active">
+                            <span class="page-link">{{ num }}</span>
+                        </li>
+                        {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ num }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}">{{ num }}</a>
+                        </li>
+                        {% endif %}
+                        {% endfor %}
+
+                        {% if page_obj.has_next %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ page_obj.next_page_number }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}">Next</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %} 
