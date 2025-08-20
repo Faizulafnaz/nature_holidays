@@ -170,7 +170,7 @@ class PackageExclusion(models.Model):
 
 class BlogCategory(models.Model):
     name = models.CharField(max_length=100)
-    slug = models.SlugField(unique=True)
+    slug = models.SlugField(max_length=200, unique=True)
     description = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -185,7 +185,7 @@ class BlogCategory(models.Model):
 
 class BlogTag(models.Model):
     name = models.CharField(max_length=50)
-    slug = models.SlugField(unique=True)
+    slug = models.SlugField(max_length=200, unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
 
@@ -202,7 +202,7 @@ class Blog(models.Model):
     ]
     
     title = models.CharField(max_length=200)
-    slug = models.SlugField(unique=True)
+    slug = models.SlugField(max_length=200, unique=True)
     excerpt = models.TextField(blank=True)
     content = models.TextField()
     featured_image = models.ImageField(upload_to='blog/')
@@ -210,7 +210,7 @@ class Blog(models.Model):
     tags = models.ManyToManyField(BlogTag, blank=True, related_name='blogs')
     author = models.CharField(max_length=100, default='Admin')
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft')
-    published_date = models.DateTimeField(null=True, blank=True, auto_now_add=True)
+    published_date = models.DateTimeField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     is_active = models.BooleanField(default=True)
