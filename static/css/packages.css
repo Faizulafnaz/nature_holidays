@@ -1,0 +1,99 @@
+/* Package Grid Image Fixes */
+.destination-card-items {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.destination-card-items .destination-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px 20px 0 0;
+    height: 250px; /* Fixed height for all images */
+    min-height: 250px;
+}
+
+.destination-card-items .destination-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This ensures images cover the area without distortion */
+    border-radius: 20px 20px 0 0;
+    transform: scale(1.1);
+    transition: all 0.4s ease-in-out;
+}
+
+.destination-card-items .destination-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.destination-card-items .destination-content .price {
+    margin-top: auto; /* Push price to bottom */
+}
+
+/* Ensure consistent card heights in grid */
+.row.g-4 > [class*="col-"] {
+    display: flex;
+    flex-direction: column;
+}
+
+.row.g-4 > [class*="col-"] > .destination-card-items {
+    height: 100%;
+}
+
+/* Minimal search/filter UI */
+.search-filter-wrapper {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.search-filter-wrapper .form-control,
+.search-filter-wrapper select,
+.search-filter-wrapper input[type="text"],
+.search-filter-wrapper input[type="search"] {
+    height: 46px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background-color: #fff;
+    color: var(--header);
+    box-shadow: none;
+}
+
+.search-filter-wrapper .form-control:focus,
+.search-filter-wrapper select:focus,
+.search-filter-wrapper input[type="text"]:focus,
+.search-filter-wrapper input[type="search"]:focus {
+    border-color: var(--theme);
+    outline: none;
+    box-shadow: none;
+}
+
+.search-filter-wrapper .form-control::placeholder,
+.search-filter-wrapper input::placeholder {
+    color: var(--text);
+}
+
+.search-filter-wrapper .theme-btn {
+    min-width: 0;
+    width: 100%;
+    border-radius: 10px;
+    padding: 14px 18px;
+}
+
+@media (max-width: 991px) {
+    .search-filter-wrapper {
+        padding: 12px;
+    }
+}
+
+
+
+.offer-tag {
+    color: #0a538d;
+    padding-right: 10px;
+}
+

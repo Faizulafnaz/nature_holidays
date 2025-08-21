@@ -790,6 +790,11 @@ span {
   }
 }
 
+/* Active nav link */
+.main-menu ul li a.active {
+  color: var(--theme) !important;
+}
+
 @-webkit-keyframes rippleOne {
   70% {
     -webkit-box-shadow: 0 0 0 40px rgba(244, 68, 56, 0);
@@ -1588,6 +1593,7 @@ span {
   padding: 16px 20px;
   border-radius: 100px;
   border: 1px solid rgba(255, 255, 255, 0.15);
+  width: 100%;
 }
 .contact-us-wrapper .contact-us-contact .comment-form-wrap .form-clt .nice-select span {
   font-size: 14px;
@@ -1597,8 +1603,8 @@ span {
   margin-bottom: 0;
 }
 .contact-us-wrapper .contact-us-contact .comment-form-wrap .form-clt .nice-select::after {
-  right: 25px;
-  top: 28px;
+  right: 28px;
+  top: 34px;
 }
 .contact-us-wrapper .contact-us-contact .comment-form-wrap .form-clt .nice-select .list {
   right: 0;
@@ -2646,6 +2652,9 @@ span {
   width: 100%;
   height: 100%;
   border-radius: 20px;
+  height: 300px;
+  min-height: 300px;
+  object-fit: cover;
 }
 .destination-category-item .category-image::before {
   position: absolute;
@@ -3673,7 +3682,18 @@ span {
   width: 100%;
   height: 100%;
   border-radius: 10px;
+  height: 250px;
+  min-height: 250px;
+  object-fit: cover;
 }
+
+@media (max-width: 576px) {
+  .deals-offer-wrapper .offer-slide-items .offer-items .offer-image img {
+    height: 350px;
+    min-height: 350px;
+  }
+}
+
 .deals-offer-wrapper .offer-slide-items .offer-items .offer-image .offer-content .offer-btn {
   position: absolute;
   left: 24px;
@@ -7089,6 +7109,9 @@ span {
   width: 100%;
   height: 100%;
   border-radius: 10px;
+  height: 250px;
+  min-height: 250px;
+  object-fit: cover;
 }
 .news-card-items .news-content {
   border-radius: 10px;
@@ -7223,6 +7246,9 @@ span {
   width: 100%;
   height: 100%;
   border-radius: 10px;
+  height: 300px;
+  min-height: 300px;
+  object-fit: cover;
 }
 .news-card-items-3 .news-content {
   padding: 24px;

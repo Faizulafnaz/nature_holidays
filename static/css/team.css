@@ -1,0 +1,33 @@
+/* Team Card Image Fixes */
+.team-card-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.team-card-item .team-image {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  height: 350px;
+  min-height: 350px;
+}
+
+.team-card-item .team-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+/* Optional: keep card heights consistent */
+.team-card-item .team-content {
+  flex: 1;
+}
+
+
+@media (max-width: 576px) {
+  .team-card-item .team-image {
+    height: 500px;
+    min-height: 500px;
+  }
+}

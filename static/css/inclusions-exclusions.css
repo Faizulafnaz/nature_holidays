@@ -27,14 +27,14 @@
 
 .inclusions-card .card-header,
 .exclusions-card .card-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #dadada;
     color: white;
     padding: 1.5rem;
     border: none;
 }
 
 .exclusions-card .card-header {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    background:#dadada;
 }
 
 .card-header h4 {

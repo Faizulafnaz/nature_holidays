@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="/static/css/packages.css">
+{% endblock extra_css %}
+
 {% block content %}
     <!-- breadcrumb-wrappe-Section Start -->
     <section class="breadcrumb-wrapper fix bg-cover" style="background-image: url(/static/img/breadcrumb/breadcrumb.webp);">
@@ -27,10 +31,10 @@
                 <div class="col-12">
                     <div class="search-filter-wrapper">
                         <form method="GET" action="{% url 'packages:package_list' %}" class="row g-3">
-                            <div class="col-md-4">
+                            <div class="col-md-5">
                                 <input type="text" name="q" value="{{ query|default:'' }}" class="form-control" placeholder="Search packages...">
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-5">
                                 <select name="category" class="form-control">
                                     <option value="">All Categories</option>
                                     {% for category in categories %}
@@ -40,7 +44,7 @@
                                     {% endfor %}
                                 </select>
                             </div>
-                            <div class="col-md-3">
+                            {% comment %} <div class="col-md-3">
                                 <select name="type" class="form-control">
                                     <option value="">All Types</option>
                                     {% for type_code, type_name in package_types %}
@@ -49,7 +53,7 @@
                                         </option>
                                     {% endfor %}
                                 </select>
-                            </div>
+                            </div> {% endcomment %}
                             <div class="col-md-2">
                                 <button type="submit" class="theme-btn w-100">Search</button>
                             </div>
@@ -72,11 +76,6 @@
                             <div class="heart-icon">
                                 <i class="fa-regular fa-heart"></i>
                             </div>
-                            {% if package.offer %}
-                                <div class="offer-badge">
-                                    <span>{{ package.offer.discount_percentage }}% OFF</span>
-                                </div>
-                            {% endif %}
                         </div>
                         <div class="destination-content">
                             <ul class="meta">
@@ -106,10 +105,18 @@
                                     {% if package.max_group_size %}{{ package.max_group_size }}+{% else %}50+{% endif %}
                                 </li>
                             </ul>
-                            <div class="price">
+                            {% if package.offer %}
+                            <div class="price"><del>₹{{ package.price }}</del> <span class="offer-tag">{{ package.get_offer_percentage }}% OFF</span></div>
+                            <div class="price">                                    
+                                <h6>₹{{ package.get_offer_price }}<span>/Per person</span></h6>
+                                <a href="{% url 'packages:package_detail' package.id %}" class="theme-btn style-2">Book Now<i class="fa-sharp fa-regular fa-arrow-right"></i></a>
+                            </div>
+                            {% else %}
+                            <div class="price">                                    
                                 <h6>₹{{ package.price }}<span>/Per person</span></h6>
                                 <a href="{% url 'packages:package_detail' package.id %}" class="theme-btn style-2">Book Now<i class="fa-sharp fa-regular fa-arrow-right"></i></a>
                             </div>
+                            {% endif %}
                         </div>
                     </div>
                 </div>

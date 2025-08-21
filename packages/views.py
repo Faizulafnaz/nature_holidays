@@ -160,7 +160,11 @@ def search_packages(request):
     return render(request, 'packages/search_results.html', context)
 
 def about(request):
-    return render(request, 'about.html')
+    team_members = TeamMember.objects.filter(is_active=True)[:4]
+    context = {
+        'team_members': team_members,
+    }   
+    return render(request, 'about.html', context)
 
 def contact(request):
     """Contact page with form submission handling"""

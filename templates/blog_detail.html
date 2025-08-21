@@ -44,10 +44,10 @@
                                             <i class="fa-regular fa-user"></i>
                                             By {{ blog.author }}
                                         </li>
-                                        <li>
+                                        {% comment %} <li>
                                             <i class="fa-regular fa-comment"></i>
                                             {{ comments.count }} Comments
-                                        </li>
+                                        </li> {% endcomment %}
                                         <li>
                                             <i class="fa-solid fa-tag"></i>
                                             {{ blog.category.name }}

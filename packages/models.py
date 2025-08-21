@@ -57,6 +57,16 @@ class Package(models.Model):
     
     def __str__(self):
         return self.name
+    
+    def get_offer_price(self):
+        if self.offer:
+            return float(self.price - (self.price * self.offer.discount_percentage / 100))
+        return self.price
+    
+    def get_offer_percentage(self):
+        if self.offer:
+            return self.offer.discount_percentage
+        return 0
 
 class PackageImage(models.Model):
     package = models.ForeignKey(Package, on_delete=models.CASCADE)
