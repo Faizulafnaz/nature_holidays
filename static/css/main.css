@@ -1,3 +1,53 @@
+/* Compact topbar + navbar sizing */
+.header-top-wrapper-new {
+  padding: 4px 0;
+}
+.header-top-wrapper-new .social-icon {
+  gap: 12px;
+}
+.header-top-wrapper-new .social-icon span,
+.header-top-wrapper-new .top-right li,
+.header-top-wrapper-new .top-right li a {
+  font-size: 14px;
+}
+.header-top-wrapper-new .top-right {
+  gap: 18px;
+}
+
+#header-sticky.header-11 .header-main,
+#header-sticky.header-1 .header-main,
+.sticky .header-main {
+  padding: 4px 0;
+}
+
+#header-sticky.header-11 .logo .header-logo img {
+  max-width: 84px;
+}
+
+#header-sticky.header-1 .logo img {
+  max-width: 88px !important;
+  padding: 2px 0 !important;
+}
+
+#header-sticky .header-main .main-menu ul li {
+  margin-inline-end: 28px;
+}
+
+#header-sticky .header-main .main-menu ul li a {
+  font-size: 15px;
+  padding: 12px 0;
+}
+
+@media (max-width: 991px) {
+  .header-top-wrapper-new {
+    padding: 3px 0;
+  }
+  .header-top-wrapper-new .social-icon span,
+  .header-top-wrapper-new .top-right li,
+  .header-top-wrapper-new .top-right li a {
+    font-size: 13px;
+  }
+}
 /*
 Theme Name: Turmet 
 Author: pixel-drop
@@ -6338,7 +6388,8 @@ span {
 .hero-1 {
   padding: 150px 205px 150px;
   position: relative;
-  height: 110vh;
+  min-height: 80vh;
+  height: auto;
 }
 @media (max-width: 1600px) {
   .hero-1 {
@@ -6368,6 +6419,8 @@ span {
 @media (max-width: 575px) {
   .hero-1 {
     padding: 80px 30px 80px;
+    min-height: 78vh;
+    height: auto;
   }
 }
 .hero-1 .hero-bg {
@@ -6379,6 +6432,11 @@ span {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+}
+@media (max-width: 767px) {
+  .hero-1 .hero-bg.hero-bg-first {
+    background-position: 70% center;
+  }
 }
 .hero-1 .hero-bg::before {
   position: absolute;
@@ -6405,6 +6463,9 @@ span {
 .hero-1 .hero-content h1 {
   color: var(--white);
   font-size: 57px;
+  font-family: "Manrope", sans-serif;
+  font-weight: 700;
+  line-height: 1.1;
 }
 .hero-1 .hero-content .booking-list-area {
   border-radius: 10px;
@@ -8890,6 +8951,34 @@ input.main-search-input::placeholder {
 @media (max-width: 1199px) {
   .testimonial-section .bag-shape {
     display: none;
+  }
+}
+
+/* Final topbar compact override (keep at file end) */
+.header-top-wrapper-new {
+  padding: 4px 0 !important;
+}
+
+.header-top-wrapper-new .top-right {
+  margin: 0;
+  padding: 0;
+  gap: 14px;
+}
+
+.header-top-wrapper-new .top-right li,
+.header-top-wrapper-new .top-right li a,
+.header-top-wrapper-new .social-icon span,
+.header-top-wrapper-new .social-icon a {
+  line-height: 1.1;
+}
+
+.header-top-wrapper-new .social-icon {
+  gap: 10px;
+}
+
+@media (max-width: 991px) {
+  .header-top-wrapper-new {
+    padding: 3px 0 !important;
   }
 }
 
