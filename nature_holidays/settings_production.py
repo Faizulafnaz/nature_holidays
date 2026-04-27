@@ -1,7 +1,6 @@
 # Production Settings - Complete Django Configuration
 # This file is imported by main settings.py when DJANGO_ENV=production
 
-import os
 from pathlib import Path
 import dj_database_url
 from decouple import config
@@ -15,11 +14,22 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [
-    'nature-holidays.onrender.com',
-    'natureholidays.onrender.com',
-    'your-custom-domain.com',  # Add your custom domain here
-    '.onrender.com'
+raw_allowed_hosts = config(
+    'ALLOWED_HOSTS',
+    default='nature-holidays.onrender.com,natureholidays.onrender.com,.onrender.com'
+)
+ALLOWED_HOSTS = [host.strip() for host in raw_allowed_hosts.split(',') if host.strip()]
+
+render_external_hostname = config('RENDER_EXTERNAL_HOSTNAME', default='')
+if render_external_hostname:
+    ALLOWED_HOSTS.append(render_external_hostname)
+
+raw_csrf_trusted_origins = config(
+    'CSRF_TRUSTED_ORIGINS',
+    default='https://nature-holidays.onrender.com,https://natureholidays.onrender.com'
+)
+CSRF_TRUSTED_ORIGINS = [
+    origin.strip() for origin in raw_csrf_trusted_origins.split(',') if origin.strip()
 ]
 
 # Application definition
@@ -136,6 +146,7 @@ SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_HSTS_SECONDS = 31536000
 SECURE_REDIRECT_EXEMPT = []
 SECURE_SSL_REDIRECT = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 X_FRAME_OPTIONS = 'DENY'

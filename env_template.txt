@@ -7,9 +7,13 @@ DJANGO_ENV=development
 # Django Settings
 SECRET_KEY=your-secret-key-here
 DEBUG=True
+ALLOWED_HOSTS=localhost,127.0.0.1,0.0.0.0
+CSRF_TRUSTED_ORIGINS=http://localhost:8000,http://127.0.0.1:8000
 
 # Database (for development - SQLite)
 # DATABASE_URL=sqlite:///db.sqlite3
+# Render PostgreSQL example:
+# DATABASE_URL=postgres://user:password@host:5432/dbname
 
 # Cloudinary Settings (Optional)
 CLOUDINARY_CLOUD_NAME=your-cloud-name
@@ -24,3 +28,10 @@ EMAIL_HOST_USER=your-email@gmail.com
 EMAIL_HOST_PASSWORD=your-app-password
 DEFAULT_FROM_EMAIL=Nature Holidays <info@natureholidays.com>
 ADMIN_EMAIL=admin@natureholidays.com
+
+# Render deployment hints:
+# DJANGO_ENV=production
+# DEBUG=False
+# ALLOWED_HOSTS=your-service.onrender.com,yourdomain.com
+# CSRF_TRUSTED_ORIGINS=https://your-service.onrender.com,https://yourdomain.com
+# RENDER_EXTERNAL_HOSTNAME=your-service.onrender.com
