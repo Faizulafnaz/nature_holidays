@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load currency_format %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="/static/css/packages.css">
@@ -153,9 +154,11 @@
                                     <div class="icon">
                                         <img src="/static/img/icon/34.svg" alt="img">
                                     </div>
-                                    <div class="content">
+                                    <div class="content price-summary-block">
                                         <span>Price</span>
-                                        <h6>₹{{ package.price }}</h6>
+                                        <span class="price-from-label">Starts from</span>
+                                        <h6 class="price-amount-only">₹{% if package.offer %}{{ package.get_offer_price|inr_commas }}{% else %}{{ package.price|inr_commas }}{% endif %}</h6>
+                                        <span class="price-meta-sub">/ Per person</span>
                                     </div>
                                 </div>
                             </div>
@@ -277,10 +280,14 @@
                                 <ul class="list">
                                     <li>Duration: {{ package.duration|default:"3 Days" }}</li>
                                 </ul>
-                                <ul class="ticket">
+                                <ul class="ticket ticket-price-stacked">
                                     <li>Price:</li>
                                     <li>
-                                        <span>₹{{ package.price }} per person</span>
+                                        <div class="ticket-price-block">
+                                            <span class="price-from-label">Starts from</span>
+                                            <span class="ticket-price-amount">₹{% if package.offer %}{{ package.get_offer_price|inr_commas }}{% else %}{{ package.price|inr_commas }}{% endif %}</span>
+                                            <span class="ticket-price-meta">/ Per person</span>
+                                        </div>
                                     </li>
                                 </ul>
                             </div>
@@ -294,9 +301,14 @@
                             </div>
                             {% endif %}
                             
-                            <ul class="price">
-                                <li>Total:</li>
-                                <li>₹{{ package.price }}</li>
+                            <ul class="price booking-price-stacked">
+                                <li>From:</li>
+                                <li>
+                                    <div class="booking-price-block">
+                                        <span class="booking-price-amount">₹{% if package.offer %}{{ package.get_offer_price|inr_commas }}{% else %}{{ package.price|inr_commas }}{% endif %}</span>
+                                        <span class="booking-price-meta">/ Per person</span>
+                                    </div>
+                                </li>
                             </ul>
                             <a href="#" class="theme-btn">Book Now<i class="fa-sharp fa-regular fa-arrow-right"></i></a>
                         </div>

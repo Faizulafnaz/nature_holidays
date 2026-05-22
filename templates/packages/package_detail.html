@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load currency_format %}
 
 {% block title %}{{ package.name }} - Nature Holidays{% endblock %}
 {% block meta_description %}{{ package.description|truncatewords:25 }}{% endblock %}
@@ -99,10 +100,13 @@
                     </div>
 
                     <div class="package-price">
-                        <div class="price-tag">
-                            <span class="currency">₹</span>
-                            <span class="amount">{{ package.price }}</span>
-                            <span class="per">/per person</span>
+                        <div class="price-tag price-tag-stacked">
+                            <span class="price-from-label">Starts from</span>
+                            <div class="price-tag-amount-row">
+                                <span class="currency">₹</span>
+                                <span class="amount">{% if package.offer %}{{ package.get_offer_price|inr_commas }}{% else %}{{ package.price|inr_commas }}{% endif %}</span>
+                            </div>
+                            <span class="per">/ Per person</span>
                         </div>
                         {% if package.offer %}
                         <div class="offer-badge">
@@ -164,7 +168,11 @@
                             </div>
                             <div class="package-info">
                                 <h6><a href="{% url 'packages:package_detail' related.id %}">{{ related.name }}</a></h6>
-                                <p class="price">₹{{ related.price }}</p>
+                                <p class="price price-related-stacked">
+                                    <span class="price-from-label">Starts from</span>
+                                    <span class="price-related-amount">₹{{ related.price|inr_commas }}</span>
+                                    <span class="price-related-meta">/ Per person</span>
+                                </p>
                             </div>
                         </div>
                         {% endfor %}

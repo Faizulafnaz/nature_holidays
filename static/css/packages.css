@@ -97,6 +97,67 @@
     padding-right: 10px;
 }
 
+/* Alternate package detail template (packages/package_detail.html) */
+.package-info-card .price-tag-stacked {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+}
+.package-info-card .price-tag-stacked .price-from-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text);
+    line-height: 1.2;
+}
+.package-info-card .price-tag-stacked .price-tag-amount-row {
+    display: flex;
+    align-items: baseline;
+    gap: 2px;
+    line-height: 1.1;
+}
+.package-info-card .price-tag-stacked .price-tag-amount-row .currency {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--header);
+}
+.package-info-card .price-tag-stacked .price-tag-amount-row .amount {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--header);
+}
+.package-info-card .price-tag-stacked .per {
+    font-size: 13px;
+    color: var(--text);
+    font-weight: 400;
+}
+.related-packages .price-related-stacked {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    margin-bottom: 0;
+}
+.related-packages .price-related-stacked .price-from-label {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text);
+}
+.related-packages .price-related-stacked .price-related-amount {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--header);
+    line-height: 1.2;
+}
+.related-packages .price-related-stacked .price-related-meta {
+    font-size: 12px;
+    color: var(--text);
+}
+
 /* Refined included/excluded section for package detail */
 .inclusions-exclusions-section {
     margin-top: 28px;

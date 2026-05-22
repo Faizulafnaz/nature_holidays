@@ -2857,6 +2857,35 @@ span {
   font-size: 12px;
   color: var(--text);
 }
+
+/* Package cards: “Starts from” above the amount (seasonal / from pricing) */
+.destination-card-items .destination-content .price .price-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+  padding-right: 10px;
+}
+.destination-card-items .destination-content .price .price-block .price-from-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  line-height: 1.2;
+}
+.destination-card-items .destination-content .price .price-block .price-amount {
+  margin: 0;
+  line-height: 1.15;
+}
+.destination-card-items .destination-content .price .price-block .price-meta {
+  font-size: 12px;
+  color: var(--text);
+  font-weight: 400;
+  line-height: 1.25;
+}
 .destination-card-items .destination-content .price .theme-btn.style-2 {
   border-radius: 100px;
   background: rgba(2, 165, 206, 0.1);
@@ -4360,6 +4389,60 @@ span {
 .activities-details-wrapper .main-bar .activities-card .from-bar .ticket li span {
   font-weight: 300;
 }
+.activities-details-wrapper .main-bar .activities-card .from-bar .ticket.ticket-price-stacked {
+  align-items: flex-start;
+}
+.activities-details-wrapper .main-bar .activities-card .from-bar .ticket .ticket-price-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  gap: 2px;
+}
+.activities-details-wrapper .main-bar .activities-card .from-bar .ticket .ticket-price-block .price-from-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  line-height: 1.2;
+}
+.activities-details-wrapper .main-bar .activities-card .from-bar .ticket .ticket-price-block .ticket-price-amount {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--header);
+  line-height: 1.15;
+}
+.activities-details-wrapper .main-bar .activities-card .from-bar .ticket .ticket-price-block .ticket-price-meta {
+  font-size: 12px;
+  color: var(--text);
+  font-weight: 400;
+  line-height: 1.25;
+}
+.activities-details-wrapper .activities-details-content .activities-box-wrap .activities-box-area .activities-box-item .content.price-summary-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+.activities-details-wrapper .activities-details-content .activities-box-wrap .activities-box-area .activities-box-item .content.price-summary-block .price-from-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  line-height: 1.2;
+}
+.activities-details-wrapper .activities-details-content .activities-box-wrap .activities-box-area .activities-box-item .content.price-summary-block .price-amount-only {
+  margin: 0;
+  line-height: 1.15;
+}
+.activities-details-wrapper .activities-details-content .activities-box-wrap .activities-box-area .activities-box-item .content.price-summary-block .price-meta-sub {
+  font-size: 12px;
+  color: var(--text);
+  font-weight: 400;
+  line-height: 1.25;
+}
 .activities-details-wrapper .main-bar .activities-card .categories-list h5 {
   font-weight: 500;
   margin-bottom: 30px;
@@ -4439,6 +4522,28 @@ span {
   font-size: 18px;
   font-weight: 500;
   color: var(--header);
+}
+.activities-details-wrapper .main-bar .activities-card .price.booking-price-stacked {
+  align-items: flex-start;
+}
+.activities-details-wrapper .main-bar .activities-card .price .booking-price-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  gap: 2px;
+}
+.activities-details-wrapper .main-bar .activities-card .price .booking-price-block .booking-price-amount {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--header);
+  line-height: 1.15;
+}
+.activities-details-wrapper .main-bar .activities-card .price .booking-price-block .booking-price-meta {
+  font-size: 12px;
+  color: var(--text);
+  font-weight: 400;
+  line-height: 1.25;
 }
 .activities-details-wrapper .main-bar .activities-card .theme-btn {
   width: 100%;
@@ -5411,6 +5516,7 @@ span {
 
 .header-top-section-new {
   background-color: rgba(95, 162, 179, 0.3294117647);
+  padding-left: 0;
 }
 .header-top-section-new .container-fluid {
   padding: 0 150px;
@@ -5434,43 +5540,16 @@ span {
 .header-section-10 {
   position: relative;
 }
+/* Large-screen layout used an absolute .header-logo + ::before shape; above ~1900px
+   the logo sat outside the compact header and looked missing. Use the same in-flow
+   logo as smaller breakpoints at all widths. */
 .header-section-10::before {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 28%;
-  height: 100%;
-  content: "";
-  background-color: var(--theme);
-  z-index: -1;
-  clip-path: polygon(78% 0, 100% 106%, 100% 100%, 0 100%, 0 0);
-}
-@media (max-width: 1899px) {
-  .header-section-10::before {
-    display: none;
-  }
+  display: none;
 }
 .header-section-10 .header-logo {
-  position: absolute;
-  top: 55px;
-  left: 150px;
-}
-@media (max-width: 1899px) {
-  .header-section-10 .header-logo {
-    display: none;
-  }
+  display: none;
 }
 
-.header-top-section-new {
-  padding-left: 400px;
-}
-@media (max-width: 1899px) {
-  .header-top-section-new {
-    padding-left: 0;
-  }
-}
 @media (max-width: 1199px) {
   .header-top-section-new {
     display: none;
@@ -5528,12 +5607,7 @@ span {
   }
 }
 .header-11 .logo-2 {
-  display: none;
-}
-@media (max-width: 1899px) {
-  .header-11 .logo-2 {
-    display: block;
-  }
+  display: block;
 }
 @media (max-width: 1399px) {
   .header-11 .theme-btn {
