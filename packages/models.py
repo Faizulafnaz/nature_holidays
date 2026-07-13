@@ -273,3 +273,25 @@ class Contact(models.Model):
 
     def __str__(self):
         return f'Contact from {self.name} - {self.created_at.strftime("%Y-%m-%d")}'
+
+
+class InstagramPost(models.Model):
+    title = models.CharField(max_length=150, blank=True, help_text="Optional label for admin / image alt text")
+    image = models.ImageField(upload_to='instagram/')
+    link = models.URLField(
+        blank=True,
+        default='https://www.instagram.com/natureholidayskerala/',
+        help_text="Instagram post or profile URL opened when the icon is clicked",
+    )
+    order = models.PositiveIntegerField(default=0, help_text="Lower numbers appear first")
+    is_active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['order', '-created_at']
+        verbose_name = 'Instagram Post'
+        verbose_name_plural = 'Instagram Posts'
+
+    def __str__(self):
+        return self.title or f'Instagram image #{self.pk}'

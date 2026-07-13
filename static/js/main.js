@@ -38,11 +38,27 @@
   
       //>> Sticky Header Js Start <<//
   
+      const $stickyHeader = $("#header-sticky");
+      let stickySpacer = null;
+
       $windowOn.on("scroll", function () {
-        if ($(this).scrollTop() > 250) {
-          $("#header-sticky").addClass("sticky");
-        } else {
-          $("#header-sticky").removeClass("sticky");
+        // Activate early so the transparent overlay header doesn't sit
+        // as white icons on white content (looks broken on inner pages).
+        if ($(this).scrollTop() > 40) {
+          if (!$stickyHeader.hasClass("sticky")) {
+            const headerHeight = $stickyHeader.outerHeight() || 0;
+            stickySpacer = $('<div class="header-sticky-spacer" aria-hidden="true"></div>')
+              .css("height", headerHeight + "px");
+            $stickyHeader.before(stickySpacer);
+            $stickyHeader.addClass("sticky");
+          }
+        } else if ($stickyHeader.hasClass("sticky")) {
+          $stickyHeader.removeClass("sticky");
+          if (stickySpacer) {
+            stickySpacer.remove();
+            stickySpacer = null;
+          }
+          $(".header-sticky-spacer").remove();
         }
       });      
       
@@ -83,11 +99,11 @@
     ///>> Hero Slider Start <<//
     const sliderswiper = new Swiper('.hero-slider', {
         // Optional parameters
-        speed: 1500,
+        speed: 2500,
         loop: true,
         slidesPerView: 1,
         autoplay: {
-            delay: 3000,
+            delay: 5000,
             disableOnInteraction: true,
         },
         effect: 'fade',

@@ -1,6 +1,9 @@
 /* Package Grid Image Fixes */
 .destination-card-items {
     height: 100%;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
     display: flex;
     flex-direction: column;
 }
@@ -11,10 +14,13 @@
     border-radius: 20px 20px 0 0;
     height: 250px; /* Fixed height for all images */
     min-height: 250px;
+    width: 100%;
+    max-width: 100%;
 }
 
 .destination-card-items .destination-image img {
     width: 100%;
+    max-width: 100%;
     height: 100%;
     object-fit: cover; /* This ensures images cover the area without distortion */
     border-radius: 20px 20px 0 0;
@@ -37,10 +43,25 @@
 .row.g-4 > [class*="col-"] {
     display: flex;
     flex-direction: column;
+    min-width: 0;
+    max-width: 100%;
 }
 
 .row.g-4 > [class*="col-"] > .destination-card-items {
     height: 100%;
+    max-width: 100%;
+}
+
+@media (max-width: 575px) {
+    .destination-card-items .destination-content .price {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+    .destination-card-items .destination-content .price .theme-btn.style-2 {
+        min-width: 0;
+        width: 100%;
+        text-align: center;
+    }
 }
 
 /* Minimal search/filter UI */

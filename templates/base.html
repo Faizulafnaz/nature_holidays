@@ -175,8 +175,11 @@
                     <div class="mega-menu-wrapper">
                         <div class="header-main">
                             <div class="logo">
-                                    <a href="index.html">
-                                <img src="/static/img/logo/natural_holidays_logo_transparent.png" alt="" style="max-width: 107px;padding: 8px;">
+                                    <a href="{% url 'packages:home' %}" class="header-logo">
+                                <img src="/static/img/logo/natural_holidays_logo_transparent.png" alt="Nature Holidays" style="max-width: 107px;padding: 8px;">
+                                    </a>
+                                    <a href="{% url 'packages:home' %}" class="header-logo-2">
+                                <img src="/static/img/logo/natural_holidays_logo_transparent.png" alt="Nature Holidays" style="max-width: 107px;padding: 8px;">
                                     </a>
                             </div>
                             <div class="header-right d-flex justify-content-end align-items-center">

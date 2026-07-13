@@ -7,7 +7,7 @@ from unfold.widgets import (
     UnfoldAdminSelectWidget,
     UnfoldBooleanSwitchWidget,
 )
-from .models import Category, Offer, Package, PackageImage, TeamMember, SiteStats, NewsletterSubscription, CTASection, Itinerary, PackageInclusion, PackageExclusion, BlogCategory, BlogTag, Blog, BlogComment, Contact
+from .models import Category, Offer, Package, PackageImage, TeamMember, SiteStats, NewsletterSubscription, CTASection, Itinerary, PackageInclusion, PackageExclusion, BlogCategory, BlogTag, Blog, BlogComment, Contact, InstagramPost
 
 UNFOLD_FORMFIELD_OVERRIDES = {
     models.CharField: {"widget": UnfoldAdminTextInputWidget},
@@ -215,3 +215,14 @@ class ContactAdmin(ModelAdmin):
             'fields': ('created_at',)
         }),
     )
+
+
+@admin.register(InstagramPost)
+class InstagramPostAdmin(ModelAdmin):
+    formfield_overrides = UNFOLD_FORMFIELD_OVERRIDES
+    list_display = ('title', 'order', 'is_active', 'updated_at')
+    list_editable = ('order', 'is_active')
+    list_filter = ('is_active',)
+    search_fields = ('title', 'link')
+    ordering = ('order', '-created_at')
+    readonly_fields = ('created_at', 'updated_at')

@@ -6,7 +6,7 @@ from django.core.paginator import Paginator
 from django.core.mail import send_mail, EmailMessage
 from django.conf import settings
 from django.template.loader import render_to_string
-from .models import Package, Category, Offer, TeamMember, SiteStats, Itinerary, BlogCategory, BlogTag, Blog, BlogComment, Contact
+from .models import Package, Category, Offer, TeamMember, SiteStats, Itinerary, BlogCategory, BlogTag, Blog, BlogComment, Contact, InstagramPost
 
 def home(request):
     """Home page view with dynamic content"""
@@ -45,6 +45,9 @@ def home(request):
     # Get team members
     team_members = TeamMember.objects.filter(is_active=True)[:4]
     
+    # Instagram feed for homepage slider
+    instagram_posts = InstagramPost.objects.filter(is_active=True)
+    
     # Get site statistics
     try:
         site_stats = SiteStats.objects.first()
@@ -58,6 +61,7 @@ def home(request):
         'active_offers': active_offers,
         'highest_discount': highest_discount,
         'team_members': team_members,
+        'instagram_posts': instagram_posts,
         'site_stats': site_stats,
     }
     return render(request, 'index.html', context)
