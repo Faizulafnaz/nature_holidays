@@ -351,3 +351,99 @@
     }
 }
 
+/* Package detail: standard hero image height */
+.activities-details-wrapper .details-thumb > img {
+    width: 100%;
+    height: 420px;
+    max-height: 50vh;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 20px;
+    display: block;
+}
+
+@media (max-width: 991px) {
+    .activities-details-wrapper .details-thumb > img {
+        height: 320px;
+    }
+}
+
+@media (max-width: 575px) {
+    .activities-details-wrapper .details-thumb > img {
+        height: 240px;
+        max-height: none;
+    }
+}
+
+.activities-details-wrapper .details-thumb .image-list li img {
+    height: 90px;
+    width: 120px;
+    object-fit: cover;
+}
+
+@media (max-width: 575px) {
+    .activities-details-wrapper .details-thumb .image-list li img {
+        height: 64px;
+        width: 80px;
+    }
+}
+
+/* Package enquiry card (replaces booking form) */
+.package-enquiry-card .enquiry-intro {
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.55;
+    margin-bottom: 20px;
+}
+
+.package-enquiry-card .enquiry-meta {
+    list-style: none;
+    margin: 0 0 24px;
+    padding: 0;
+    border-top: 1px solid var(--border);
+}
+
+.package-enquiry-card .enquiry-meta li {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.package-enquiry-card .enquiry-meta li span {
+    color: var(--text);
+    font-size: 14px;
+}
+
+.package-enquiry-card .enquiry-meta li strong {
+    color: var(--header);
+    font-size: 15px;
+    font-weight: 600;
+    text-align: right;
+}
+
+.package-enquiry-card .enquiry-meta li strong small {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text);
+}
+
+.package-enquiry-card .enquiry-phone {
+    display: block;
+    text-align: center;
+    margin-top: 14px;
+    color: var(--theme);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.package-enquiry-card .enquiry-phone:hover {
+    color: var(--header);
+}
+
+.package-enquiry-card .enquiry-phone i {
+    margin-right: 6px;
+}
+

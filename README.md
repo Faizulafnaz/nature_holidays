@@ -2,6 +2,10 @@
 
 A comprehensive travel and tourism website built with Django, featuring package management, blog system, contact forms, and email notifications.
 
+## Documentation
+
+Developer guides (architecture, domain model, local setup, deployment, and scaling) live in **[doc/](doc/README.md)**. Start there if you are new to the codebase or planning larger changes.
+
 ## 🌟 Features
 
 ### Core Features
@@ -198,6 +202,7 @@ nature-holidays/
 │   ├── settings_production.py # Production overrides only
 │   ├── urls.py              # Main URL config
 │   └── wsgi.py              # WSGI config
+├── doc/                      # Developer documentation
 ├── requirements.txt          # Python dependencies
 ├── build.sh                 # Render build script
 ├── env_template.txt         # Environment variables template
