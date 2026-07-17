@@ -93,7 +93,7 @@
                         <div class="detail-item">
                             <i class="fa-thin fa-tag"></i>
                             <div>
-                                <strong>Package Type:</strong>
+                                <strong>Package type:</strong>
                                 <span>{{ package.get_package_type_display }}</span>
                             </div>
                         </div>
@@ -106,7 +106,7 @@
                                 <span class="currency">₹</span>
                                 <span class="amount">{% if package.offer %}{{ package.get_offer_price|inr_commas }}{% else %}{{ package.price|inr_commas }}{% endif %}</span>
                             </div>
-                            <span class="per">/ Per person</span>
+                            <span class="per">/ per person</span>
                         </div>
                         {% if package.offer %}
                         <div class="offer-badge">
@@ -171,7 +171,7 @@
                                 <p class="price price-related-stacked">
                                     <span class="price-from-label">Starts from</span>
                                     <span class="price-related-amount">₹{{ related.price|inr_commas }}</span>
-                                    <span class="price-related-meta">/ Per person</span>
+                                    <span class="price-related-meta">/ per person</span>
                                 </p>
                             </div>
                         </div>
@@ -179,7 +179,7 @@
                     </div>
                     {% endif %}
 
-                    <!-- Contact Info -->
+                    <!-- Contact info -->
                     <div class="contact-info">
                         <h5>Need Help?</h5>
                         <p>Contact our travel experts for any questions about this package.</p>

@@ -1259,7 +1259,7 @@
                         background-color: $white;
                         border-radius: 12px;
                         padding: 25px 30px 0;
-                        text-transform: capitalize;
+                        text-transform: none;
                         font-size: 18px;
                        
                         @include breakpoint(max-xl) {
@@ -1674,7 +1674,7 @@
                 padding: 20px 30px;
                 line-height: 1;
                 border-radius: 10px;
-                text-transform: capitalize;
+                text-transform: none;
                 color: #455151;
 
                 &::placeholder {

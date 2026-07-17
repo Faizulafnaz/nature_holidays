@@ -408,7 +408,7 @@
                 font-weight: 400;
                 background: $white;
                 margin-right: 5px;
-                text-transform: capitalize;
+                text-transform: none;
                 margin-bottom: 10px;
                 border-radius: 4px;
                 border: 1px solid $border-color;
@@ -435,7 +435,7 @@
                     padding: 20px 30px;
                     line-height: 1;
                     border-radius: 10px;
-                    text-transform: capitalize;
+                    text-transform: none;
                     color: #455151;
 
                     &::placeholder {
@@ -641,7 +641,7 @@
 
                     p {
                         font-weight: 600;
-                        text-transform: capitalize;
+                        text-transform: none;
                         font-style: italic;
                         line-height: 26px;
                         color: $header-color;
@@ -674,7 +674,7 @@
                     line-height: 1;
                     background: transparent;
                     margin-right: 8px;
-                    text-transform: capitalize;
+                    text-transform: none;
                     font-weight: 500;
                     -webkit-transition: all 0.4s ease-in-out;
                     transition: all 0.4s ease-in-out;

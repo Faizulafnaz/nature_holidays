@@ -79,7 +79,7 @@
                 border-radius: 100px;
                 color: #727171;
                 line-height: 1;
-                text-transform: capitalize;
+                text-transform: none;
 
                 @include breakpoint(max-lg) {
                     padding: 15px 20px;
@@ -247,7 +247,7 @@
                         font-size: 14px;
                         color: $white;
                         font-weight: 400;
-						text-transform: capitalize;
+						text-transform: none;
                         margin-bottom: 0;
                     }
 

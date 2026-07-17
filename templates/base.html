@@ -8,9 +8,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="author" content="pixel-drop">
-        <meta name="description" content="{% block meta_description %}Nature Holidays - Your trusted travel partner for unforgettable adventures{% endblock %}">
+        <meta name="description" content="{% block meta_description %}Nature Holidays — Wayanad travel agency with 18 years of carefully planned Kerala, India & international holidays for families, couples & groups.{% endblock %}">
         <!-- ======== Page title ============ -->
-        <title>{% block title %}Nature Holidays - Travel & Tour Agency{% endblock %}</title>
+        <title>{% block title %}Nature Holidays | Wayanad Travel Agency & Tour Packages{% endblock %}</title>
         <!--<< Favcion >>-->
         <link rel="shortcut icon" href="/static/img/favicon.png">
         <!--<< Bootstrap min.css >>-->
@@ -116,11 +116,11 @@
                             </div>
                         </div>
                         <p class="text d-none d-xl-block">
-                            Welcome to Nature Holidays, Wayanad's premier travel and tour agency with over 18 years of excellence in creating unforgettable travel experiences. Based in the heart of Kerala's most beautiful hill station, we have been the trusted choice for thousands of travelers seeking authentic, well-planned, and memorable journeys across India and beyond.
+                            Welcome to Nature Holidays — your Wayanad travel partners with over 18 years of carefully planned holidays. From our base in Kerala's hills, we help families, couples, friends, and groups enjoy India and beyond with warmth, clarity, and peace of mind.
                         </p>
                         <div class="mobile-menu fix mb-3"></div>
                         <div class="offcanvas__contact">
-                            <h4>Contact Info</h4>
+                            <h4>Contact info</h4>
                             <ul>
                                 <li class="d-flex align-items-center">
                                     <div class="offcanvas__contact-icon">
@@ -136,7 +136,7 @@
                                         <i class="fal fa-envelope"></i>
                                     </div>
                                     <div class="offcanvas__contact-text">
-                                        <a href="mailto:info@example.com"><span class="mailto:info@natureholidaysonline.com">info@natureholidaysonline.com</span></a>
+                                        <a href="mailto:info@natureholidaysonline.com"><span>info@natureholidaysonline.com</span></a>
                                     </div>
                                 </li>
                                 <li class="d-flex align-items-center">
@@ -144,7 +144,7 @@
                                         <i class="fal fa-clock"></i>
                                     </div>
                                     <div class="offcanvas__contact-text">
-                                        <a target="_blank" href="#">Mod-Sat, 09am -05:30 pm</a>
+                                        <a target="_blank" href="#">Mon–Sat, 09am – 05:30 pm</a>
                                     </div>
                                 </li>
                                 <li class="d-flex align-items-center">
@@ -157,7 +157,7 @@
                                 </li>
                             </ul>
                             <div class="header-button mt-4">
-                                <a href="contact.html" class="theme-btn"> Contact us <i class="fa-sharp fa-regular fa-arrow-right"></i></a>
+                                <a href="{% url 'packages:contact' %}" class="theme-btn"> Talk to us <i class="fa-sharp fa-regular fa-arrow-right"></i></a>
                             </div>
                             <div class="social-icon d-flex align-items-center">
                                 <a href="https://www.facebook.com/people/Nature-Holidays/100079924553370/"><i class="fab fa-facebook-f"></i></a>
@@ -196,7 +196,7 @@
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="/about" class="{% if request.path|slice:':6' == '/about' %}active{% endif %}">About Us</a>
+                                                    <a href="/about" class="{% if request.path|slice:':6' == '/about' %}active{% endif %}">About us</a>
                                                 </li>
                                                 <li>
                                                     <a href="/packages" class="{% if request.path|slice:':9' == '/packages' %}active{% endif %}">
@@ -210,7 +210,7 @@
                                                 </li>
                                                <li>
                                                     <a href="/contact" class="{% if request.path|slice:':8' == '/contact' %}active{% endif %}">
-                                                        Contact Us
+                                                        Contact us
                                                     </a>
                                                 </li>
                                             </ul>
@@ -235,7 +235,7 @@
                 <div class="search-cell">
                     <form method="get">
                         <div class="search-field-holder">
-                            <input type="search" class="main-search-input" placeholder="Search...">
+                            <input type="search" class="main-search-input" placeholder="Search holidays...">
                         </div>
                     </form>
                 </div>
@@ -258,8 +258,8 @@
                                 </div>
                                 <div class="footer-content">
                                     <div class="social-icon d-flex align-items-center justify-content-center">
-                                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://www.facebook.com/people/Nature-Holidays/100079924553370/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="https://www.instagram.com/natureholidayskerala/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -267,7 +267,7 @@
                         <div class="col-6 col-md-4 col-lg-3 col-xl-2 ps-lg-5 wow fadeInUp wow" data-wow-delay=".4s">
                             <div class="single-widget-items">
                                 <div class="widget-head">
-                                   <h4>Quick Links</h4>
+                                   <h4>Quick links</h4>
                                 </div>
                                 <ul class="list-items">
                                     <li>
@@ -277,7 +277,7 @@
                                     </li>
                                     <li>
                                         <a href="/about">
-                                            About Us  
+                                            About us  
                                         </a>
                                     </li>
                                     <li>
@@ -304,9 +304,9 @@
                                    <h4>Services</h4>
                                 </div>
                                 <ul class="list-items">
-                                    <li><a href="/packages?q=International">International Packages</a></li>
-                                    <li><a href="/packages?q=Domestic">Domestic Packages</a></li>
-                                    <li><a href="/packages?type=fit">FIT Packages</a></li>
+                                    <li><a href="/packages?q=International">International packages</a></li>
+                                    <li><a href="/packages?q=Domestic">Domestic packages</a></li>
+                                    <li><a href="/packages?type=fit">FIT packages</a></li>
                                     <li><a href="/contact">Visa</a></li>
                                     <li><a href="/contact">Passport</a></li>
                                 </ul>
@@ -315,7 +315,7 @@
                         <div class="col-12 col-md-6 col-lg-4 col-xl-3 ps-xl-5 wow fadeInUp wow" data-wow-delay=".6s">
                             <div class="single-widget-items">
                                 <div class="widget-head">
-                                   <h4>Contact Us</h4>
+                                   <h4>Contact us</h4>
                                 </div>
                                 <div class="contact-info">
                                     <div class="contact-items">
@@ -363,7 +363,7 @@
                         </p>
                         <ul class="bottom-list wow fadeInUp" data-wow-delay=".5s">
                             <li>Terms of use</li>
-                            <li>Privacy Environmental Policy</li>
+                            <li>Privacy policy</li>
                         </ul>
                     </div>
                 </div>

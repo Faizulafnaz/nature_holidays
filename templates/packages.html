@@ -11,7 +11,7 @@
         <div class="container">
             <div class="row">
                 <div class="page-heading">
-                    <h2>Our Packages</h2>
+                    <h2>Our packages</h2>
                     <ul class="breadcrumb-list">
                         <li>
                             <a href="{% url 'packages:home' %}">Home</a>
@@ -33,11 +33,11 @@
                     <div class="search-filter-wrapper">
                         <form method="GET" action="{% url 'packages:package_list' %}" class="row g-3">
                             <div class="col-md-5">
-                                <input type="text" name="q" value="{{ query|default:'' }}" class="form-control" placeholder="Search packages...">
+                                <input type="text" name="q" value="{{ query|default:'' }}" class="form-control" placeholder="Search holidays by place or interest...">
                             </div>
                             <div class="col-md-5">
                                 <select name="category" class="form-control">
-                                    <option value="">All Categories</option>
+                                    <option value="">All categories</option>
                                     {% for category in categories %}
                                         <option value="{{ category.id }}" {% if selected_category == category.id|stringformat:"s" %}selected{% endif %}>
                                             {{ category.name }}
@@ -112,18 +112,18 @@
                                 <div class="price-block">
                                     <span class="price-from-label">Starts from</span>
                                     <h6 class="price-amount">₹{{ package.get_offer_price|inr_commas }}</h6>
-                                    <span class="price-meta">/ Per person</span>
+                                    <span class="price-meta">/ per person</span>
                                 </div>
-                                <a href="{% url 'packages:package_detail' package.id %}" class="theme-btn style-2">Book Now<i class="fa-sharp fa-regular fa-arrow-right"></i></a>
+                                <a href="{% url 'packages:package_detail' package.id %}" class="theme-btn style-2">View trip<i class="fa-sharp fa-regular fa-arrow-right"></i></a>
                             </div>
                             {% else %}
                             <div class="price">                                    
                                 <div class="price-block">
                                     <span class="price-from-label">Starts from</span>
                                     <h6 class="price-amount">₹{{ package.price|inr_commas }}</h6>
-                                    <span class="price-meta">/ Per person</span>
+                                    <span class="price-meta">/ per person</span>
                                 </div>
-                                <a href="{% url 'packages:package_detail' package.id %}" class="theme-btn style-2">Book Now<i class="fa-sharp fa-regular fa-arrow-right"></i></a>
+                                <a href="{% url 'packages:package_detail' package.id %}" class="theme-btn style-2">View trip<i class="fa-sharp fa-regular fa-arrow-right"></i></a>
                             </div>
                             {% endif %}
                         </div>
@@ -132,9 +132,9 @@
                 {% empty %}
                 <div class="col-12">
                     <div class="text-center py-5">
-                        <h4>No packages found</h4>
-                        <p>Try adjusting your search criteria or browse all packages.</p>
-                        <a href="{% url 'packages:package_list' %}" class="theme-btn">View All Packages</a>
+                        <h4>No holidays found</h4>
+                        <p>Try a different search, or browse all of our trips.</p>
+                        <a href="{% url 'packages:package_list' %}" class="theme-btn">View all trips</a>
                     </div>
                 </div>
                 {% endfor %}
