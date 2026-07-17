@@ -52,67 +52,193 @@
     max-width: 100%;
 }
 
-@media (max-width: 575px) {
-    .destination-card-items .destination-image,
-    .destination-card-items .destination-image img {
-        height: 220px;
-        min-height: 220px;
-    }
-    .destination-card-items .destination-content .price {
-        flex-wrap: wrap;
-        gap: 12px;
-    }
-    .destination-card-items .destination-content .price .theme-btn.style-2 {
-        min-width: 0;
-        width: 100%;
-        text-align: center;
-    }
+/* Compact stylish search/filter — all breakpoints */
+.packages-listing-section.section-padding {
+    padding-top: 40px;
 }
 
-/* Minimal search/filter UI */
+.packages-filter-row {
+    margin-bottom: 28px !important;
+}
+
 .search-filter-wrapper {
     background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 16px;
+    border: 1px solid #e6ebf0;
+    border-radius: 14px;
+    padding: 8px 10px;
+    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.05);
+}
+
+.packages-filter-form {
+    --bs-gutter-x: 0.5rem;
+    --bs-gutter-y: 0;
+    align-items: center;
+}
+
+.packages-filter-form.g-3 {
+    --bs-gutter-x: 0.5rem;
+    --bs-gutter-y: 0;
 }
 
 .search-filter-wrapper .form-control,
 .search-filter-wrapper select,
 .search-filter-wrapper input[type="text"],
 .search-filter-wrapper input[type="search"] {
-    height: 46px;
+    height: 42px;
+    font-size: 14px;
     border-radius: 10px;
-    border: 1px solid var(--border);
-    background-color: #fff;
+    border: 0;
+    background-color: #f4f7f9;
     color: var(--header);
     box-shadow: none;
+    padding: 0 14px;
 }
 
 .search-filter-wrapper .form-control:focus,
 .search-filter-wrapper select:focus,
 .search-filter-wrapper input[type="text"]:focus,
 .search-filter-wrapper input[type="search"]:focus {
-    border-color: var(--theme);
+    border-color: transparent;
     outline: none;
-    box-shadow: none;
+    box-shadow: inset 0 0 0 1px var(--theme);
+    background-color: #fff;
 }
 
 .search-filter-wrapper .form-control::placeholder,
 .search-filter-wrapper input::placeholder {
     color: var(--text);
+    opacity: 0.75;
 }
 
 .search-filter-wrapper .theme-btn {
+    height: 42px;
     min-width: 0;
     width: 100%;
     border-radius: 10px;
-    padding: 14px 18px;
+    padding: 0 16px;
+    font-size: 14px;
+    line-height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @media (max-width: 991px) {
     .search-filter-wrapper {
+        border-radius: 12px;
+        padding: 8px;
+    }
+}
+
+/* Phone refinements + home-matching cards */
+@media (max-width: 767px) {
+    .packages-listing-section.section-padding {
+        padding-top: 28px;
+        padding-bottom: 48px;
+    }
+
+    .packages-filter-row {
+        margin-bottom: 16px !important;
+    }
+
+    .search-filter-wrapper {
+        padding: 8px;
+        border-radius: 14px;
+        background: #f8fafb;
+        border-color: #e8ecef;
+        box-shadow: none;
+    }
+
+    .packages-filter-form {
+        --bs-gutter-x: 0.5rem;
+        --bs-gutter-y: 0.5rem;
+    }
+
+    .packages-filter-form.g-3 {
+        --bs-gutter-x: 0.5rem;
+        --bs-gutter-y: 0.5rem;
+    }
+
+    .search-filter-wrapper .form-control,
+    .search-filter-wrapper select,
+    .search-filter-wrapper input[type="text"],
+    .search-filter-wrapper input[type="search"] {
+        height: 38px;
+        font-size: 13px;
+        border-radius: 10px;
+        padding: 0 12px;
+        background: #fff;
+    }
+
+    .search-filter-wrapper .theme-btn {
+        height: 38px;
+        padding: 0 10px;
+        font-size: 13px;
+        line-height: 38px;
+        border-radius: 10px;
+        min-width: 0;
+    }
+
+    /* Match home featured package card proportions */
+    .destination-card-items {
+        border-radius: 16px;
+        overflow: hidden;
+    }
+
+    .destination-card-items .destination-image {
+        height: auto;
+        min-height: 0;
+        border-radius: 16px 16px 0 0;
+    }
+
+    .destination-card-items .destination-image img {
+        height: 220px;
+        min-height: 220px;
+        border-radius: 16px 16px 0 0;
+    }
+
+    .destination-card-items .destination-content {
         padding: 12px;
+    }
+
+    .destination-card-items .destination-content .meta {
+        margin-bottom: 10px;
+    }
+
+    .destination-card-items .destination-content h5 {
+        margin-bottom: 10px;
+        font-size: 16px;
+        line-height: 1.35;
+    }
+
+    .destination-card-items .destination-content .info {
+        gap: 14px;
+        padding-bottom: 8px;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 575px) {
+    .destination-card-items .destination-image img {
+        height: 220px;
+        min-height: 220px;
+    }
+
+    .destination-card-items .destination-content .price {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .destination-card-items .destination-content .price .theme-btn.style-2 {
+        min-width: 0;
+        width: 100%;
+        text-align: center;
+        padding: 8px 14px;
+        font-size: 13px;
+    }
+
+    .search-filter-wrapper .form-control::placeholder {
+        font-size: 12px;
     }
 }
 

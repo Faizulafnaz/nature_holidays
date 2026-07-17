@@ -431,10 +431,11 @@
                 },
                 575: {
                     slidesPerView: 2,
+                    spaceBetween: 20,
                 },
                 0: {
-                    slidesPerView: 2,
-                    spaceBetween: 16,
+                    slidesPerView: 1.45,
+                    spaceBetween: 14,
                 },
             },
         });
