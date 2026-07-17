@@ -11,13 +11,13 @@
         <div class="container">
             <div class="row">
                 <div class="page-heading">
-                    <h2>About Us</h2>
+                    <h2>About us</h2>
                     <ul class="breadcrumb-list">
                         <li>
-                            <a href="index.html">Home</a>
+                            <a href="{% url 'packages:home' %}">Home</a>
                         </li>
                         <li><i class="fa-solid fa-chevrons-right"></i></li>
-                        <li>About Us</li>
+                        <li>About us</li>
                     </ul>
                 </div>
             </div>
@@ -53,22 +53,22 @@
                         <div class="about-content">
                             <div class="section-title">
                                 <span class="sub-title wow fadeInUp">
-                                    18 Years of Excellence
+                                    18 years of excellence
                                 </span>
                                 <h2 class="wow fadeInUp wow" data-wow-delay=".3s">
-                                    Nature Holidays - Your Trusted 
-                                    Travel Partner
+                                    Nature Holidays — your travel 
+                                    partners from Wayanad
                                 </h2>
                             </div>
                             
                             <div class="about-text-content wow fadeInUp wow" data-wow-delay=".5s">
                                 <p>
-                                    Welcome to Nature Holidays, Wayanad's premier travel and tour agency with over 18 years of excellence in creating unforgettable travel experiences. Based in the heart of Kerala's most beautiful hill station, we have been the trusted choice for thousands of travelers seeking authentic, well-planned, and memorable journeys across India and beyond.
+                                    Welcome to Nature Holidays — your Wayanad travel partners with over 18 years of carefully planned holidays. From our base in Kerala's hills, we help families, couples, friends, and groups enjoy India and beyond with warmth, clarity, and peace of mind.
                                 </p>
                                 
-                                <h4 style="margin-top: 25px; margin-bottom: 15px; color: #2c3e50;">Our Story & Legacy</h4>
+                                <h4 style="margin-top: 25px; margin-bottom: 15px; color: #2c3e50;">Our story</h4>
                                 <p>
-                                    Founded in 2006, Nature Holidays began with a simple mission: to make travel accessible, enjoyable, and worry-free for everyone. What started as a small local travel agency in Wayanad has grown into one of the region's most trusted travel partners, serving clients from across India and international destinations. Our journey has been marked by continuous growth, learning, and an unwavering commitment to customer satisfaction.
+                                    Founded in 2006, we began with a simple idea: travel should feel easy and human. What started as a small agency in Wayanad has grown through years of listening to travelers — shaping trips for college groups, honeymoons, family holidays, and quiet senior journeys across South India, North India, and international destinations.
                                 </p>
                                 
                                 
@@ -97,80 +97,80 @@
                                 <a href="https://www.youtube.com/watch?v=Cn4G2lZ_g2I" class="video-btn video-popup">
                                     <i class="fa-duotone fa-play"></i>
                                 </a>
-                                <h5>WACTH VIDEO </h5>
-                            </div>
-                            <div class="about-image-2">
-                                <img src="/static/img/about/02.webp" alt="img" class="wow img-custom-anim-top" data-wow-duration="1.5s" data-wow-delay="0.3s">
-                                <div class="plane-shape float-bob-y">
-                                    <img src="/static/img/about/plane-shape.png" alt="">
+                                    <h5>Watch video </h5>
                                 </div>
-                                <div class="about-tour">
-                                    <div class="icon">
-                                        <img src="/static/img/icon/10.svg" alt="img">
+                                <div class="about-image-2">
+                                    <img src="/static/img/about/02.webp" alt="img" class="wow img-custom-anim-top" data-wow-duration="1.5s" data-wow-delay="0.3s">
+                                    <div class="plane-shape float-bob-y">
+                                        <img src="/static/img/about/plane-shape.png" alt="">
                                     </div>
-                                    <div class="content">
-                                        <h4>Professional Service</h4>
-                                        <span>{% if site_stats %}{{ site_stats.years_experience }}{% else %}18{% endif %} years of Experience</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="about-content">
-                            <div class="section-title">
-                                <span class="sub-title wow fadeInUp">18 Years of Excellence</span>
-                                <h2 class="wow fadeInUp wow" data-wow-delay=".2s">
-                                    Trusted by Thousands of <br>
-                                    Happy Travelers
-                                </h2>
-                            </div>
-                            <div class="about-area mt-4 mt-md-0">
-                                <div class="line-image">
-                                    <img src="/static/img/about/Line-image.png" alt="img">
-                                </div>
-                                <div class="about-items wow fadeInUp wow" data-wow-delay=".3s">
-                                    <div class="icon">
-                                        <img src="/static/img/icon/05.svg" alt="img">
-                                    </div>
-                                    <div class="content">
-                                        <h5>
-                                            Thousands of Happy Travelers
-                                        </h5>
-                                        <p>
-                                            While we proudly showcase 200+ verified reviews, <br> our actual client base extends far beyond
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="about-items wow fadeInUp wow" data-wow-delay=".5s">
-                                    <div class="icon">
-                                        <img src="/static/img/icon/06.svg" alt="img">
-                                    </div>
-                                    <div class="content">
-                                        <h5>
-                                            Universally Loved Team
-                                        </h5>
-                                        <p>
-                                            Every member of our professional team is <br> universally loved by our clients
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="about-items wow fadeInUp wow" data-wow-delay=".7s">
-                                    <div class="icon">
-                                        <img src="/static/img/icon/07.svg" alt="img">
-                                    </div>
-                                    <div class="content">
-                                        <h5>
-                                            From College to Luxury
-                                        </h5>
-                                        <p>
-                                            Serving diverse needs from college group tours <br> to luxury family vacations across India
-                                        </p>
+                                    <div class="about-tour">
+                                        <div class="icon">
+                                            <img src="/static/img/icon/10.svg" alt="img">
+                                        </div>
+                                        <div class="content">
+                                            <h4>Care you can feel</h4>
+                                            <span>{% if site_stats %}{{ site_stats.years_experience }}{% else %}18{% endif %} years of experience</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        <div class="col-lg-6">
+                            <div class="about-content">
+                                <div class="section-title">
+                                    <span class="sub-title wow fadeInUp">18 years of excellence</span>
+                                    <h2 class="wow fadeInUp wow" data-wow-delay=".2s">
+                                        Trips that feel personal <br>
+                                        planned with care
+                                    </h2>
+                                </div>
+                                <div class="about-area mt-4 mt-md-0">
+                                    <div class="line-image">
+                                        <img src="/static/img/about/Line-image.png" alt="img">
+                                    </div>
+                                    <div class="about-items wow fadeInUp wow" data-wow-delay=".3s">
+                                        <div class="icon">
+                                            <img src="/static/img/icon/05.svg" alt="img">
+                                        </div>
+                                        <div class="content">
+                                            <h5>
+                                                Trips made around you
+                                            </h5>
+                                            <p>
+                                                We shape every journey around your pace, <br> family size, and budget — not a fixed script
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="about-items wow fadeInUp wow" data-wow-delay=".5s">
+                                        <div class="icon">
+                                            <img src="/static/img/icon/06.svg" alt="img">
+                                        </div>
+                                        <div class="content">
+                                            <h5>
+                                                A team travelers rely on
+                                            </h5>
+                                            <p>
+                                                Friendly faces who listen, guide, and stay <br> with you from the first call to your return
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="about-items wow fadeInUp wow" data-wow-delay=".7s">
+                                        <div class="icon">
+                                            <img src="/static/img/icon/07.svg" alt="img">
+                                        </div>
+                                        <div class="content">
+                                            <h5>
+                                                College groups to quiet escapes
+                                            </h5>
+                                            <p>
+                                                From student tours to honeymoons and <br> senior-friendly travel across India and beyond
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                 </div>
             </div>
         </div>
@@ -184,60 +184,60 @@
                     <div class="col-xl-7 col-lg-6">
                         <div class="choose-us-content">
                             <div class="section-title">
-                                <span class="sub-title wow fadeInUp">
-                                    Why Choose Nature Holidays
-                                </span>
-                                <h2 class="wow fadeInUp wow" data-wow-delay=".3s">
-                                    Feel Free to Send Your Loved Ones, <br> We'll Take Care of the Rest
-                                </h2>
-                            </div>
-                            <p class="wow fadeInUp wow" data-wow-delay=".3s">
-                                We treat every traveler like family, providing personalized care, attention to detail, and <br> complete peace of mind so you can relax and enjoy your journey without any worries
-                            </p>
-                            <div class="choose-us-area">
-                                <div class="line-shape">
-                                    <img src="/static/img/line-shape2.png" alt="img">
+                                    <span class="sub-title wow fadeInUp">
+                                        How we look after you
+                                    </span>
+                                    <h2 class="wow fadeInUp wow" data-wow-delay=".3s">
+                                        When family travels, <br> we stay close every step
+                                    </h2>
                                 </div>
-                                <div class="choose-us-items wow fadeInUp wow" data-wow-delay=".3s">
-                                    <h3 class="number">
-                                        01
-                                    </h3>
-                                    <div class="content">
-                                        <h4>
-                                            Family-Like Care & Personal Attention
-                                        </h4>
-                                        <p>
-                                            We treat every traveler as our own family member, providing personalized care, <br> special dietary arrangements, and attention to individual needs throughout the journey.
-                                        </p>
+                                <p class="wow fadeInUp wow" data-wow-delay=".3s">
+                                    Tell us who is traveling and what matters most. We handle hotels, transport, <br> and day plans so you can relax and enjoy the journey without the stress.
+                                </p>
+                                <div class="choose-us-area">
+                                    <div class="line-shape">
+                                        <img src="/static/img/line-shape2.png" alt="img">
+                                    </div>
+                                    <div class="choose-us-items wow fadeInUp wow" data-wow-delay=".3s">
+                                        <h3 class="number">
+                                            01
+                                        </h3>
+                                        <div class="content">
+                                            <h4>
+                                                Personal care for every traveler
+                                            </h4>
+                                            <p>
+                                                Special meals, slower paces, or group energy — we notice the small <br> details that make parents, seniors, and friends feel comfortable.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="choose-us-items wow fadeInUp wow" data-wow-delay=".5s">
+                                        <h3 class="number">
+                                            02
+                                        </h3>
+                                        <div class="content">
+                                            <h4>
+                                                Planning that removes the worry
+                                            </h4>
+                                            <p>
+                                                From booking to homecoming, we arrange stays, travel, meals, and <br> activities. You focus on the moments — we handle the logistics.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="choose-us-items wow fadeInUp wow" data-wow-delay=".7s">
+                                        <h3 class="number">
+                                            03
+                                        </h3>
+                                        <div class="content">
+                                            <h4>
+                                                Trusted across generations
+                                            </h4>
+                                            <p>
+                                                Families send us college tours and golden-year holidays alike. <br> Eighteen years of careful planning is how that trust was earned.
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="choose-us-items wow fadeInUp wow" data-wow-delay=".5s">
-                                    <h3 class="number">
-                                        02
-                                    </h3>
-                                    <div class="content">
-                                        <h4>
-                                            Complete Peace of Mind Guarantee
-                                        </h4>
-                                        <p>
-                                            From the moment you book until you return home, we handle everything - accommodation, <br> transportation, meals, and activities. You just relax and enjoy your vacation worry-free.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="choose-us-items wow fadeInUp wow" data-wow-delay=".7s">
-                                    <h3 class="number">
-                                        03
-                                    </h3>
-                                    <div class="content">
-                                        <h4>
-                                            Trusted by Generations of Families
-                                        </h4>
-                                        <p>
-                                            Parents trust us with their children's college tours, and children trust us with their <br> parents' golden years. Our 18-year legacy speaks of reliability and trustworthiness.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <div class="col-xl-5 col-lg-6 wow fadeInUp wow" data-wow-delay=".3s">
@@ -258,9 +258,9 @@
         <div class="container">
             <div class="section-title text-center">
                 <span class="sub-title wow fadeInUp">
-                    Meet with Guide
+                    Meet our travel partners
                 </span>
-                <h2 class="wow fadeInUp wow" data-wow-delay=".2s">Tour Guide</h2>
+                <h2 class="wow fadeInUp wow" data-wow-delay=".2s">The people behind your trip</h2>
             </div>
             <div class="row">
                 {% for member in team_members %}
@@ -304,7 +304,7 @@
                         </div>
                         <div class="team-content">
                             <h4><a href="team-details.html">Darlene Robertson</a></h4>
-                            <p>Tourist Guide</p>
+                            <p>Tourist guide</p>
                             <div class="social-profile">
                                 <ul>
                                     <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>

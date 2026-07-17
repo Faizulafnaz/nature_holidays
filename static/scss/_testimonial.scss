@@ -39,7 +39,7 @@
                 .text {
                     h4 {
                         font-size: 20px;
-                        text-transform: capitalize;
+                        text-transform: none;
                         margin-bottom: 5px;
 
                         @include breakpoint(max-xxl) {
@@ -48,7 +48,7 @@
                     }
     
                     p {
-                        text-transform: capitalize;
+                        text-transform: none;
                     }
                 }
             }

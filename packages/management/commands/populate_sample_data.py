@@ -17,35 +17,35 @@ class Command(BaseCommand):
         categories_data = [
             {
                 'name': 'Kerala Packages',
-                'description': 'Explore the beauty of God\'s Own Country with our curated Kerala packages including backwaters, hill stations, and beaches.'
+                'description': 'Cruise quiet backwaters, walk tea hills, and unwind on Kerala beaches — holidays shaped for families and slow travelers.'
             },
             {
                 'name': 'North India Tours',
-                'description': 'Discover the rich cultural heritage of North India with our Golden Triangle and beyond packages.'
+                'description': 'Stand before the Taj, wander old bazaars, and feel North India\'s stories unfold on journeys made for first-timers and families.'
             },
             {
                 'name': 'International Tours',
-                'description': 'Experience world-class destinations with our international tour packages to Thailand, Dubai, and more.'
+                'description': 'Beach days in Thailand, city lights in Dubai, and carefully planned international trips without the stress of arranging it all alone.'
             },
             {
                 'name': 'Wayanad Special',
-                'description': 'Exclusive packages to explore the pristine beauty of Wayanad, Kerala\'s hidden gem.'
+                'description': 'Wake up to misty hills, walk spice trails, and discover waterfalls near home — Wayanad holidays planned by locals who know every turn.'
             },
             {
                 'name': 'Beach Holidays',
-                'description': 'Relaxing beach getaways to pristine coastal destinations in India and abroad.'
+                'description': 'Soft sand, easy mornings, and seaside evenings — beach holidays for couples, friends, and families who want to slow down.'
             },
             {
                 'name': 'Cultural Tours',
-                'description': 'Explore rich cultural heritage and historical monuments across India.'
+                'description': 'Walk through forts, temples, and living traditions — cultural trips that help you feel India\'s history, not just photograph it.'
             },
             {
                 'name': 'Adventure Tours',
-                'description': 'Thrilling adventure experiences including trekking, camping, and outdoor activities.'
+                'description': 'Trek green trails, camp under clear skies, and try outdoor adventures paced for beginners and seasoned explorers alike.'
             },
             {
                 'name': 'Luxury Escapes',
-                'description': 'Premium travel experiences with luxury accommodations and personalized service.'
+                'description': 'Quieter stays, thoughtful pacing, and personal attention — holidays for travelers who want comfort without the fuss.'
             }
         ]
         
@@ -63,7 +63,7 @@ class Command(BaseCommand):
         offers_data = [
             {
                 'title': 'Onam Special Discount',
-                'description': 'Celebrate Onam with special discounts on Kerala packages. Perfect time to explore God\'s Own Country!',
+                'description': 'Celebrate Onam with warmer rates on Kerala holidays. A lovely season for backwaters, hills, and family time together.',
                 'discount_percentage': 15.00,
                 'valid_from': timezone.now(),
                 'valid_to': timezone.now() + timedelta(days=30),
@@ -72,7 +72,7 @@ class Command(BaseCommand):
             },
             {
                 'title': 'Christmas & New Year Special',
-                'description': 'Ring in the new year with amazing travel deals. Book early and save big on your dream vacation!',
+                'description': 'Welcome the new year somewhere beautiful. Book early for festive-season holidays and keep more for the memories.',
                 'discount_percentage': 20.00,
                 'valid_from': timezone.now() + timedelta(days=60),
                 'valid_to': timezone.now() + timedelta(days=90),
@@ -81,7 +81,7 @@ class Command(BaseCommand):
             },
             {
                 'title': 'Group Booking Discount',
-                'description': 'Special rates for group bookings of 10+ people. Perfect for family reunions and corporate trips!',
+                'description': 'Traveling with 10 or more? Enjoy group-friendly rates suited to reunions, college tours, and office getaways.',
                 'discount_percentage': 25.00,
                 'valid_from': timezone.now(),
                 'valid_to': timezone.now() + timedelta(days=365),
@@ -90,7 +90,7 @@ class Command(BaseCommand):
             },
             {
                 'title': 'Early Bird Discount',
-                'description': 'Book your tour 3 months in advance and get exclusive early bird discounts!',
+                'description': 'Plan three months ahead and enjoy early-bird savings — more time to look forward to your holiday.',
                 'discount_percentage': 10.00,
                 'valid_from': timezone.now(),
                 'valid_to': timezone.now() + timedelta(days=180),
@@ -119,7 +119,7 @@ class Command(BaseCommand):
         packages_data = [
             {
                 'name': 'Kerala Backwaters & Ayurveda Experience',
-                'description': 'Experience the serene backwaters of Kerala with traditional Ayurvedic treatments. Perfect for relaxation and rejuvenation. Cruise through the peaceful backwaters on a traditional houseboat while enjoying authentic Kerala cuisine and wellness treatments.',
+                'description': 'Drift through Kerala\'s quiet canals on a houseboat, taste home-style meals, and unwind with gentle Ayurvedic care. A calm escape for couples and families who want rest more than rush.',
                 'category': kerala_category,
                 'offer': offers['Onam Special Discount'],
                 'package_type': 'family',
@@ -134,7 +134,7 @@ class Command(BaseCommand):
             },
             {
                 'name': 'Golden Triangle Tour - Delhi, Agra, Jaipur',
-                'description': 'Explore the iconic Golden Triangle covering Delhi, Agra, and Jaipur. Witness the majestic Taj Mahal, explore royal palaces, and experience the rich history of North India. Perfect for history buffs and culture enthusiasts.',
+                'description': 'Watch sunrise at the Taj, stroll Jaipur\'s courtyards, and feel Delhi\'s layered history. A classic North India journey made easy for families and first-time visitors.',
                 'category': north_india_category,
                 'offer': offers['Group Booking Discount'],
                 'package_type': 'group',
@@ -149,7 +149,7 @@ class Command(BaseCommand):
             },
             {
                 'name': 'Thailand Beach Paradise - Phuket & Krabi',
-                'description': 'Discover the beautiful beaches of Phuket and Krabi. Enjoy water sports, island hopping, Thai culture, and delicious cuisine. Experience the perfect blend of adventure and relaxation in Thailand.',
+                'description': 'Island-hop turquoise waters, walk soft beaches at dusk, and savor Thai street food. A warm, easy holiday for honeymooners and friends who love sea and sun.',
                 'category': international_category,
                 'offer': offers['Christmas & New Year Special'],
                 'package_type': 'honeymoon',
@@ -164,7 +164,7 @@ class Command(BaseCommand):
             },
             {
                 'name': 'Wayanad Nature & Adventure Package',
-                'description': 'Explore the pristine beauty of Wayanad with trekking, wildlife safaris, and nature walks. Visit Chembra Peak, Banasura Sagar Dam, and ancient Edakkal Caves. Perfect for nature lovers and adventure seekers.',
+                'description': 'Wake to mist over the hills, trek Chembra, watch wildlife, and stand inside Edakkal\'s ancient caves. A Wayanad holiday planned by people who live these roads.',
                 'category': wayanad_category,
                 'offer': offers['Early Bird Discount'],
                 'package_type': 'adventure',
@@ -179,7 +179,7 @@ class Command(BaseCommand):
             },
             {
                 'name': 'Goa Beach & Culture Tour',
-                'description': 'Experience the best of Goa with beautiful beaches, Portuguese architecture, and vibrant nightlife. Visit Old Goa churches, enjoy water sports, and relax on pristine beaches.',
+                'description': 'Spend mornings by the sea, afternoons in Old Goa\'s quiet churches, and evenings at an easy pace. Goa for families and friends who want sun without stress.',
                 'category': beach_category,
                 'offer': None,
                 'package_type': 'family',
@@ -194,7 +194,7 @@ class Command(BaseCommand):
             },
             {
                 'name': 'Rajasthan Heritage Tour',
-                'description': 'Journey through the royal state of Rajasthan. Visit magnificent forts, palaces, and experience the rich culture of the desert state. Includes camel safari and traditional folk performances.',
+                'description': 'Walk sandstone forts at golden hour, ride into quiet dunes, and listen to folk music under desert skies. Rajasthan for travelers who love stories and space.',
                 'category': north_india_category,
                 'offer': offers['Group Booking Discount'],
                 'package_type': 'luxury',
@@ -209,7 +209,7 @@ class Command(BaseCommand):
             },
             {
                 'name': 'Dubai Shopping & Adventure',
-                'description': 'Experience the magic of Dubai with desert safaris, Burj Khalifa, shopping at Dubai Mall, and traditional souks. Perfect blend of modern luxury and traditional Arabian culture.',
+                'description': 'Watch the city glitter from above, wander spice-scented souks, and feel the desert cool at dusk. Dubai made simple for families and first-time visitors.',
                 'category': international_category,
                 'offer': offers['Christmas & New Year Special'],
                 'package_type': 'luxury',
@@ -224,7 +224,7 @@ class Command(BaseCommand):
             },
             {
                 'name': 'Kerala Hill Station Tour',
-                'description': 'Escape to the cool hill stations of Kerala. Visit Munnar tea gardens, Thekkady wildlife sanctuary, and Vagamon meadows. Experience the perfect climate and breathtaking views.',
+                'description': 'Walk between tea bushes in Munnar, spot wildlife near Thekkady, and breathe in Vagamon\'s open meadows. Cool hill days for families who love green views.',
                 'category': kerala_category,
                 'offer': offers['Onam Special Discount'],
                 'package_type': 'family',
@@ -343,7 +343,7 @@ class Command(BaseCommand):
             {
                 'name': 'Rajesh Kumar',
                 'position': 'Senior Travel Consultant',
-                'bio': 'With 15 years of experience in the travel industry, Rajesh specializes in creating perfect itineraries for family and group tours. He has extensive knowledge of domestic and international destinations.',
+                'bio': 'With years of guiding families and groups, Rajesh listens carefully and shapes itineraries that feel personal, clear, and easy to follow across India and beyond.',
                 'experience_years': 15,
                 'facebook_url': 'https://facebook.com/rajesh.kumar',
                 'linkedin_url': 'https://linkedin.com/in/rajesh-kumar'
@@ -351,7 +351,7 @@ class Command(BaseCommand):
             {
                 'name': 'Priya Menon',
                 'position': 'Tour Guide & Operations Manager',
-                'bio': 'Expert in Kerala tourism with deep knowledge of local culture, history, and hidden gems of Wayanad. She ensures every tour is memorable and authentic.',
+                'bio': 'Priya knows Wayanad\'s trails, villages, and quiet viewpoints. She helps guests experience Kerala with warmth and local insight.',
                 'experience_years': 12,
                 'instagram_url': 'https://instagram.com/priya.menon',
                 'linkedin_url': 'https://linkedin.com/in/priya-menon'
@@ -359,7 +359,7 @@ class Command(BaseCommand):
             {
                 'name': 'Amit Singh',
                 'position': 'Adventure Tour Specialist',
-                'bio': 'Certified adventure guide specializing in trekking, camping, and outdoor activities across India. He ensures safe and thrilling adventure experiences.',
+                'bio': 'Amit plans treks and outdoor days with safety first — so adventure feels exciting and comfortable for beginners and regular explorers.',
                 'experience_years': 10,
                 'facebook_url': 'https://facebook.com/amit.singh',
                 'twitter_url': 'https://twitter.com/amit_singh'
@@ -367,7 +367,7 @@ class Command(BaseCommand):
             {
                 'name': 'Sneha Thomas',
                 'position': 'Customer Service Manager',
-                'bio': 'Dedicated to ensuring exceptional customer experience with 24/7 support for all travel queries. She handles customer satisfaction and feedback.',
+                'bio': 'Sneha stays reachable before and during your trip, answering questions with care so families feel looked after from the first call.',
                 'experience_years': 8,
                 'linkedin_url': 'https://linkedin.com/in/sneha-thomas',
                 'instagram_url': 'https://instagram.com/sneha.thomas'
@@ -413,10 +413,10 @@ class Command(BaseCommand):
         
         # Create CTA Section
         cta, created = CTASection.objects.get_or_create(
-            title='Ready to Start Your Adventure?',
+            title='Ready to Plan Your Holiday?',
             defaults={
-                'subtitle': 'Let us plan your perfect trip',
-                'description': 'Join thousands of satisfied travelers who have experienced the world with Nature Holidays. Our expert team is ready to create your dream vacation.',
+                'subtitle': 'We are here when you are ready',
+                'description': 'Tell us who is traveling and what you hope to feel. Our Wayanad team will shape a clear, warm holiday plan around you.',
                 'button_text': 'Start Planning',
                 'button_link': '/packages/',
                 'is_active': True

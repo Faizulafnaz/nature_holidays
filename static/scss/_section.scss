@@ -13,7 +13,7 @@
 		color: $theme-color;
 		font-family: $heading-font-2;
 		margin-bottom: 10px;
-		text-transform: capitalize;
+		text-transform: none;
 	}
 
 	@include breakpoint (max-md){

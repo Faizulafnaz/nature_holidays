@@ -6,7 +6,7 @@
     vertical-align: middle;
     display: inline-block;
     border: none;
-    text-transform: capitalize;
+    text-transform: none;
     text-align: center;
     background-color: $theme-color;
     color: $white;
@@ -63,7 +63,7 @@
     font-size: 16px;
     font-weight: 700;
     color: $theme-color;
-    text-transform: capitalize;
+    text-transform: none;
 
     i {
         margin-left: 10px;

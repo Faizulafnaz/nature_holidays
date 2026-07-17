@@ -7,13 +7,13 @@
         <div class="container">
             <div class="row">
                 <div class="page-heading">
-                    <h2>Contact Us</h2>
+                    <h2>Contact us</h2>
                     <ul class="breadcrumb-list">
                         <li>
                             <a href="/">Home</a>
                         </li>
                         <li><i class="fa-solid fa-chevrons-right"></i></li>
-                        <li>Contact Us</li>
+                        <li>Contact us</li>
                     </ul>
                 </div>
             </div>
@@ -31,8 +31,8 @@
                                 <img src="/static/img/icon/18.svg" alt="img">
                             </div>
                             <div class="content">
-                                <h3>Our Address</h3>
-                                <p>Wayanad, Kerala, India</p>
+                                <h3>Visit us</h3>
+                                <p>Isaacs Centre Square, RM Road, Sultan Bathery, Wayanad</p>
                             </div>
                         </div>
                     </div>
@@ -45,9 +45,9 @@
                             </div>
                             <div class="content">
                                 <h3>
-                                    <a href="mailto:info@natureholidays.com">info@natureholidays.com</a>
+                                    <a href="mailto:info@natureholidaysonline.com">info@natureholidaysonline.com</a>
                                 </h3>
-                                <p>Email us anytime for any kind of query.</p>
+                                <p>Write anytime — we are happy to help plan your trip.</p>
                             </div>
                         </div>
                     </div>
@@ -60,9 +60,9 @@
                             </div>
                             <div class="content">
                                 <h3>
-                                    <a href="tel:+917558843409">+91-7558843409</a>
+                                    <a href="tel:+919961240408">+91-9961240408</a>
                                 </h3>
-                                <p>Call us for any kind of support, we will be there for you.</p>
+                                <p>Call or WhatsApp us — we will guide you with care.</p>
                             </div>
                         </div>
                     </div>
@@ -80,10 +80,10 @@
                         <div class="contact-us-contact">
                             <div class="section-title">
                                 <span class="sub-title text-white wow fadeInUp">
-                                    Contact us
+                                    Talk to a travel expert
                                 </span>
                                 <h2 class="text-white wow fadeInUp" data-wow-delay=".2s">
-                                    Send Message Anytime
+                                    Tell us about your trip
                                 </h2>
                             </div>
                             <div class="comment-form-wrap">
@@ -92,23 +92,23 @@
                                     <div class="row g-4">
                                         <div class="col-lg-6">
                                             <div class="form-clt">
-                                                <input type="text" name="name" id="name" placeholder="Your Name" required>
+                                                <input type="text" name="name" id="name" placeholder="Your name" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-clt">
-                                                <input type="email" name="email" id="email" placeholder="Your Email" required>
+                                                <input type="email" name="email" id="email" placeholder="Your email" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="form-clt">
-                                                <input type="text" name="phone" id="phone" placeholder="Your Phone Number">
+                                                <input type="text" name="phone" id="phone" placeholder="Your phone number">
                                             </div>
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="form-clt">
                                                 <select name="service" id="service" class="single-select" style="width: 100%;">
-                                                    <option value="">Select Service</option>
+                                                    <option value="">What are you planning?</option>
                                                     <option value="Kerala Packages">Kerala Packages</option>
                                                     <option value="North India Tours">North India Tours</option>
                                                     <option value="International Tours">International Tours</option>
@@ -119,12 +119,12 @@
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="form-clt">
-                                                <textarea name="message" id="message" placeholder="Your Message" required>{% if request.GET.package %}Hi, I'm interested in the "{{ request.GET.package }}" package. Please share availability and a quote.{% endif %}</textarea>
+                                                <textarea name="message" id="message" placeholder="Share your dates, group size, or dream destination" required>{% if request.GET.package %}Hi, I'm interested in the "{{ request.GET.package }}" package. Please share availability and a quote.{% endif %}</textarea>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <button type="submit" class="theme-btn">
-                                                Submit Message
+                                                Send my enquiry
                                             </button>
                                         </div>
                                     </div>
@@ -161,15 +161,15 @@
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    alert('Thank you! Your message has been sent successfully. We will get back to you soon.');
+                    alert('Thank you! We received your message and will get back to you soon.');
                     this.reset();
                 } else {
-                    alert('Error sending message. Please try again.');
+                    alert('Something went wrong. Please try again or call us directly.');
                 }
             })
             .catch(error => {
                 console.error('Error:', error);
-                alert('Error sending message. Please try again.');
+                alert('Something went wrong. Please try again or call us directly.');
             });
         });
     </script>

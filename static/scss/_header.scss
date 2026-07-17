@@ -390,7 +390,7 @@
 				padding: 20px 0;
 				text-align: left;
 				position: relative;
-				text-transform: capitalize;
+				text-transform: none;
 				@include transition;
 
 				i {
@@ -794,7 +794,7 @@
 				li {
 					font-size: 16px;
 					font-weight: 600;
-					text-transform: capitalize;
+					text-transform: none;
 
 					a {
 						color: $text-color;
@@ -823,7 +823,7 @@
 				.theme-btn {
 					width: 100%;
 					padding: 20px 40px;
-					text-transform: capitalize !important;
+					text-transform: none !important;
 				}
 			}
 
