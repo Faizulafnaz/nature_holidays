@@ -25,17 +25,17 @@
     </section>
 
     <!-- Package listing Section Start -->
-    <section class="popular-destination-section section-padding">
+    <section class="popular-destination-section section-padding packages-listing-section">
         <div class="container">
             <!-- Search and Filter Section -->
-            <div class="row mb-4">
+            <div class="row packages-filter-row">
                 <div class="col-12">
                     <div class="search-filter-wrapper">
-                        <form method="GET" action="{% url 'packages:package_list' %}" class="row g-3">
-                            <div class="col-md-5">
+                        <form method="GET" action="{% url 'packages:package_list' %}" class="row g-3 packages-filter-form">
+                            <div class="col-12 col-md-5">
                                 <input type="text" name="q" value="{{ query|default:'' }}" class="form-control" placeholder="Search holidays by place or interest...">
                             </div>
-                            <div class="col-md-5">
+                            <div class="col-8 col-md-5">
                                 <select name="category" class="form-control">
                                     <option value="">All categories</option>
                                     {% for category in categories %}
@@ -55,7 +55,7 @@
                                     {% endfor %}
                                 </select>
                             </div> {% endcomment %}
-                            <div class="col-md-2">
+                            <div class="col-4 col-md-2">
                                 <button type="submit" class="theme-btn w-100">Search</button>
                             </div>
                         </form>
