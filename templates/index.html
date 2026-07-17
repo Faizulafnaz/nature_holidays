@@ -258,9 +258,53 @@
         <section class="hero-section">
             <div class="swiper hero-slider">
                 <div class="swiper-wrapper">
+                    {% if hero_slides %}
+                    {% for slide in hero_slides %}
                     <div class="swiper-slide">
                         <div class="hero-1">
-                            <div class="hero-bg bg-cover hero-bg-first" style="background-image: url(static/img/hero/01.webp);" loading="lazy"></div>
+                            <div class="hero-bg bg-cover{% if forloop.first %} hero-bg-first{% endif %}" style="background-image: url({% if slide.image %}{{ slide.image.url }}{% elif forloop.counter == 1 %}{% static 'img/hero/01.webp' %}{% elif forloop.counter == 2 %}{% static 'img/hero/02.webp' %}{% else %}{% static 'img/hero/03.webp' %}{% endif %});"></div>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-10">
+                                        <div class="hero-content">
+                                            {% if slide.subtitle %}
+                                            <div class="sub-title">
+                                                {{ slide.subtitle }}
+                                            </div>
+                                            {% endif %}
+                                            <h1>
+                                                {{ slide.title }}{% if slide.title_line_2 %} <br> {{ slide.title_line_2 }}{% endif %}
+                                            </h1>
+                                        </div>
+                                        <div class="counter-area">
+                                            <div class="counter-items">
+                                                <div class="counter-text">
+                                                    <h2>{{ slide.stat_1_value }}</h2>
+                                                    <p>{{ slide.stat_1_label }}</p>
+                                                </div>
+                                                <div class="counter-text">
+                                                    <h2>{{ slide.stat_2_value }}</h2>
+                                                    <p>{{ slide.stat_2_label }}</p>
+                                                </div>
+                                                <div class="counter-text">
+                                                    <h2>{{ slide.stat_3_value }}</h2>
+                                                    <p>{{ slide.stat_3_label }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="hero-cta">
+                                            <a href="{{ slide.button_link|default:'/packages/' }}" class="theme-btn">{{ slide.button_text|default:'Plan my trip' }}<i class="fa-sharp fa-regular fa-arrow-right"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    <div class="swiper-slide">
+                        <div class="hero-1">
+                            <div class="hero-bg bg-cover hero-bg-first" style="background-image: url({% static 'img/hero/01.webp' %});"></div>
                             <div class="container">
                                 <div class="row">
                                     <div class="col-lg-10">
@@ -298,7 +342,7 @@
                     </div>
                     <div class="swiper-slide">
                         <div class="hero-1">
-                            <div class="hero-bg bg-cover" style="background-image: url(static/img/hero/02.webp);" loading="lazy"></div>
+                            <div class="hero-bg bg-cover" style="background-image: url({% static 'img/hero/02.webp' %});"></div>
                             <div class="container">
                                 <div class="row">
                                     <div class="col-lg-10">
@@ -336,7 +380,7 @@
                     </div>
                     <div class="swiper-slide">
                         <div class="hero-1">
-                            <div class="hero-bg bg-cover" style="background-image: url(static/img/hero/03.webp);" loading="lazy"></div>
+                            <div class="hero-bg bg-cover" style="background-image: url({% static 'img/hero/03.webp' %});"></div>
                             <div class="container">
                                 <div class="row">
                                     <div class="col-lg-10">
@@ -372,6 +416,7 @@
                             </div>
                         </div>
                     </div>
+                    {% endif %}
                 </div>
             </div>
         </section>
@@ -491,37 +536,31 @@
         </section> 
         
         <!-- About Section Start -->
-        <section class="about-section section-padding  fix bg-cover" style="background-image: url(static/img/about/about-bg.jpg);">
+        <section class="about-section section-padding  fix bg-cover" style="background-image: url({% if page_media.about_bg %}{{ page_media.about_bg.url }}{% else %}{% static 'img/about/about-bg.jpg' %}{% endif %});">
             <div class="right-shape float-bob-x">
-                <img src="static/img/about/right-shape.webp" alt="img">
+                <img src="{% static 'img/about/right-shape.webp' %}" alt="img">
             </div>
             <div class="container">
                 <div class="about-wrapper">
                     <div class="row g-4">
                         <div class="col-lg-6">
                             <div class="about-image">
-                                <img src="static/img/about/01.webp" alt="img" class="wow img-custom-anim-left">
+                                <img src="{% if page_media.about_main %}{{ page_media.about_main.url }}{% else %}{% static 'img/about/01.webp' %}{% endif %}" alt="img" class="wow img-custom-anim-left">
                                 <div class="border-image">
-                                    <img src="static/img/about/border.png" alt="">
-                                </div>
-                                <div class="vdeo-item">
-                                    <a href="https://www.youtube.com/watch?v=Cn4G2lZ_g2I" class="video-btn video-popup">
-                                        <i class="fa-duotone fa-play"></i>
-                                    </a>
-                                    <h5>Watch video </h5>
+                                    <img src="{% static 'img/about/border.png' %}" alt="">
                                 </div>
                                 <div class="about-image-2">
-                                    <img src="static/img/about/02.webp" alt="img" class="wow img-custom-anim-top" data-wow-duration="1.5s" data-wow-delay="0.3s">
+                                    <img src="{% if page_media.about_secondary %}{{ page_media.about_secondary.url }}{% else %}{% static 'img/about/02.webp' %}{% endif %}" alt="img" class="wow img-custom-anim-top" data-wow-duration="1.5s" data-wow-delay="0.3s">
                                     <div class="plane-shape float-bob-y">
-                                        <img src="static/img/about/plane-shape.png" alt="">
+                                        <img src="{% static 'img/about/plane-shape.png' %}" alt="">
                                     </div>
                                     <div class="about-tour">
                                         <div class="icon">
-                                            <img src="static/img/icon/10.svg" alt="img">
+                                            <img src="{% static 'img/icon/10.svg' %}" alt="img">
                                         </div>
                                         <div class="content">
-                                            <h4>Care you can feel</h4>
-                                            <span>{% if site_stats %}{{ site_stats.years_experience }}{% else %}18{% endif %} years of experience</span>
+                                            <h4>{% if page_media.about_badge_title %}{{ page_media.about_badge_title }}{% else %}Care you can feel{% endif %}</h4>
+                                            <span>{% if page_media.about_badge_subtitle %}{{ page_media.about_badge_subtitle }}{% elif site_stats %}{{ site_stats.years_experience }} years of experience{% else %}18 years of experience{% endif %}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -542,7 +581,7 @@
                                     </div>
                                     <div class="about-items wow fadeInUp wow" data-wow-delay=".3s">
                                         <div class="icon">
-                                            <img src="static/img/icon/05.svg" alt="img">
+                                            <img src="static/img/icon/about-custom.svg" alt="">
                                         </div>
                                         <div class="content">
                                             <h5>
@@ -555,7 +594,7 @@
                                     </div>
                                     <div class="about-items wow fadeInUp wow" data-wow-delay=".5s">
                                         <div class="icon">
-                                            <img src="static/img/icon/06.svg" alt="img">
+                                            <img src="static/img/icon/about-team.svg" alt="">
                                         </div>
                                         <div class="content">
                                             <h5>
@@ -568,7 +607,7 @@
                                     </div>
                                     <div class="about-items wow fadeInUp wow" data-wow-delay=".7s">
                                         <div class="icon">
-                                            <img src="static/img/icon/07.svg" alt="img">
+                                            <img src="static/img/icon/about-groups.svg" alt="">
                                         </div>
                                         <div class="content">
                                             <h5>
@@ -588,7 +627,7 @@
         </section>
         
         <!-- Choose-us-section Start -->
-        <section class="choose-us-section section-padding bg-cover fix" style="background-image: url('static/img/choose-us-bg-2.jpg');">
+        <section class="choose-us-section section-padding bg-cover fix" style="background-image: url('{% if page_media.choose_us_bg %}{{ page_media.choose_us_bg.url }}{% else %}{% static 'img/choose-us-bg-2.jpg' %}{% endif %}');">
             <div class="container">
                 <div class="choose-us-wrapper">
                     <div class="row g-4 align-items-center">
@@ -607,12 +646,12 @@
                                 </p>
                                 <div class="choose-us-area">
                                     <div class="line-shape">
-                                        <img src="static/img/line-shape2.png" alt="img">
+                                        <img src="{% static 'img/line-shape2.png' %}" alt="img">
                                     </div>
                                     <div class="choose-us-items wow fadeInUp wow" data-wow-delay=".3s">
-                                        <h3 class="number">
-                                            01
-                                        </h3>
+                                        <div class="choose-icon" aria-hidden="true">
+                                            <img src="static/img/icon/choose-care.svg" alt="">
+                                        </div>
                                         <div class="content">
                                             <h4>
                                                 Personal care for every traveler
@@ -622,10 +661,10 @@
                                             </p>
                                         </div>
                                     </div>
-                                    <div class="choose-us-items wow fadeInUp wow" data-wow-delay=".5s">
-                                        <h3 class="number">
-                                            02
-                                        </h3>
+                                    <div class="choose-us-items choose-us-items--alt wow fadeInUp wow" data-wow-delay=".5s">
+                                        <div class="choose-icon" aria-hidden="true">
+                                            <img src="static/img/icon/choose-plan.svg" alt="">
+                                        </div>
                                         <div class="content">
                                             <h4>
                                                 Planning that removes the worry
@@ -636,9 +675,9 @@
                                         </div>
                                     </div>
                                     <div class="choose-us-items wow fadeInUp wow" data-wow-delay=".7s">
-                                        <h3 class="number">
-                                            03
-                                        </h3>
+                                        <div class="choose-icon" aria-hidden="true">
+                                            <img src="static/img/icon/choose-trust.svg" alt="">
+                                        </div>
                                         <div class="content">
                                             <h4>
                                                 Trusted across generations
@@ -653,7 +692,7 @@
                         </div>
                         <div class="col-xl-5 col-lg-6 wow fadeInUp wow" data-wow-delay=".3s">
                             <div class="choose-us-thumb">
-                                <img src="static/img/about/choose-us-bg.webp" alt="img" class="wow img-custom-anim-left">
+                                <img src="{% if page_media.choose_us_image %}{{ page_media.choose_us_image.url }}{% else %}{% static 'img/about/choose-us-bg.webp' %}{% endif %}" alt="img" class="wow img-custom-anim-left">
                             </div>
                         </div>
                     </div>
@@ -957,21 +996,29 @@
          </section>
 
         <!-- Cta-bg-Section Start -->
-        <section class="cta-bg-section fix bg-cover" style="background-image: url(static/img/11112.webp);">
+        <section class="cta-bg-section fix bg-cover" style="background-image: url({% if cta_section.background_image %}{{ cta_section.background_image.url }}{% else %}{% static 'img/11112.webp' %}{% endif %});">
             <div class="container">
                 <div class="row">
                    <div class="cta-wrapper">
                     <div class="section-title text-center">
                         <span class="sub-title text-white wow fadeInUp">
-                            {% if site_stats %}{{ site_stats.years_experience }}{% else %}18{% endif %} Years of Excellence
+                            {% if cta_section.subtitle %}{{ cta_section.subtitle }}{% elif site_stats %}{{ site_stats.years_experience }} Years of Excellence{% else %}18 Years of Excellence{% endif %}
                         </span>
                         <h2 class="text-white wow fadeInUp wow" data-wow-delay=".3s">
-                            Ready when you are — <br>
-                             let's plan your holiday
+                            {% if cta_section.title %}{{ cta_section.title }}{% else %}Ready when you are — <br> let's plan your holiday{% endif %}
                         </h2>
                     </div>
                     <div class="cta-btn wow fadeInUp wow" data-wow-delay=".5s">
-                        <a href="{% url 'packages:package_list' %}" class="theme-btn">Start planning<i class="fa-sharp fa-regular fa-arrow-right"></i></a>
+                        <a href="{% if cta_section.button_link %}{{ cta_section.button_link }}{% else %}{% url 'packages:package_list' %}{% endif %}" class="theme-btn">{% if cta_section.button_text %}{{ cta_section.button_text }}{% else %}Start planning{% endif %}<i class="fa-sharp fa-regular fa-arrow-right"></i></a>
+                        {% if cta_section.video_url %}
+                        <div class="watch-btn">
+                            <a href="{{ cta_section.video_url }}" data-delay=".7s" class="video-btn video-popup">
+                                <i class="fa-duotone fa-play"></i></a>
+                                <h6>
+                                    Watch video 
+                               </h6>
+                        </div>
+                        {% else %}
                         <div class="watch-btn">
                             <a href="https://www.youtube.com/watch?v=Cn4G2lZ_g2I" data-delay=".7s" class="video-btn video-popup">
                                 <i class="fa-duotone fa-play"></i></a>
@@ -979,6 +1026,7 @@
                                     Watch video 
                                </h6>
                         </div>
+                        {% endif %}
                      </div>
                    </div>
                 </div>

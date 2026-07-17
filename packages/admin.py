@@ -7,7 +7,7 @@ from unfold.widgets import (
     UnfoldAdminSelectWidget,
     UnfoldBooleanSwitchWidget,
 )
-from .models import Category, Offer, Package, PackageImage, TeamMember, SiteStats, NewsletterSubscription, CTASection, Itinerary, PackageInclusion, PackageExclusion, BlogCategory, BlogTag, Blog, BlogComment, Contact, InstagramPost
+from .models import Category, Offer, Package, PackageImage, TeamMember, SiteStats, NewsletterSubscription, CTASection, Itinerary, PackageInclusion, PackageExclusion, BlogCategory, BlogTag, Blog, BlogComment, Contact, InstagramPost, HeroSlide, SitePageMedia
 
 UNFOLD_FORMFIELD_OVERRIDES = {
     models.CharField: {"widget": UnfoldAdminTextInputWidget},
@@ -226,3 +226,75 @@ class InstagramPostAdmin(ModelAdmin):
     search_fields = ('title', 'link')
     ordering = ('order', '-created_at')
     readonly_fields = ('created_at', 'updated_at')
+
+
+@admin.register(HeroSlide)
+class HeroSlideAdmin(ModelAdmin):
+    formfield_overrides = UNFOLD_FORMFIELD_OVERRIDES
+    list_display = ('title', 'order', 'is_active', 'updated_at')
+    list_editable = ('order', 'is_active')
+    list_filter = ('is_active',)
+    search_fields = ('title', 'subtitle', 'button_text')
+    ordering = ('order', 'id')
+    readonly_fields = ('created_at', 'updated_at')
+    fieldsets = (
+        ('Slide media', {
+            'classes': ('tab',),
+            'fields': ('image', 'order', 'is_active'),
+        }),
+        ('Copy', {
+            'classes': ('tab',),
+            'fields': ('subtitle', 'title', 'title_line_2', 'button_text', 'button_link'),
+        }),
+        ('Stats (three counters on the slide)', {
+            'classes': ('tab',),
+            'fields': (
+                'stat_1_value', 'stat_1_label',
+                'stat_2_value', 'stat_2_label',
+                'stat_3_value', 'stat_3_label',
+            ),
+        }),
+        ('Timestamps', {
+            'classes': ('tab',),
+            'fields': ('created_at', 'updated_at'),
+        }),
+    )
+
+
+@admin.register(SitePageMedia)
+class SitePageMediaAdmin(ModelAdmin):
+    formfield_overrides = UNFOLD_FORMFIELD_OVERRIDES
+    list_display = ('__str__', 'updated_at')
+    readonly_fields = ('updated_at',)
+    fieldsets = (
+        ('Home — About collage', {
+            'classes': ('tab',),
+            'fields': (
+                'about_bg',
+                'about_main',
+                'about_secondary',
+                'about_badge_title',
+                'about_badge_subtitle',
+            ),
+        }),
+        ('Home & About — Why choose us', {
+            'classes': ('tab',),
+            'fields': ('choose_us_bg', 'choose_us_image'),
+        }),
+        ('About page collage', {
+            'classes': ('tab',),
+            'fields': ('about_page_main', 'about_page_secondary'),
+        }),
+        ('Shared', {
+            'classes': ('tab',),
+            'fields': ('breadcrumb_bg', 'updated_at'),
+        }),
+    )
+
+    def has_add_permission(self, request):
+        if SitePageMedia.objects.exists():
+            return False
+        return super().has_add_permission(request)
+
+    def has_delete_permission(self, request, obj=None):
+        return False

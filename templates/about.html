@@ -7,7 +7,7 @@
 {% block content %}
     <!-- breadcrumb-wrappe-Section Start -->
     <section class="breadcrumb-wrapper fix bg-cover"
-        style="background-image: url(/static/img/breadcrumb/breadcrumb.webp);">
+        style="background-image: url({% if page_media.breadcrumb_bg %}{{ page_media.breadcrumb_bg.url }}{% else %}/static/img/breadcrumb/breadcrumb.webp{% endif %});">
         <div class="container">
             <div class="row">
                 <div class="page-heading">
@@ -31,21 +31,15 @@
                 <div class="row g-4">
                     <div class="col-lg-6">
                         <div class="about-image" id="sticky-images">
-                            <img src="/static/img/about/03.webp" alt="img">
-                            <div class="shape-image float-bob-y">
-                                <img src="/static/img/about/04.webp" alt="img">
-                            </div>
-                            <div class="group-image float-bob-x">
-                                <img src="/static/img/about/group.png" alt="img">
-                            </div>
+                            <img src="{% if page_media.about_page_main %}{{ page_media.about_page_main.url }}{% else %}/static/img/about/03.webp{% endif %}" alt="img">
                             <div class="about-image-2">
-                                <img src="/static/img/about/05.webp" alt="img">
+                                <img src="{% if page_media.about_page_secondary %}{{ page_media.about_page_secondary.url }}{% else %}/static/img/about/05.webp{% endif %}" alt="img">
                                 <div class="plane-shape">
                                     <img src="/static/img/about/plane-shape2.png" alt="img">
                                 </div>
-                                <div class="circle-image">
-                                    <img src="/static/img/about/circle.png" alt="img">
-                                </div>
+                            </div>
+                            <div class="circle-image">
+                                <img src="/static/img/about/circle-2006.svg" alt="Since 2006 — Nature Holidays">
                             </div>
                         </div>
                     </div>
@@ -80,7 +74,7 @@
     </section>
 
     <!-- About Section Start -->
-    <section class="about-section section-padding  fix bg-cover" style="background-image: url(/static/img/about/about-bg.jpg);">
+    <section class="about-section section-padding  fix bg-cover" style="background-image: url({% if page_media.about_bg %}{{ page_media.about_bg.url }}{% else %}/static/img/about/about-bg.jpg{% endif %});">
         <div class="right-shape float-bob-x">
             <img src="/static/img/about/right-shape.webp" alt="img">
         </div>
@@ -89,18 +83,12 @@
                 <div class="row g-4">
                     <div class="col-lg-6">
                         <div class="about-image">
-                            <img src="/static/img/about/01.webp" alt="img" class="wow img-custom-anim-left">
+                            <img src="{% if page_media.about_main %}{{ page_media.about_main.url }}{% else %}/static/img/about/01.webp{% endif %}" alt="img" class="wow img-custom-anim-left">
                             <div class="border-image">
                                 <img src="/static/img/about/border.png" alt="">
                             </div>
-                            <div class="vdeo-item">
-                                <a href="https://www.youtube.com/watch?v=Cn4G2lZ_g2I" class="video-btn video-popup">
-                                    <i class="fa-duotone fa-play"></i>
-                                </a>
-                                    <h5>Watch video </h5>
-                                </div>
                                 <div class="about-image-2">
-                                    <img src="/static/img/about/02.webp" alt="img" class="wow img-custom-anim-top" data-wow-duration="1.5s" data-wow-delay="0.3s">
+                                    <img src="{% if page_media.about_secondary %}{{ page_media.about_secondary.url }}{% else %}/static/img/about/02.webp{% endif %}" alt="img" class="wow img-custom-anim-top" data-wow-duration="1.5s" data-wow-delay="0.3s">
                                     <div class="plane-shape float-bob-y">
                                         <img src="/static/img/about/plane-shape.png" alt="">
                                     </div>
@@ -109,8 +97,8 @@
                                             <img src="/static/img/icon/10.svg" alt="img">
                                         </div>
                                         <div class="content">
-                                            <h4>Care you can feel</h4>
-                                            <span>{% if site_stats %}{{ site_stats.years_experience }}{% else %}18{% endif %} years of experience</span>
+                                            <h4>{% if page_media.about_badge_title %}{{ page_media.about_badge_title }}{% else %}Care you can feel{% endif %}</h4>
+                                            <span>{% if page_media.about_badge_subtitle %}{{ page_media.about_badge_subtitle }}{% elif site_stats %}{{ site_stats.years_experience }} years of experience{% else %}18 years of experience{% endif %}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -131,7 +119,7 @@
                                     </div>
                                     <div class="about-items wow fadeInUp wow" data-wow-delay=".3s">
                                         <div class="icon">
-                                            <img src="/static/img/icon/05.svg" alt="img">
+                                            <img src="/static/img/icon/about-custom.svg" alt="">
                                         </div>
                                         <div class="content">
                                             <h5>
@@ -144,7 +132,7 @@
                                     </div>
                                     <div class="about-items wow fadeInUp wow" data-wow-delay=".5s">
                                         <div class="icon">
-                                            <img src="/static/img/icon/06.svg" alt="img">
+                                            <img src="/static/img/icon/about-team.svg" alt="">
                                         </div>
                                         <div class="content">
                                             <h5>
@@ -157,7 +145,7 @@
                                     </div>
                                     <div class="about-items wow fadeInUp wow" data-wow-delay=".7s">
                                         <div class="icon">
-                                            <img src="/static/img/icon/07.svg" alt="img">
+                                            <img src="/static/img/icon/about-groups.svg" alt="">
                                         </div>
                                         <div class="content">
                                             <h5>
@@ -177,7 +165,7 @@
     </section>
     
     <!-- Choose-us-section Start -->
-    <section class="choose-us-section section-padding bg-cover fix" style="background-image: url('/static/img/choose-us-bg-2.jpg');">
+    <section class="choose-us-section section-padding bg-cover fix" style="background-image: url('{% if page_media.choose_us_bg %}{{ page_media.choose_us_bg.url }}{% else %}/static/img/choose-us-bg-2.jpg{% endif %}');">
         <div class="container">
             <div class="choose-us-wrapper">
                 <div class="row g-4 align-items-center">
@@ -199,9 +187,9 @@
                                         <img src="/static/img/line-shape2.png" alt="img">
                                     </div>
                                     <div class="choose-us-items wow fadeInUp wow" data-wow-delay=".3s">
-                                        <h3 class="number">
-                                            01
-                                        </h3>
+                                        <div class="choose-icon" aria-hidden="true">
+                                            <img src="/static/img/icon/choose-care.svg" alt="">
+                                        </div>
                                         <div class="content">
                                             <h4>
                                                 Personal care for every traveler
@@ -211,10 +199,10 @@
                                             </p>
                                         </div>
                                     </div>
-                                    <div class="choose-us-items wow fadeInUp wow" data-wow-delay=".5s">
-                                        <h3 class="number">
-                                            02
-                                        </h3>
+                                    <div class="choose-us-items choose-us-items--alt wow fadeInUp wow" data-wow-delay=".5s">
+                                        <div class="choose-icon" aria-hidden="true">
+                                            <img src="/static/img/icon/choose-plan.svg" alt="">
+                                        </div>
                                         <div class="content">
                                             <h4>
                                                 Planning that removes the worry
@@ -225,9 +213,9 @@
                                         </div>
                                     </div>
                                     <div class="choose-us-items wow fadeInUp wow" data-wow-delay=".7s">
-                                        <h3 class="number">
-                                            03
-                                        </h3>
+                                        <div class="choose-icon" aria-hidden="true">
+                                            <img src="/static/img/icon/choose-trust.svg" alt="">
+                                        </div>
                                         <div class="content">
                                             <h4>
                                                 Trusted across generations
@@ -242,7 +230,7 @@
                     </div>
                     <div class="col-xl-5 col-lg-6 wow fadeInUp wow" data-wow-delay=".3s">
                         <div class="choose-us-thumb">
-                            <img src="/static/img/about/choose-us-bg.webp" alt="img" class="wow img-custom-anim-left">
+                            <img src="{% if page_media.choose_us_image %}{{ page_media.choose_us_image.url }}{% else %}/static/img/about/choose-us-bg.webp{% endif %}" alt="img" class="wow img-custom-anim-left">
                         </div>
                     </div>
                 </div>

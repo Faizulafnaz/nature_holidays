@@ -6,7 +6,7 @@ from django.core.paginator import Paginator
 from django.core.mail import send_mail, EmailMessage
 from django.conf import settings
 from django.template.loader import render_to_string
-from .models import Package, Category, Offer, TeamMember, SiteStats, Itinerary, BlogCategory, BlogTag, Blog, BlogComment, Contact, InstagramPost
+from .models import Package, Category, Offer, TeamMember, SiteStats, Itinerary, BlogCategory, BlogTag, Blog, BlogComment, Contact, InstagramPost, HeroSlide, CTASection
 
 def home(request):
     """Home page view with dynamic content"""
@@ -51,8 +51,11 @@ def home(request):
     # Get site statistics
     try:
         site_stats = SiteStats.objects.first()
-    except:
+    except Exception:
         site_stats = None
+
+    hero_slides = list(HeroSlide.objects.filter(is_active=True))
+    cta_section = CTASection.objects.filter(is_active=True).first()
     
     context = {
         'featured_packages': featured_packages,
@@ -63,6 +66,8 @@ def home(request):
         'team_members': team_members,
         'instagram_posts': instagram_posts,
         'site_stats': site_stats,
+        'hero_slides': hero_slides,
+        'cta_section': cta_section,
     }
     return render(request, 'index.html', context)
 
@@ -165,8 +170,13 @@ def search_packages(request):
 
 def about(request):
     team_members = TeamMember.objects.filter(is_active=True)[:4]
+    try:
+        site_stats = SiteStats.objects.first()
+    except Exception:
+        site_stats = None
     context = {
         'team_members': team_members,
+        'site_stats': site_stats,
     }   
     return render(request, 'about.html', context)
 

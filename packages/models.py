@@ -121,7 +121,7 @@ class CTASection(models.Model):
     description = models.TextField()
     button_text = models.CharField(max_length=50)
     button_link = models.URLField()
-    background_image = models.ImageField(upload_to='cta/')
+    background_image = models.ImageField(upload_to='cta/', blank=True, null=True)
     video_url = models.URLField(blank=True)
     is_active = models.BooleanField(default=True)
 
@@ -295,3 +295,148 @@ class InstagramPost(models.Model):
 
     def __str__(self):
         return self.title or f'Instagram image #{self.pk}'
+
+
+class HeroSlide(models.Model):
+    """Homepage hero carousel slide — image + copy managed in admin."""
+    image = models.ImageField(
+        upload_to='hero/',
+        blank=True,
+        null=True,
+        help_text='Background photo for this slide. If empty, the site uses the default static hero image.',
+    )
+    subtitle = models.CharField(max_length=255, blank=True)
+    title = models.CharField(
+        max_length=255,
+        help_text='Main headline. Use a line break in the template via title_line_2 if set.',
+    )
+    title_line_2 = models.CharField(
+        max_length=255,
+        blank=True,
+        help_text='Optional second line of the headline (renders under the first line).',
+    )
+    button_text = models.CharField(max_length=80, default='Plan my trip')
+    button_link = models.CharField(
+        max_length=255,
+        default='/packages/',
+        help_text='URL or path for the CTA button (e.g. /packages/ or a full URL).',
+    )
+    stat_1_value = models.CharField(max_length=40, blank=True, default='18+')
+    stat_1_label = models.CharField(max_length=80, blank=True, default='Years experience')
+    stat_2_value = models.CharField(max_length=40, blank=True, default='4.9★')
+    stat_2_label = models.CharField(max_length=80, blank=True, default='Customer rating')
+    stat_3_value = models.CharField(max_length=40, blank=True, default='200+')
+    stat_3_label = models.CharField(max_length=80, blank=True, default='Happy reviews')
+    order = models.PositiveIntegerField(default=0, help_text='Lower numbers appear first')
+    is_active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['order', 'id']
+        verbose_name = 'Hero Slide'
+        verbose_name_plural = 'Hero Slides'
+
+    def __str__(self):
+        return self.title or f'Hero slide #{self.pk}'
+
+
+class SitePageMedia(models.Model):
+    """
+    Singleton row for site-wide photographic media (about, choose-us, breadcrumb).
+    Decorative icons/SVGs stay in static files.
+    """
+    # Home about collage
+    about_bg = models.ImageField(
+        upload_to='site/about/',
+        blank=True,
+        null=True,
+        help_text='Background behind the home About section',
+        verbose_name='Home about background',
+    )
+    about_main = models.ImageField(
+        upload_to='site/about/',
+        blank=True,
+        null=True,
+        help_text='Primary photo in the home About collage',
+        verbose_name='Home about main image',
+    )
+    about_secondary = models.ImageField(
+        upload_to='site/about/',
+        blank=True,
+        null=True,
+        help_text='Secondary overlapping photo in the home About collage',
+        verbose_name='Home about secondary image',
+    )
+    about_badge_title = models.CharField(
+        max_length=80,
+        blank=True,
+        default='Care you can feel',
+        help_text='Blue badge title on the home About collage',
+    )
+    about_badge_subtitle = models.CharField(
+        max_length=120,
+        blank=True,
+        default='18 years of experience',
+        help_text='Blue badge subtitle (e.g. years of experience)',
+    )
+
+    # Why choose us
+    choose_us_bg = models.ImageField(
+        upload_to='site/choose-us/',
+        blank=True,
+        null=True,
+        help_text='Full-section background for Why Choose Us',
+        verbose_name='Choose us background',
+    )
+    choose_us_image = models.ImageField(
+        upload_to='site/choose-us/',
+        blank=True,
+        null=True,
+        help_text='Side photograph for Why Choose Us',
+        verbose_name='Choose us side image',
+    )
+
+    # About page collage
+    about_page_main = models.ImageField(
+        upload_to='site/about/',
+        blank=True,
+        null=True,
+        help_text='Primary photo on the About page collage',
+        verbose_name='About page main image',
+    )
+    about_page_secondary = models.ImageField(
+        upload_to='site/about/',
+        blank=True,
+        null=True,
+        help_text='Secondary photo on the About page collage',
+        verbose_name='About page secondary image',
+    )
+
+    # Shared
+    breadcrumb_bg = models.ImageField(
+        upload_to='site/breadcrumb/',
+        blank=True,
+        null=True,
+        help_text='Background used on inner-page breadcrumb banners',
+        verbose_name='Breadcrumb background',
+    )
+
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = 'Site Page Media'
+        verbose_name_plural = 'Site Page Media'
+
+    def __str__(self):
+        return 'Site Page Media'
+
+    def save(self, *args, **kwargs):
+        # Enforce a single row
+        self.pk = 1
+        super().save(*args, **kwargs)
+
+    @classmethod
+    def get_solo(cls):
+        obj, _ = cls.objects.get_or_create(pk=1)
+        return obj

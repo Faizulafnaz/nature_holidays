@@ -118,6 +118,7 @@ python manage.py runserver
 | Django shell                          | `python manage.py shell`                         |
 | Collect static (rarely needed in dev) | `python manage.py collectstatic`                 |
 | Sample data                           | `python manage.py populate_sample_data`          |
+| Site media shells (hero + page media) | `python manage.py seed_site_media`               |
 
 
 
@@ -142,6 +143,7 @@ python manage.py runserver
 2. `/admin/` accepts your superuser login.
 3. Create or edit a package in admin and confirm it appears on `/packages/`.
 4. Submit the contact form; a `Contact` row should appear in admin (email may fail without real SMTP).
+5. Site photos: in admin open **Hero Slides** and **Site Page Media** to upload hero / about / choose-us / breadcrumb images. Use **CTA Section** for the home CTA background. Until uploads exist, the site uses built-in static fallbacks.
 
 
 

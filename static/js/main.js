@@ -89,7 +89,8 @@
       });
   
       //>> Wow Animation Start <<//
-      new WOW().init();
+      // Skip scroll-in animations on mobile so content appears instantly
+      new WOW({ mobile: false }).init();
   
        //>> Nice Select Start <<//
        if ($('.single-select').length) {
@@ -432,7 +433,8 @@
                     slidesPerView: 2,
                 },
                 0: {
-                    slidesPerView: 1,
+                    slidesPerView: 2,
+                    spaceBetween: 16,
                 },
             },
         });
@@ -469,10 +471,11 @@
                     slidesPerView: 2,
                 },
                 575: {
-                    slidesPerView: 1,
+                    slidesPerView: 2,
                 },
                 0: {
-                    slidesPerView: 1,
+                    slidesPerView: 2,
+                    spaceBetween: 16,
                 },
             },
         });

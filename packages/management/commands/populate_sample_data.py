@@ -4,7 +4,8 @@ from datetime import datetime, timedelta
 from packages.models import (
     Category, Offer, Package, PackageImage, TeamMember, SiteStats, 
     NewsletterSubscription, CTASection, Itinerary, PackageInclusion, 
-    PackageExclusion, BlogCategory, BlogTag, Blog, BlogComment, Contact
+    PackageExclusion, BlogCategory, BlogTag, Blog, BlogComment, Contact,
+    HeroSlide, SitePageMedia,
 )
 
 class Command(BaseCommand):
@@ -874,6 +875,14 @@ class Command(BaseCommand):
             )
             if created:
                 self.stdout.write(f'Created contact message from: {contact.name}')
+
+        # Site page media + hero slide shells
+        SitePageMedia.objects.get_or_create(pk=1)
+        if not HeroSlide.objects.exists():
+            from packages.management.commands.seed_site_media import DEFAULT_SLIDES
+            for data in DEFAULT_SLIDES:
+                HeroSlide.objects.create(is_active=True, **data)
+            self.stdout.write(f'Created {len(DEFAULT_SLIDES)} hero slides')
 
         self.stdout.write(self.style.SUCCESS('Successfully populated comprehensive sample data for Nature Holidays!'))
         self.stdout.write('Your website is now ready with:')
