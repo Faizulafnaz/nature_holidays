@@ -262,13 +262,25 @@
            text-align: left !important;
         }
 
+        @include breakpoint (max-md){
+           text-align: center !important;
+        }
+
         .widget-head {
             margin-bottom: 30px;
+
+            @include breakpoint (max-md){
+                text-align: center;
+            }
 
             h4 {
                 color: $white;
                 position: relative;
                 padding-bottom: 20px;
+
+                @include breakpoint (max-md){
+                    display: inline-block;
+                }
 
                 &::before {
                     position: absolute;
@@ -280,6 +292,14 @@
                     background-color: $theme-color;
 
                 }
+
+                @include breakpoint (max-md){
+                    &::before {
+                        left: 50%;
+                        right: auto;
+                        transform: translateX(-50%);
+                    }
+                }
             }
         }
 
@@ -288,6 +308,10 @@
 
             @include breakpoint (max-xl){
                 text-align: left;
+            }
+
+            @include breakpoint (max-md){
+                text-align: center;
             }
 
             h3 {
@@ -351,6 +375,10 @@
                 @include breakpoint (max-xl){
                     justify-content: start !important;
                 }
+
+                @include breakpoint (max-md){
+                    justify-content: center !important;
+                }
     
                 a {
                     width: 50px;
@@ -372,9 +400,20 @@
 
         .list-items {
 
+            @include breakpoint (max-md){
+                padding: 0;
+                margin: 0;
+                list-style: none;
+            }
+
             li {
                 @include transition;
                 font-size: 18px;
+
+                @include breakpoint (max-md){
+                    font-size: 14px;
+                    line-height: 1.35;
+                }
 
                 i {
                     margin-right: 10px;
@@ -388,6 +427,10 @@
 
                 &:not(:last-child){
                     margin-bottom: 18px;
+
+                    @include breakpoint (max-md){
+                        margin-bottom: 10px;
+                    }
                 }
 
                 &:hover {
@@ -401,20 +444,45 @@
                         color: $theme-color;
                     }
                 }
+
+                @include breakpoint (max-md){
+                    &:hover {
+                        margin-left: 0;
+                    }
+                }
             }
         }
 
         .contact-info {
+            @include breakpoint (max-md){
+                max-width: 340px;
+                margin: 0 auto;
+                text-align: left;
+            }
+
             .contact-items {
                 display: flex;
                 gap: 20px;
 
                &:not(:last-child) {
                 margin-bottom: 30px;
+
+                @include breakpoint (max-md){
+                    margin-bottom: 16px;
+                }
                }
                 
                @include breakpoint(max-sm) {
                   flex-wrap: wrap;
+               }
+
+               @include breakpoint (max-md){
+                  flex-direction: row;
+                  flex-wrap: nowrap;
+                  align-items: flex-start;
+                  justify-content: flex-start;
+                  text-align: left;
+                  gap: 12px;
                }
     
                 .icon {
@@ -425,10 +493,21 @@
                     text-align: center;
                     color: $header-color;
                     background-color: $theme-color;
+
+                    @include breakpoint (max-md){
+                        flex-shrink: 0;
+                        width: 36px;
+                        height: 36px;
+                        line-height: 36px;
+                    }
     
                     i {
                         font-size: 18px;
                         color: $white;
+
+                        @include breakpoint (max-md){
+                            font-size: 15px;
+                        }
                     }
                 }
     
@@ -437,9 +516,19 @@
                     h6 {
                         font-weight: 400;
                         color: $white;
+
+                        @include breakpoint (max-md){
+                            font-size: 14px;
+                            line-height: 1.5;
+                            margin: 0;
+                        }
     
                         a {
                             color: $white;
+
+                            @include breakpoint (max-md){
+                                font-size: 14px !important;
+                            }
                         }
                     }
                 }

@@ -256,6 +256,35 @@
             }
         }
     }
+
+    .hero-cta {
+        position: relative;
+        margin-top: 40px;
+
+        @include breakpoint(max-md) {
+            margin-top: 28px;
+
+            .theme-btn {
+                padding: 12px 18px;
+                min-width: 0;
+                font-size: 14px;
+
+                i {
+                    margin-left: 6px;
+                    font-size: 12px;
+                }
+            }
+        }
+
+        @include breakpoint(max-sm) {
+            margin-top: 20px;
+
+            .theme-btn {
+                padding: 10px 16px;
+                font-size: 13px;
+            }
+        }
+    }
 }
 
 .hero-2 {

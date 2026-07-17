@@ -186,22 +186,21 @@
     .instagram-banner-items {
         .banner-image {
             position: relative;
-    
-            // @include breakpoint (max-md){
-            //     height: 450px;
-    
-            //     img {
-            //         object-fit: cover
-            //     }
-            // }
-    
-            // @include breakpoint (max-sm){
-            //     height: 380px;
-            // }
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            border-radius: 16px;
+            background-color: #e8e8e8;
     
             img {
-                @include imgw;
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
                 border-radius: 16px;
+                display: block;
             }
     
             &::before {
