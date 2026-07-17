@@ -683,20 +683,28 @@ span {
     display: none;
   }
 }
-.about-wrapper-2 .about-image .about-image-2 .circle-image {
+.about-wrapper-2 .about-image .circle-image {
   position: absolute;
-  top: 120px;
-  left: -52px;
+  top: 42%;
+  left: 58%;
+  z-index: 3;
+  width: 120px;
+  max-width: 38%;
 }
-.about-wrapper-2 .about-image .about-image-2 .circle-image img {
+.about-wrapper-2 .about-image .circle-image img {
+  width: 100%;
+  height: auto;
   border: none;
-  box-shadow: none;
+  box-shadow: 0 6px 20px rgba(10, 31, 36, 0.12);
+  border-radius: 50%;
 }
 @media (max-width: 1199px) {
-  .about-wrapper-2 .about-image .about-image-2 .circle-image {
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+  .about-wrapper-2 .about-image .circle-image {
+    top: auto;
+    left: auto;
+    right: 16px;
+    bottom: 16px;
+    width: 100px;
   }
 }
 .about-wrapper-2 .about-content .about-items {
@@ -3947,7 +3955,8 @@ span {
 .choose-us-wrapper .choose-us-content .choose-us-area .choose-us-items:not(:last-child) {
   margin-bottom: 30px;
 }
-.choose-us-wrapper .choose-us-content .choose-us-area .choose-us-items .number {
+.choose-us-wrapper .choose-us-content .choose-us-area .choose-us-items .number,
+.choose-us-wrapper .choose-us-content .choose-us-area .choose-us-items .choose-icon {
   width: 56px;
   height: 56px;
   line-height: 56px;
@@ -3955,6 +3964,15 @@ span {
   text-align: center;
   color: var(--theme);
   background-color: #E1EFF3;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.choose-us-wrapper .choose-us-content .choose-us-area .choose-us-items .choose-icon img {
+  width: 26px;
+  height: 26px;
+  display: block;
 }
 .choose-us-wrapper .choose-us-content .choose-us-area .choose-us-items .content h4 {
   font-size: 20px;
@@ -9352,6 +9370,581 @@ input.main-search-input::placeholder {
 @media (max-width: 991px) {
   .header-top-wrapper-new {
     padding: 3px 0 !important;
+  }
+}
+
+/* ============================================================
+   Mobile experience refinements (no desktop impact)
+   Scoped to max-width: 991px / 767px / 575px only.
+   ============================================================ */
+
+/* --- CTA background: fixed attachment is janky/broken on mobile browsers --- */
+@media (max-width: 991px) {
+  .cta-bg-section {
+    background-attachment: scroll;
+  }
+}
+
+/* --- Category cards: overlay label is hover-only, invisible on touch --- */
+@media (max-width: 991px) {
+  .destination-category-item .category-image::before {
+    opacity: 1;
+    visibility: visible;
+  }
+  .destination-category-item .category-image .category-content {
+    bottom: 20px;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* --- Package detail: hide decorative sidebar image card on small screens --- */
+@media (max-width: 991px) {
+  .activities-details-wrapper .main-bar .booking-bg {
+    display: none;
+  }
+}
+
+/* --- Contact page: map iframe is hard-coded to 1053x810 and clips on phones --- */
+@media (max-width: 991px) {
+  .contact-us-wrapper .map-area .google-map iframe {
+    width: 100%;
+    height: 360px;
+    border-radius: 16px;
+    display: block;
+  }
+}
+
+@media (max-width: 767px) {
+  /* Section rhythm: lighter vertical spacing so pages scan faster */
+  .section-padding {
+    padding: 64px 0;
+  }
+
+  /* Hero: leave the next section peeking instead of locking a full viewport */
+  .hero-section,
+  .hero-slider,
+  .hero-slider .swiper-wrapper,
+  .hero-slider .swiper-slide,
+  .hero-1 {
+    min-height: 86vh;
+    min-height: 86svh;
+  }
+  .hero-1 {
+    padding: 40px 20px 48px;
+  }
+  .hero-1 .counter-area .counter-items {
+    margin-top: 40px;
+  }
+
+  /* Breadcrumb banners: a page title doesn't need ~400px of banner */
+  .breadcrumb-wrapper .page-heading {
+    padding: 110px 0 60px;
+  }
+  .breadcrumb-wrapper .page-heading h2 {
+    margin-bottom: 12px;
+  }
+  .breadcrumb-wrapper .page-heading .breadcrumb-list {
+    padding: 8px 18px;
+  }
+  .breadcrumb-wrapper .page-heading .breadcrumb-list li {
+    font-size: 14px;
+  }
+
+  /* Decorative line breaks wrap awkwardly at narrow widths */
+  .section-title h2 br,
+  .cta-wrapper h2 br,
+  .about-items .content p br,
+  .choose-us-items .content p br,
+  .choose-us-content > p br {
+    display: none;
+  }
+
+  /* Buttons: keep >=44px touch height without desktop-plus bulk */
+  .theme-btn {
+    padding: 15px 28px;
+  }
+
+  /* CTA banner: fix 100px side padding squeezing text into a sliver */
+  .cta-wrapper {
+    padding: 72px 16px;
+  }
+  .cta-wrapper .cta-btn {
+    margin-top: 24px;
+    gap: 24px;
+  }
+
+  /* Choose-us: cap the decorative image below the content */
+  .choose-us-wrapper .choose-us-thumb img {
+    max-height: 320px;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+
+  /* Package detail: quick facts as a 2-column grid instead of 8 tall rows */
+  .activities-details-wrapper .activities-details-content .activities-box-wrap {
+    padding: 20px;
+    margin-top: 32px;
+  }
+  .activities-details-wrapper .activities-details-content .activities-box-wrap .activities-box-area {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .activities-details-wrapper .activities-details-content .activities-box-wrap .activities-box-area .activities-box-item {
+    gap: 10px;
+  }
+  .activities-details-wrapper .activities-details-content .activities-box-wrap .activities-box-area .activities-box-item .icon {
+    width: 38px;
+    height: 38px;
+    line-height: 34px;
+    flex-shrink: 0;
+  }
+  .activities-details-wrapper .activities-details-content .activities-box-wrap .activities-box-area .activities-box-item .content span {
+    font-size: 12px;
+  }
+  .activities-details-wrapper .activities-details-content .faq-items {
+    margin-top: 32px;
+    margin-bottom: 32px;
+  }
+  .activities-details-wrapper .activities-details-content .faq-items .accordion-item .accordion-header .accordion-button {
+    padding: 18px 20px 0;
+    font-size: 16px;
+  }
+  .activities-details-wrapper .activities-details-content .faq-items .accordion-item .accordion-header .accordion-button.collapsed {
+    padding: 18px 20px;
+  }
+  .activities-details-wrapper .activities-details-content .faq-items .accordion-item .accordion-collapse .accordion-body {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .activities-details-wrapper .main-bar .activities-card {
+    padding: 20px;
+  }
+  .activities-details-wrapper .main-bar .activities-card h3 {
+    margin-bottom: 16px;
+  }
+
+  /* Footer: tighter vertical rhythm */
+  .footer-widget-wrapper-new {
+    padding: 48px 0 32px;
+  }
+  .footer-widget-wrapper-new .single-widget-items {
+    margin-top: 24px;
+  }
+  .footer-widget-wrapper-new .single-widget-items .widget-head {
+    margin-bottom: 16px;
+  }
+  .footer-bottom {
+    padding: 20px 0;
+  }
+}
+
+@media (max-width: 575px) {
+  .section-padding {
+    padding: 56px 0;
+  }
+  .section-title {
+    margin-bottom: 20px;
+  }
+
+  .hero-1 {
+    padding: 32px 16px 40px;
+    min-height: 86vh;
+    min-height: 86svh;
+  }
+  .hero-1 .counter-area .counter-items {
+    margin-top: 28px;
+  }
+
+  .breadcrumb-wrapper .page-heading {
+    padding: 100px 0 48px;
+  }
+  .breadcrumb-wrapper .page-heading h2 {
+    font-size: 30px;
+  }
+
+  .theme-btn {
+    padding: 14px 24px;
+    min-width: 150px;
+    font-size: 14px;
+  }
+
+  .cta-wrapper {
+    padding: 64px 12px;
+  }
+
+  /* Destination/package cards: shorter image + tighter content stack */
+  .destination-card-items .destination-image img {
+    height: 220px;
+    min-height: 220px;
+  }
+  .destination-card-items .destination-content .meta {
+    margin-bottom: 12px;
+  }
+  .destination-card-items .destination-content h5 {
+    margin-bottom: 12px;
+  }
+  .destination-card-items .destination-content .info {
+    gap: 16px;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+  }
+
+  /* Team cards: tighter overlap card */
+  .team-card-item .team-content {
+    padding: 20px 18px;
+    margin: -56px 12px 0;
+  }
+
+  /* Blog cards: shorter image + lighter overlap */
+  .news-card-items-3 .news-image img {
+    height: 220px;
+    min-height: 220px;
+  }
+  .news-card-items-3 .news-content {
+    padding: 16px;
+    margin: -56px 14px 0;
+  }
+  .news-card-items-3 .news-content .post-meta {
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .news-card-items-3 .news-content .post-meta .post {
+    font-size: 20px;
+  }
+  .news-card-items-3 .news-content .post-meta .post span {
+    font-size: 14px;
+  }
+
+  /* Instagram strip */
+  .instagram-wrapper h2 {
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+
+  /* Contact page */
+  .contact-us-wrapper .contact-us-contact {
+    padding: 56px 0 20px;
+  }
+  .contact-us-wrapper .map-area .google-map iframe {
+    height: 300px;
+  }
+  .contact-us-main .contact-box-items {
+    padding: 20px 16px;
+  }
+  .contact-us-main .contact-box-items .icon {
+    margin-bottom: 12px;
+  }
+  .contact-us-main .contact-box-items .content h3 {
+    font-size: 18px;
+    overflow-wrap: anywhere;
+  }
+  .contact-us-main .contact-box-items .content p {
+    font-size: 15px;
+  }
+
+  .page-nav-wrap {
+    margin-top: 40px;
+  }
+}
+
+/* ============================================================
+   About collage: floating landscape + avatars removed site-wide.
+   Keep the two main photos; use the original 2-image layout on mobile.
+   ============================================================ */
+.about-wrapper-2 .about-image .shape-image,
+.about-wrapper-2 .about-image .group-image {
+  display: none !important;
+}
+
+@media (max-width: 991px) {
+  /* about-wrapper-2: original stacked/overlap layout for the 2 photos */
+  .about-wrapper-2 .about-image {
+    max-width: 100%;
+    height: 420px;
+    margin: 0 auto;
+  }
+  .about-wrapper-2 .about-image > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+  }
+  .about-wrapper-2 .about-image .about-image-2 {
+    max-width: 220px;
+    height: 200px;
+    left: 0;
+    bottom: 0;
+    right: auto;
+  }
+  .about-wrapper-2 .about-image .about-image-2 > img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .about-wrapper-2 .about-image .circle-image {
+    top: auto;
+    left: auto;
+    right: 12px;
+    bottom: 12px;
+    width: 88px;
+    transform: none;
+  }
+  .about-wrapper-2 .about-image .circle-image img {
+    width: 100%;
+    height: auto;
+    border: none;
+    box-shadow: 0 6px 18px rgba(10, 31, 36, 0.18);
+    border-radius: 50%;
+  }
+
+  /* about-wrapper: one clean main photo + full-width experience badge */
+  .about-wrapper .about-image {
+    max-width: 100%;
+    position: relative;
+  }
+  .about-wrapper .about-image > img {
+    width: 100%;
+    height: auto;
+    max-height: 420px;
+    object-fit: cover;
+    border-radius: 16px;
+    display: block;
+  }
+  .about-wrapper .about-image .border-image,
+  .about-wrapper .about-image .about-image-2 > img,
+  .about-wrapper .about-image .about-image-2 .plane-shape {
+    display: none !important;
+  }
+  .about-wrapper .about-image .about-image-2 {
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    max-width: none;
+    width: auto;
+    height: auto;
+  }
+  .about-wrapper .about-image .about-image-2 .about-tour {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border-radius: 12px;
+    box-sizing: border-box;
+  }
+  .about-wrapper .about-image .about-image-2 .about-tour .icon {
+    flex-shrink: 0;
+  }
+  .about-wrapper .about-image .about-image-2 .about-tour .icon img {
+    width: 36px;
+    height: auto;
+    display: block;
+  }
+  .about-wrapper .about-image .about-image-2 .about-tour .content {
+    min-width: 0;
+    flex: 1;
+  }
+  .about-wrapper .about-image .about-image-2 .about-tour .content h4 {
+    font-size: 16px;
+    line-height: 1.25;
+    margin: 0 0 2px;
+    white-space: nowrap;
+  }
+  .about-wrapper .about-image .about-image-2 .about-tour .content span {
+    font-size: 13px;
+    line-height: 1.3;
+    display: block;
+    white-space: nowrap;
+  }
+  .about-section .right-shape {
+    display: none;
+  }
+
+  /* About feature list: keep text readable next to icons */
+  .about-wrapper .about-content .about-area .about-items {
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  .about-wrapper .about-content .about-area .about-items .icon {
+    width: 56px;
+    height: 56px;
+    line-height: 56px;
+    flex-basis: 56px;
+    flex-shrink: 0;
+  }
+  .about-wrapper .about-content .about-area .about-items .icon img {
+    max-width: 28px;
+    height: auto;
+  }
+  .about-wrapper .about-content .about-area .about-items .content {
+    min-width: 0;
+    flex: 1;
+  }
+  .about-wrapper .about-content .about-area .about-items .content h5 {
+    margin-bottom: 6px;
+  }
+  .about-wrapper .about-content .about-area .about-items .content p {
+    margin: 0;
+    line-height: 1.5;
+  }
+  .about-wrapper .about-content .about-area .about-items .content p br {
+    display: none;
+  }
+}
+
+@media (max-width: 575px) {
+  .about-wrapper-2 .about-image {
+    height: 360px;
+  }
+  .about-wrapper-2 .about-image .about-image-2 {
+    max-width: 170px;
+    height: 155px;
+  }
+  .about-wrapper-2 .about-image .circle-image {
+    right: 10px;
+    bottom: 10px;
+    width: 76px;
+  }
+  .about-wrapper .about-image > img {
+    max-height: 360px;
+  }
+  .about-wrapper .about-image .about-image-2 {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+  }
+  .about-wrapper .about-image .about-image-2 .about-tour {
+    padding: 12px 14px;
+    gap: 10px;
+  }
+  .about-wrapper .about-image .about-image-2 .about-tour .content h4 {
+    font-size: 15px;
+  }
+  .about-wrapper .about-image .about-image-2 .about-tour .content span {
+    font-size: 12px;
+  }
+}
+
+/* ============================================================
+   Choose-us: zig-zag journey path on mobile (no cards)
+   ============================================================ */
+@media (max-width: 991px) {
+  .choose-us-wrapper .choose-us-content .choose-us-area {
+    margin-top: 32px;
+    padding: 8px 0 4px;
+  }
+  .choose-us-wrapper .choose-us-content .choose-us-area .line-shape {
+    display: none !important;
+  }
+  /* Center path */
+  .choose-us-wrapper .choose-us-content .choose-us-area::before {
+    content: "";
+    position: absolute;
+    top: 28px;
+    bottom: 28px;
+    left: 50%;
+    width: 2px;
+    transform: translateX(-50%);
+    background-image: linear-gradient(
+      to bottom,
+      var(--theme) 0,
+      var(--theme) 8px,
+      transparent 8px,
+      transparent 14px
+    );
+    background-size: 2px 14px;
+    background-repeat: repeat-y;
+    opacity: 0.45;
+    z-index: 0;
+  }
+  .choose-us-wrapper .choose-us-content .choose-us-area .choose-us-items {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 56px 1fr;
+    align-items: start;
+    column-gap: 12px;
+    flex-wrap: nowrap;
+    margin-bottom: 36px !important;
+  }
+  .choose-us-wrapper .choose-us-content .choose-us-area .choose-us-items:last-child {
+    margin-bottom: 0 !important;
+  }
+  /* Default (1st & 3rd): icon center, text on left */
+  .choose-us-wrapper .choose-us-content .choose-us-area .choose-us-items .choose-icon {
+    grid-column: 2;
+    grid-row: 1;
+    width: 56px;
+    height: 56px;
+    margin: 0 auto;
+    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.85);
+  }
+  .choose-us-wrapper .choose-us-content .choose-us-area .choose-us-items .content {
+    grid-column: 1;
+    grid-row: 1;
+    text-align: right;
+    padding-top: 4px;
+  }
+  /* Alt (2nd): text on right */
+  .choose-us-wrapper .choose-us-content .choose-us-area .choose-us-items--alt .content {
+    grid-column: 3;
+    grid-row: 1;
+    text-align: left;
+  }
+  .choose-us-wrapper .choose-us-content .choose-us-area .choose-us-items .content h4 {
+    font-size: 17px;
+    line-height: 1.3;
+    margin-bottom: 8px;
+  }
+  .choose-us-wrapper .choose-us-content .choose-us-area .choose-us-items .content p {
+    font-size: 13px;
+    line-height: 1.55;
+    margin: 0;
+  }
+  .choose-us-wrapper .choose-us-content .choose-us-area .choose-us-items .content p br {
+    display: none;
+  }
+  .choose-us-wrapper .choose-us-thumb {
+    margin-top: 28px;
+  }
+  .choose-us-wrapper .choose-us-thumb img {
+    max-height: 280px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+}
+
+@media (max-width: 575px) {
+  .choose-us-wrapper .choose-us-content .choose-us-area .choose-us-items {
+    column-gap: 10px;
+    margin-bottom: 32px !important;
+  }
+  .choose-us-wrapper .choose-us-content .choose-us-area .choose-us-items .choose-icon {
+    width: 48px;
+    height: 48px;
+  }
+  .choose-us-wrapper .choose-us-content .choose-us-area .choose-us-items .choose-icon img {
+    width: 22px;
+    height: 22px;
+  }
+  .choose-us-wrapper .choose-us-content .choose-us-area .choose-us-items .content h4 {
+    font-size: 15px;
+  }
+  .choose-us-wrapper .choose-us-content .choose-us-area .choose-us-items .content p {
+    font-size: 12.5px;
   }
 }
 

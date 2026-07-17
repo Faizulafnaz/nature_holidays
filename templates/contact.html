@@ -3,7 +3,7 @@
 {% block content %}
     <!-- breadcrumb-wrappe-Section Start -->
     <section class="breadcrumb-wrapper fix bg-cover"
-        style="background-image: url(/static/img/breadcrumb/breadcrumb.webp);">
+        style="background-image: url({% if page_media.breadcrumb_bg %}{{ page_media.breadcrumb_bg.url }}{% else %}/static/img/breadcrumb/breadcrumb.webp{% endif %});">
         <div class="container">
             <div class="row">
                 <div class="page-heading">
